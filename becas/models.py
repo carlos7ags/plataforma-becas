@@ -140,6 +140,7 @@ class Programs(models.Model):
         on_delete=models.CASCADE,
         verbose_name="Modalidad",
     )
+    duracion = models.IntegerField("Duración (semestres/cuatrimestres)")
 
 
     def __str__(self):
@@ -170,8 +171,6 @@ class StudentAcademicProgram(models.Model):
         verbose_name="Programa",
     )
     nivel_actual = models.CharField("Semestre/Cuatrimestre actual", max_length=30)
-
-
 
     def __str__(self):
         return "%s" % self.username
