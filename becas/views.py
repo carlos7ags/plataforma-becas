@@ -4,6 +4,7 @@ from django.views.generic import (
     DetailView,
     RedirectView,
     UpdateView,
+    TemplateView,
 )
 from django.urls import reverse_lazy
 from becas.forms import StudentForm, StudentAcademicProgramForm
@@ -16,6 +17,15 @@ from django.contrib.messages.views import SuccessMessageMixin
 from django.shortcuts import render, get_object_or_404, redirect
 
 
+class DashboardView(TemplateView):
+    template_name = "dashboard.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['student'] = self.request.user in [student.username for student in Student.objects.all()]
+        context['program'] = self.request.user in [student.username for student in StudentAcademicProgram.objects.all()]
+        return context
+
 class StudentProfile(SuccessMessageMixin, CreateView):
     form_class = StudentForm
     template_name = "student_profile.html"
@@ -27,7 +37,7 @@ class StudentProfile(SuccessMessageMixin, CreateView):
             form.instance.username = self.request.user
             obj = form.save(commit=False)
             obj.save()
-            return reverse("dashboard")
+            return redirect('dashboard')
 
 
 class StudentProfileUpdate(SuccessMessageMixin, UpdateView):
@@ -70,7 +80,7 @@ class StudentAcademicProgramView(SuccessMessageMixin,CreateView):
             form.instance.username = self.request.user
             obj = form.save(commit=False)
             obj.save()
-            return reverse("dashboard")
+            return redirect('dashboard')
 
 
 class StudentAcademicProgramUpdate(SuccessMessageMixin, UpdateView):

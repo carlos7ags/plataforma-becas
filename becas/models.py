@@ -56,9 +56,9 @@ class Student(models.Model):
 
     """Datos de contacto"""
     calle = models.CharField("Calle", max_length=100)
-    numero_ext = models.CharField("Número exterior", max_length=15)
-    numero_int = models.CharField(
-        "Número interior", max_length=15, null=True, blank=True
+    numero_ext = models.IntegerField("Número exterior")
+    numero_int = models.IntegerField(
+        "Número interior", null=True, blank=True
     )
     colonia = models.CharField("Colonia", max_length=100)
     cp = models.IntegerField(
@@ -170,7 +170,8 @@ class StudentAcademicProgram(models.Model):
         on_delete=models.CASCADE,
         verbose_name="Programa",
     )
-    nivel_actual = models.CharField("Semestre/Cuatrimestre actual", max_length=30)
+    nivel_actual = models.IntegerField("Semestre/Cuatrimestre actual")
+    promedio = models.IntegerField("Promedio general")
 
     def __str__(self):
         return "%s" % self.username
