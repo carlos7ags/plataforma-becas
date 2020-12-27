@@ -1,3 +1,5 @@
 from django.contrib import admin
+from convocatoria.models import Convocatorias
 
-# Register your models here.
+
+admin.site.register(Convocatorias)

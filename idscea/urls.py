@@ -5,7 +5,9 @@ from django.views.generic import TemplateView
 from accounts.views import UserRegistrationView
 import django.contrib.auth.views as auth_views
 from django.contrib.auth.decorators import login_required
-from becas.views import StudentProfile, StudentProfileUpdate, UpdateStudentRedirectView, StudentAcademicProgramView, StudentAcademicProgramUpdate, UpdateStudentAcademicProgramRedirectView, load_programs
+from becas.views import StudentProfile, StudentProfileUpdate, UpdateStudentRedirectView, StudentAcademicProgramView, StudentAcademicProgramUpdate, UpdateStudentAcademicProgramRedirectView, load_programs, DashboardView
+from convocatoria.views import ConvocatoriasView
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -24,7 +26,10 @@ urlpatterns = [
     path('reset/done/', auth_views.PasswordResetCompleteView.as_view(template_name='password_reset_complete.html'), name='password_reset_complete'),
 
 
-    path('dashboard/', login_required(TemplateView.as_view(template_name="dashboard.html")), name='dashboard'),
+    path('dashboard/', login_required(DashboardView.as_view()), name='dashboard'),
+
+    path('convocatorias/', login_required(ConvocatoriasView.as_view()), name='convocatorias'),
+
     path('profile/', login_required(StudentProfile.as_view()), name='student-profile'),
     url(r'profile/(?P<pk>\d+)/update/$', login_required(StudentProfileUpdate.as_view()), name='student-profile-update'),
     path('profile/redirect', login_required(UpdateStudentRedirectView.as_view()), name='student-profile-redirect'),
