@@ -1,0 +1,13 @@
+- model: becas.grados
+  pk: 1
+  fields:
+    grado: Técnico Superior Universitario
+- model: becas.grados
+  pk: 2
+  fields:
+    grado: Licenciatura
+- model: becas.grados
+  pk: 3
+  fields:
+    grado: Ingeniería
+

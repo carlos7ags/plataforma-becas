@@ -1,0 +1,12 @@
+- model: convocatoria.modalidades
+  pk: 1
+  fields:
+    modalidad: Formación
+- model: convocatoria.modalidades
+  pk: 2
+  fields:
+    modalidad: Estancia Académica
+- model: convocatoria.modalidades
+  pk: 3
+  fields:
+    modalidad: Estancia Técnica

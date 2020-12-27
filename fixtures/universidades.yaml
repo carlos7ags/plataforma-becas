@@ -1,0 +1,24 @@
+- model: becas.universities
+  pk: 1
+  fields:
+    university: Universidad Autónoma de Aguascalientes
+- model: becas.universities
+  pk: 2
+  fields:
+    university: Universidad Tecnológica de Aguascalientes
+- model: becas.universities
+  pk: 3
+  fields:
+    university: Instituto Tecnológico de Aguascalientes
+- model: becas.universities
+  pk: 4
+  fields:
+    university: Universidad Politécnica de Aguascalientes
+- model: becas.universities
+  pk: 5
+  fields:
+    university: Universidad Tecnológica de Calvillo
+- model: becas.universities
+  pk: 6
+  fields:
+    university: Universidad Tecnológica Metropolitana
