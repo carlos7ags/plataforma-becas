@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <div class="container">
+            <br><br>
+          <div class="row justify-content-center" style="background-color:white;">
+
+            <h1>Login</h1>
+              <p>Recuerda que tu nombre de usuario es tu CURP (utiliza letras mayusculas).</p>
+            <form action="{% url "login" %}" method="post">
+                {% csrf_token %}
+                {{ form|crispy }}
+
+                <input type="hidden" name="next" value="{{ next }}" />
+                <input type="submit" value="Submit" />
+            </form>
+            <p><a href="{% url "password_reset" %}">¿Olvidaste tu contraseña?</a></p>
+
+        </div>
+    </div>
+{% endblock %}
+
+

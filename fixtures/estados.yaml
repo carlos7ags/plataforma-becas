@@ -1,0 +1,124 @@
+- model: becas.estados
+  pk: 1
+  fields:
+    estado: Aguascalientes
+- model: becas.estados
+  pk: 2
+  fields:
+    estado: Baja California
+- model: becas.estados
+  pk: 3
+  fields:
+    estado: Baja California Sur
+- model: becas.estados
+  pk: 4
+  fields:
+    estado: Campeche
+- model: becas.estados
+  pk: 5
+  fields:
+    estado: Coahuila de Zaragoza
+- model: becas.estados
+  pk: 6
+  fields:
+    estado: Colima
+- model: becas.estados
+  pk: 7
+  fields:
+    estado: Chiapas
+- model: becas.estados
+  pk: 8
+  fields:
+    estado: Chihuahua
+- model: becas.estados
+  pk: 9
+  fields:
+    estado: Distrito Federal
+- model: becas.estados
+  pk: 10
+  fields:
+    estado: Durango
+- model: becas.estados
+  pk: 11
+  fields:
+    estado: Guanajuato
+- model: becas.estados
+  pk: 12
+  fields:
+    estado: Guerrero
+- model: becas.estados
+  pk: 13
+  fields:
+    estado: Hidalgo
+- model: becas.estados
+  pk: 14
+  fields:
+    estado: Jalisco
+- model: becas.estados
+  pk: 15
+  fields:
+    estado: México
+- model: becas.estados
+  pk: 16
+  fields:
+    estado: Michoacán de Ocampo
+- model: becas.estados
+  pk: 17
+  fields:
+    estado: Morelos
+- model: becas.estados
+  pk: 18
+  fields:
+    estado: Nayarit
+- model: becas.estados
+  pk: 19
+  fields:
+    estado: Nuevo León
+- model: becas.estados
+  pk: 20
+  fields:
+    estado: Oaxaca
+- model: becas.estados
+  pk: 21
+  fields:
+    estado: Querétaro
+- model: becas.estados
+  pk: 22
+  fields:
+    estado: Quintana Roo
+- model: becas.estados
+  pk: 23
+  fields:
+    estado: San Luis Potosí
+- model: becas.estados
+  pk: 24
+  fields:
+    estado: Sinaloa
+- model: becas.estados
+  pk: 25
+  fields:
+    estado: Sonora
+- model: becas.estados
+  pk: 26
+  fields:
+    estado: Tabasco
+- model: becas.estados
+  pk: 27
+  fields:
+    estado: Tamaulipas
+- model: becas.estados
+  pk: 28
+  fields:
+    estado: Tlaxcala
+- model: becas.estados
+  pk: 29
+  fields:
+    estado: Veracruz de Ignacio de la Llave
+- model: becas.estados
+  pk: 30
+  fields:
+    estado: Yucatán
+- model: becas.estados
+  pk: 31
+  fields:
+    estado: Zacatecas

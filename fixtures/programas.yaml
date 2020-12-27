@@ -1,0 +1,28 @@
+- model: becas.universities
+  pk: 1
+  fields:
+    university: Universidad Autónoma de Aguascalientes
+- model: becas.universities
+  pk: 2
+  fields:
+    university: Universidad Tecnológica de Aguascalientes
+- model: becas.modalidades
+  pk: 1
+  fields:
+    modalidad: Semestral
+- model: becas.modalidades
+  pk: 2
+  fields:
+    modalidad: Cuatrimestral
+- model: becas.grados
+  pk: 1
+  fields:
+    grado: Técnico Superior Universitario
+- model: becas.grados
+  pk: 2
+  fields:
+    grado: Licenciatura
+- model: becas.grados
+  pk: 3
+  fields:
+    grado: Ingeniería

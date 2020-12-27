@@ -1,0 +1,44 @@
+- model: becas.municipios
+  pk: 1
+  fields:
+    municipio: Aguascalientes
+- model: becas.municipios
+  pk: 2
+  fields:
+    municipio: Asientos
+- model: becas.municipios
+  pk: 3
+  fields:
+    municipio: Calvillo
+- model: becas.municipios
+  pk: 4
+  fields:
+    municipio: Cosío
+- model: becas.municipios
+  pk: 5
+  fields:
+    municipio: El Llano
+- model: becas.municipios
+  pk: 6
+  fields:
+    municipio: Jesús María
+- model: becas.municipios
+  pk: 7
+  fields:
+    municipio: Pabellón de Arteaga
+- model: becas.municipios
+  pk: 8
+  fields:
+    municipio: Rincón de Romos
+- model: becas.municipios
+  pk: 9
+  fields:
+    municipio: San Francisco de los Romo
+- model: becas.municipios
+  pk: 10
+  fields:
+    municipio: San José de Gracia
+- model: becas.municipios
+  pk: 11
+  fields:
+    municipio: Tepezalá
