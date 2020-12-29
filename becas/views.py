@@ -7,9 +7,9 @@ from django.views.generic import (
     TemplateView,
 )
 from django.urls import reverse_lazy
-from becas.forms import StudentForm, StudentAcademicProgramForm
+from becas.forms import StudentForm, StudentAcademicProgramForm, SocioEconomicStudyForm
 from django.urls import reverse
-from becas.models import Student, Programs, StudentAcademicProgram
+from becas.models import Student, Programs, StudentAcademicProgram, SocioEconomicStudy
 from django.conf import settings
 from django.contrib.auth.mixins import PermissionRequiredMixin
 from django.contrib.auth.views import redirect_to_login
@@ -97,7 +97,7 @@ class StudentAcademicProgramUpdate(SuccessMessageMixin, UpdateView):
     def dispatch(self, request, *args, **kwargs):
         if not self.user_passes_test(request):
             return redirect_to_login(request.get_full_path())
-        return super(StudentProfileUpdate, self).dispatch(
+        return super(StudentAcademicProgramUpdate, self).dispatch(
             request, *args, **kwargs)
 
 
@@ -118,3 +118,46 @@ def load_programs(request):
     else:
         programs = Programs.objects.none()
     return render(request, 'hr/load_program.html', {'programs': programs})
+
+
+
+class SocioEconomicStudyView(CreateView):
+    form_class = SocioEconomicStudyForm
+    template_name = "socio_economic_study.html"
+    success_url = reverse_lazy("dashboard")
+    success_message = '¡Tu ESE se actualizó con éxito!'
+
+    def form_valid(self, form):
+        if form.is_valid:
+            form.instance.username = self.request.user
+            obj = form.save(commit=False)
+            obj.save()
+            return redirect('dashboard')
+
+
+class SocioEconomicStudyUpdate(UpdateView):
+    model = SocioEconomicStudy
+    form_class = SocioEconomicStudyForm
+    template_name = "socio_economic_study.html"
+    success_url = reverse_lazy("dashboard")
+    success_message = '¡Tu ESE se actualizó con éxito!'
+
+    def user_passes_test(self, request):
+        self.object = self.get_object()
+        return self.object.username == request.user
+
+    def dispatch(self, request, *args, **kwargs):
+        if not self.user_passes_test(request):
+            return redirect_to_login(request.get_full_path())
+        return super(SocioEconomicStudyUpdate, self).dispatch(
+            request, *args, **kwargs)
+
+
+class UpdateSocioEconomicStudyRedirectView(RedirectView):
+    def get_redirect_url(self):
+        if Student.objects.filter(username=self.request.user.id).exists():
+            return reverse(
+                "socio-economic-study-update", kwargs={"pk": self.request.user.id}
+            )
+        else:
+            return reverse("socio-economic-study")
