@@ -120,7 +120,6 @@ def load_programs(request):
     return render(request, 'hr/load_program.html', {'programs': programs})
 
 
-
 class SocioEconomicStudyView(CreateView):
     form_class = SocioEconomicStudyForm
     template_name = "socio_economic_study.html"
