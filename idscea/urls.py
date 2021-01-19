@@ -34,9 +34,9 @@ urlpatterns = [
     url(r'profile/(?P<pk>\d+)/update/$', login_required(StudentProfileUpdate.as_view()), name='student-profile-update'),
     path('profile/redirect', login_required(UpdateStudentRedirectView.as_view()), name='student-profile-redirect'),
 
-    path('economic_study/', login_required(SocioEconomicStudyView.as_view()), name='socio-economic-study'),
-    url(r'economic_study/(?P<pk>\d+)/update/$', login_required(SocioEconomicStudyUpdate.as_view()), name='socio-economic-study-update'),
-    path('economic_study/redirect', login_required(UpdateSocioEconomicStudyRedirectView.as_view()), name='socio-economic-study-redirect'),
+    path('economic/', login_required(SocioEconomicStudyView.as_view()), name='socio-economic-study'),
+    url(r'economic/(?P<pk>\d+)/update/$', login_required(SocioEconomicStudyUpdate.as_view()), name='socio-economic-study-update'),
+    path('economic/redirect', login_required(UpdateSocioEconomicStudyRedirectView.as_view()), name='socio-economic-study-redirect'),
 
     path('academic/', login_required(StudentAcademicProgramView.as_view()), name='academic-program'),
     url(r'academic/(?P<pk>\d+)/update/$', login_required(StudentAcademicProgramUpdate.as_view()), name='academic-program-update'),
