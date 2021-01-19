@@ -3,7 +3,7 @@ from django import forms
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Layout, Submit, Row, Column, HTML, Div, Field
 from becas.models import Student, StudentAcademicProgram, SocioEconomicStudy
-
+from datetime import datetime
 
 class StudentForm(ModelForm):
     class Meta:
