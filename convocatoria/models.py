@@ -47,7 +47,7 @@ class Aspirantes(models.Model):
     )
     grade = models.IntegerField("Calificación", null=True)
     socioeconomic_score = models.IntegerField("Estudio socioeconómico", null=True)
-    grneral_score = models.IntegerField("Estudio socioeconómico", null=True)
+    general_score = models.IntegerField("Score", null=True)
     beneficiado = models.BooleanField("Beneficiado", null=True)
     date = models.DateTimeField(auto_now_add=True)
 

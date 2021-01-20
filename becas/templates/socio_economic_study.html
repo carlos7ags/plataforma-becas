@@ -1,0 +1,191 @@
+{% extends "base.html" %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+    {% include "sub_menu.html" %}
+
+    <section id="services" class="bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 mx-auto">
+                    <br><h2>Recomendaciones de llenado</h2><br>
+                    <p class="lead" align="justify">Antes de comenzar con el llenado de solicitud la solicitud para aplicar al apoyo de la beca, es necesario que cuentes con toda la información requerida de forma precisa y completa.
+                        La aplicación podrá ser guardada y actualizada posteriormente si fuera necesario.
+                    Es posible ingresar los datos desde tu celular. Sin embargo, te recomendamos utilizar una computadora de escritorio o una laptop.</p><br>
+    
+                    <form method="POST" action="">
+                        {% csrf_token %}
+                        <br><h2>Datos generales del solicitante </h2><br>
+                        <div class="row">
+                            <div class="col-4">
+                                {{ form.poverty_range|as_crispy_field }}
+                            </div>
+                            <div class="col-4">
+                                {{ form.family_integrants|as_crispy_field }}
+                            </div>
+                            <div class="col-4">
+                                {{ form.general_average|as_crispy_field }}
+                            </div>
+                        </div>
+
+                        <br><h2>Datos Económicos del solicitante </h2><br>
+
+                        <div class="row">
+                            <div class="col-4">
+                                {{ form.dad_occupation|as_crispy_field }}
+                            </div>
+                            <div class="col-4">
+                                {{ form.dad_income|as_crispy_field }}
+                            </div>
+                            <div class="col-4">
+                                {{ form.mom_occupation|as_crispy_field }}
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-4">
+                                {{ form.mom_income|as_crispy_field }}
+                            </div>
+                            <div class="col-4">
+                                {{ form.son_occupation|as_crispy_field }}
+                            </div>
+                            <div class="col-4">
+                                {{ form.son_income|as_crispy_field }}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-4">
+                                {{ form.candidate_occupation|as_crispy_field }}
+                            </div>
+                            <div class="col-4">
+                                {{ form.candidate_income|as_crispy_field }}
+                            </div>
+                            <div class="col-4">
+                                {{ form.candidate_workplace|as_crispy_field }}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-4">
+                                {{ form.family_income|as_crispy_field }}
+                            </div>
+                            <div class="col-4">
+                                {{ form.exp_food|as_crispy_field }}
+                            </div>
+                            <div class="col-4">
+                                {{ form.exp_rent|as_crispy_field }}
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-4">
+                                {{ form.exp_water|as_crispy_field }}
+                            </div>
+                            <div class="col-4">
+                                {{ form.exp_elect|as_crispy_field }}
+                            </div>
+                            <div class="col-4">
+                                {{ form.exp_diversion|as_crispy_field }}
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-4">
+                                {{ form.exp_transport|as_crispy_field }}
+                            </div>
+                            <div class="col-4">
+                                {{ form.exp_education|as_crispy_field }}
+                            </div>
+                            <div class="col-4">
+                                {{ form.exp_tv_internet|as_crispy_field }}
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-4">
+                                {{ form.exp_otros|as_crispy_field }}
+                            </div>
+                        </div>
+
+                        <br><h2>Datos de educación del solicitante </h2><br>
+
+                        <div class="row">
+                            <div class="col-4">
+                                {{ form.dad_scholar|as_crispy_field }}
+                            </div>
+                            <div class="col-4">
+                                {{ form.mom_scholar|as_crispy_field }}
+                            </div>
+                            <div class="col-4">
+                                {{ form.cand_scholar|as_crispy_field }}
+                            </div>  
+                        </div>
+
+                        <div class="row">
+                            <div class="col-4">
+                                {{ form.spous_scholar|as_crispy_field }}
+                            </div>  
+                        </div>
+
+                        <br><h2>Salud y Seguridad Social </h2><br>
+
+                        {{ form.employment_benefits|as_crispy_field }}
+                        {{ form.healt_prov|as_crispy_field }}
+
+                        <br><h2>Vivienda</h2><br>
+
+                        <div class="row">
+                            <div class="col-4">
+                                {{ form.home_type|as_crispy_field }}
+                            </div>
+                            <div class="col-4">
+                                {{ form.floor_type|as_crispy_field }}
+                            </div>
+                            <div class="col-4">
+                                {{ form.ceiling_type|as_crispy_field }}
+                            </div>  
+                        </div>
+
+                        <div class="row">
+                            <div class="col-4">
+                                {{ form.walls_tipe|as_crispy_field }}
+                            </div>
+                            <div class="col-4">
+                                {{ form.room_persons|as_crispy_field }}
+                            </div> 
+                        </div>
+
+                        <div class="row">
+                            <div class="col-4">
+                                {{ form.water_service|as_crispy_field }}
+                            </div>
+                            <div class="col-4">
+                                {{ form.drain_service|as_crispy_field }}
+                            </div>
+                            <div class="col-4">
+                                {{ form.fuel_service|as_crispy_field }}
+                            </div>  
+                        </div>
+
+                        <div class="row">
+                            <div class="col-4">
+                                {{ form.elect_service|as_crispy_field }}
+                            </div> 
+                        </div>
+
+
+                    
+
+
+
+                        <br>
+                        <button type="submit" class="btn btn-success"> Guardar </button>
+                    </form>
+    
+                </div>
+            </div>
+        </div>
+    </section>   
+
+{% endblock %}

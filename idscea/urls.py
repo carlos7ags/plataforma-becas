@@ -5,7 +5,7 @@ from django.views.generic import TemplateView
 from accounts.views import UserRegistrationView
 import django.contrib.auth.views as auth_views
 from django.contrib.auth.decorators import login_required
-from becas.views import StudentProfile, StudentProfileUpdate, UpdateStudentRedirectView, StudentAcademicProgramView, StudentAcademicProgramUpdate, UpdateStudentAcademicProgramRedirectView, load_programs, DashboardView
+from becas.views import StudentProfile, StudentProfileUpdate, UpdateStudentRedirectView, StudentAcademicProgramView, StudentAcademicProgramUpdate, UpdateStudentAcademicProgramRedirectView, load_programs, DashboardView, SocioEconomicStudyView, SocioEconomicStudyUpdate, UpdateSocioEconomicStudyRedirectView
 from convocatoria.views import ConvocatoriasView
 
 
@@ -33,6 +33,10 @@ urlpatterns = [
     path('profile/', login_required(StudentProfile.as_view()), name='student-profile'),
     url(r'profile/(?P<pk>\d+)/update/$', login_required(StudentProfileUpdate.as_view()), name='student-profile-update'),
     path('profile/redirect', login_required(UpdateStudentRedirectView.as_view()), name='student-profile-redirect'),
+
+    path('economic/', login_required(SocioEconomicStudyView.as_view()), name='socio-economic-study'),
+    url(r'economic/(?P<pk>\d+)/update/$', login_required(SocioEconomicStudyUpdate.as_view()), name='socio-economic-study-update'),
+    path('economic/redirect', login_required(UpdateSocioEconomicStudyRedirectView.as_view()), name='socio-economic-study-redirect'),
 
     path('academic/', login_required(StudentAcademicProgramView.as_view()), name='academic-program'),
     url(r'academic/(?P<pk>\d+)/update/$', login_required(StudentAcademicProgramUpdate.as_view()), name='academic-program-update'),

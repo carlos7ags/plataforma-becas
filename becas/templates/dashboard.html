@@ -53,9 +53,9 @@
                         <h5 class="card-title">Estudio socioeconómico</h5>
                         <p class="card-text">Para formar una mejor idea de quien eres queremos conocer un poco más de ti.</p>
                       {% if student == True %}
-                        <a href="{% url "student-profile-redirect" %}" class="btn btn-success">Actualizar</a>
+                        <a href="{% url "socio-economic-study-redirect" %}" class="btn btn-success">Actualizar</a>
                         {% else %}
-                        <a href="{% url "student-profile-redirect" %}" class="btn btn-danger">Iniciar</a>
+                        <a href="{% url "socio-economic-study-redirect" %}" class="btn btn-danger">Iniciar</a>
                           {%  endif %}
                       </div>
                     </div>

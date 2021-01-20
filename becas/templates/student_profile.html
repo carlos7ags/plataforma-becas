@@ -6,28 +6,83 @@
 
     {% include "sub_menu.html" %}
 
-    <div class="container">
-        <div class="row justify-content-md-center mt-4" style="background-color:white;">
-            <div class="col col-lg">
-                <h1>Perfil</h1>
-                <strong>Información personal</strong><br><br>
+
+    <section id="services" class="bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 mx-auto">
+                    <br><h2>Recomendaciones de llenado</h2><br>
+                    <p class="lead" align="justify">Antes de comenzar con el llenado de solicitud la solicitud para aplicar al apoyo de la beca, es necesario que cuentes con toda la información requerida de forma precisa y completa.
+                        La aplicación podrá ser guardada y actualizada posteriormente si fuera necesario.
+                    Es posible ingresar los datos desde tu celular. Sin embargo, te recomendamos utilizar una computadora de escritorio o una laptop.</p><br>
+    
+                    <form method="POST" action="">
+                        {% csrf_token %}
+                        <br><h2>Información personal</h2><br>
+                        {{ form.student_id|as_crispy_field }}
+                        <div class="row">
+                            <div class="col-4">
+                                {{ form.nombre|as_crispy_field }}
+                            </div>
+                            <div class="col-4">
+                                {{ form.primer_apellido|as_crispy_field }}
+                            </div>
+                            <div class="col-4">
+                                {{ form.segundo_apellido|as_crispy_field }}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-4">
+                                {{ form.fecha_nacimiento|as_crispy_field }}
+                            </div>
+                            <div class="col-4">
+                                {{ form.lugar_nacimiento|as_crispy_field }}
+                            </div>
+                            <div class="col-4">
+                                {{ form.ine|as_crispy_field }}
+                            </div>
+                        </div>
+                        <br><h2>Datos de contacto</h2><br>
+                        <div class="row">
+                            <div class="col-4">
+                                {{ form.calle|as_crispy_field }}
+                            </div>
+                            <div class="col-4">
+                                {{ form.numero_ext|as_crispy_field }}
+                            </div>
+                            <div class="col-4">
+                                {{ form.numero_int|as_crispy_field }}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-4">
+                                {{ form.colonia|as_crispy_field }}
+                            </div>
+                            <div class="col-4">
+                                {{ form.localidad|as_crispy_field }}
+                            </div>
+                            <div class="col-4">
+                                {{ form.municipio|as_crispy_field }}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-4">
+                                {{ form.cp|as_crispy_field }}
+                            </div>
+                            <div class="col-4">
+                                {{ form.telefono|as_crispy_field }}
+                            </div>
+                            <div class="col-4">
+                                {{ form.celular|as_crispy_field }}
+                            </div>
+                        </div>
+                        <br>
+                        <button type="submit" class="btn btn-success"> Guardar </button>
+                    </form>
+    
+                </div>
             </div>
         </div>
-    </div>
-
-
-    <div class="container">
-        <div class="row justify-content-md-center" style="background-color:white;">
-            <div class="col col-lg">
-
-                <form method="POST" action="">
-                    {% csrf_token %}
-                    {{ form|crispy }}
-                    <input type="submit" value="Guardar">
-                </form>
-
-            </div>
-        </div>
-    </div>
+    </section>   
 
 {% endblock %}
