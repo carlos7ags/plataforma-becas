@@ -18,77 +18,85 @@
     <div class="container">
         <div class="row justify-content-md-center my-4" style="background-color:white;">
             <div class="col col-lg my-4">
-            <h2>Estatus</h2>
-            <p>Para participar en alguna de nuestras convocatorias asegurate de completar los siguientes formularios.</p>
+                <h2>Estatus</h2>
+                <p>Para participar en alguna de nuestras convocatorias asegurate de completar los siguientes
+                    formularios.</p>
 
                 <div class="row">
-                  <div class="col-sm-4">
-                    <div class="card">
-                      <div class="card-body">
-                        <h5 class="card-title">Perfil</h5>
-                        <p class="card-text">Datos personales generales. Tendrás que mostrar documentación probatoria.</p>
-                      {% if student == True %}
-                        <a href="{% url "student-profile-redirect" %}" class="btn btn-success">Actualizar</a>
-                        {% else %}
-                        <a href="{% url "student-profile-redirect" %}" class="btn btn-danger">Iniciar</a>
-                          {%  endif %}                      </div>
+                    <div class="col-sm-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Perfil</h5>
+                                <p class="card-text">Datos personales generales. Tendrás que mostrar documentación
+                                    probatoria.</p>
+                                {% if student == True %}
+                                    <a href="{% url "student-profile-redirect" %}"
+                                       class="btn btn-success">Actualizar</a>
+                                {% else %}
+                                    <a href="{% url "student-profile-redirect" %}" class="btn btn-danger">Iniciar</a>
+                                {% endif %}
+                            </div>
+                        </div>
                     </div>
-                  </div>
-                  <div class="col-sm-4">
-                    <div class="card">
-                      <div class="card-body">
-                        <h5 class="card-title">Información Académica</h5>
-                        <p class="card-text">Detalles de tu programa de estudios actual y el grado de avance que tienes.</p>
-                      {% if program == True %}
-                        <a href="{% url "academic-program" %}" class="btn btn-success">Actualizar</a>
-                        {% else %}
-                        <a href="{% url "academic-program" %}" class="btn btn-danger">Iniciar</a>
-                          {%  endif %}
-                      </div>
+                    <div class="col-sm-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Información Académica</h5>
+                                <p class="card-text">Detalles de tu programa de estudios actual y el grado de avance que
+                                    tienes.</p>
+                                {% if program == True %}
+                                    <a href="{% url "academic-program-redirect" %}"
+                                       class="btn btn-success">Actualizar</a>
+                                {% else %}
+                                    <a href="{% url "academic-program-redirect" %}" class="btn btn-danger">Iniciar</a>
+                                {% endif %}
+                            </div>
+                        </div>
                     </div>
-                  </div>
-                  <div class="col-sm-4">
-                    <div class="card">
-                      <div class="card-body">
-                        <h5 class="card-title">Estudio socioeconómico</h5>
-                        <p class="card-text">Para formar una mejor idea de quien eres queremos conocer un poco más de ti.</p>
-                      {% if student == True %}
-                        <a href="{% url "socio-economic-study-redirect" %}" class="btn btn-success">Actualizar</a>
-                        {% else %}
-                        <a href="{% url "socio-economic-study-redirect" %}" class="btn btn-danger">Iniciar</a>
-                          {%  endif %}
-                      </div>
+                    <div class="col-sm-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Estudio Socioeconómico</h5>
+                                <p class="card-text">Para formar una mejor idea de quien eres queremos conocer un poco
+                                    más de ti.</p>
+                                {% if student == True %}
+                                    <a href="{% url "socio-economic-study-redirect" %}" class="btn btn-success">Actualizar</a>
+                                {% else %}
+                                    <a href="{% url "socio-economic-study-redirect" %}"
+                                       class="btn btn-danger">Iniciar</a>
+                                {% endif %}
+                            </div>
+                        </div>
                     </div>
-                  </div>
                 </div>
 
-                    </div>
-                  </div>
-                </div>
+            </div>
+        </div>
+    </div>
 
 
     <div class="container">
         <div class="row justify-content-md-center my-4" style="background-color:white;">
             <div class="col col-lg my-4">
-            <h2>Historial de convocatorias</h2>
-            <table class="table table-light table-striped">
-                <tr>
-                    <th>Convocatoria</th>
-                    <th>Resultado</th>
-                </tr>
-                <tr>
-                    <td>Perfil</td>
-                    <td>Ok</td>
-                </tr>
-                <tr>
-                    <td>Información académica</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>Estudio socioeconómico</td>
-                    <td></td>
-                </tr>
-            </table>
+                <h2>Historial de convocatorias</h2>
+                <table class="table table-light table-striped">
+                    <tr>
+                        <th>Convocatoria</th>
+                        <th>Resultado</th>
+                    </tr>
+                    <tr>
+                        <td>Perfil</td>
+                        <td>Ok</td>
+                    </tr>
+                    <tr>
+                        <td>Información académica</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Estudio socioeconómico</td>
+                        <td></td>
+                    </tr>
+                </table>
 
             </div>
         </div>

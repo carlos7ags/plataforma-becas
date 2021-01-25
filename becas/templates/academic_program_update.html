@@ -33,18 +33,6 @@
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script>
 
-        var url = $("#academicProgramForm").attr("academic-programs-url");
-        $.ajax({
-            url: url,
-            data: {
-                'university_id': '',
-                'grado_id': ''
-            },
-            success: function (data) {
-                $("#id_programa").html(data);
-            }
-        });
-
         $("#id_university").change(function () {
             var universityId = $("#id_university").val();
             var gradoId = $("#id_grado").val();

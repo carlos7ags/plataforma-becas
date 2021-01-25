@@ -1,6 +1,5 @@
 from django.db import models
 from django.core.validators import RegexValidator, MinValueValidator, MaxValueValidator
-from django.contrib.auth.models import User
 from django.conf import settings
 
 
@@ -173,7 +172,7 @@ class StudentAcademicProgram(models.Model):
         verbose_name="Programa",
     )
     nivel_actual = models.IntegerField("Semestre/Cuatrimestre actual")
-    promedio = models.IntegerField("Promedio general")
+    promedio = models.FloatField("Promedio general")
 
     def __str__(self):
         return "%s" % self.username
@@ -183,97 +182,23 @@ class StudentAcademicProgram(models.Model):
 #                                        Estudio Socio Económico                                           #
 ############################################################################################################
 
-int_fa = (("0", "De 1 a 3"), ("1", "De 4 a 7"), ("2", "Más de 7"))
 
-ing_fa = (
-    ("0", "De $0 a $3,696 pesos"),
-    ("1", "Más de $3,696 y hasta $7,393 pesos"),
-    ("2", "Más de $7,393 y hasta $11,089 pesos"),
-    ("3", "Más de $11,089 y hasta $14,786 pesos"),
-    ("4", "Más de $14,786 y hasta $18,483 pesos"),
-    ("4", "Más de $18,483 pesos"),
-)
+class MaritalStatus(models.Model):
+    """Estado civil"""
 
-ep = (
-    ("0", "Ninguna"),
-    ("1", "Primaria"),
-    ("2", "Secundaria"),
-    ("3", "Preparatoria/Carrera técnica"),
-    ("4", "Licenciatura"),
-    ("5", "Maestría/Doctorado"),
-)
+    marital_status_id = models.AutoField(primary_key=True)
+    marital_status = models.CharField(
+        "Estado Civil",
+        max_length=50,
+    )
 
-em = (
-    ("0", "Ninguna"),
-    ("1", "Primaria"),
-    ("2", "Secundaria"),
-    ("3", "Preparatoria/Carrera técnica"),
-    ("4", "Licenciatura"),
-    ("5", "Maestría/Doctorado"),
-)
-
-afi = (
-    ("0", "Ninguno"),
-    ("1", "Médico particular"),
-    ("2", "IMSS-ISSSTE-PEMEX-INSABI-Gastos médicos"),
-)
-
-pres = (
-    ("0", "Ninguna prestación"),
-    (
-        "1",
-        "Servicio médico, sistema de ahorro para retiro, incapacidad laboral con goce de sueldo",
-    ),
-)
-
-vi = (("0", "Prestada"), ("1", "Rentada"), ("2", "La están pagando"), ("3", "Propia"))
-
-pi = (
-    ("0", "Firme de cemento, tierra"),
-    ("1", "Con recubrimiento (laminado, vitropiso, mosaico, madera)"),
-)
-
-te = (
-    ("0", "Asbesto, palma, teja"),
-    ("1", "Lámina metálica arto"),
-    ("2", "Terrado con viguería"),
-    ("3", "Madera"),
-    ("4", "Losa de concreto o viguetas con bovedilla"),
-)
-
-mu = (
-    ("0", "Adobe"),
-    ("1", "Piedra"),
-    ("2", "Madera"),
-    ("3", "Block"),
-    ("4", "Tabique o ladrillo"),
-)
-
-pe_cu = (
-    ("0", "Número  de personas por cuarto mayor a 2.5"),
-    ("1", "Número  de personas por cuarto menor a 2.5"),
-)
-
-ag = (("0", "Si"), ("1", "No"))
-
-dre = (("0", "Si"), ("1", "No"))
-
-ele = (("0", "Si"), ("1", "No"))
-
-comb = (("0", "Si"), ("1", "No"))
-
-op = [
-    "1 - 0% (De 0 a 10 puntos)",
-    "2 - 25% (De 11 a 20 puntos)",
-    "3 - 50% (De 21 a 31 puntos)",
-    "4 - 75% (De 31 a 41 puntos)",
-    "5 - 100% (41 puntos o más)",
-]
-OP = [(str(i), j) for i, j in zip(range(len(op)), op)]
+    def __str__(self):
+        return "%s" % self.marital_status
 
 
 class PovertyRange(models.Model):
     """Rangos de pobreza de acuerdo con CONEVAL"""
+
     poverty_id = models.AutoField(primary_key=True)
     poverty = models.CharField(
         "Rango de pobreza de su colonia",
@@ -281,9 +206,13 @@ class PovertyRange(models.Model):
     )
     value = models.IntegerField("Puntuación")
 
+    def __str__(self):
+        return "%s" % self.poverty
+
 
 class AverageGradeRanges(models.Model):
     """Rangos de promedio general"""
+
     average_grade_range_id = models.AutoField(primary_key=True)
     average_grade_range = models.CharField(
         "Promedio general",
@@ -291,9 +220,13 @@ class AverageGradeRanges(models.Model):
     )
     value = models.IntegerField("Puntuación")
 
+    def __str__(self):
+        return "%s" % self.average_grade_range
+
 
 class FamilyMembersRange(models.Model):
     """Rangos de integrantes de familia"""
+
     family_members_range_id = models.AutoField(primary_key=True)
     family_members_range = models.CharField(
         "Número de integrantes de la familia",
@@ -301,8 +234,13 @@ class FamilyMembersRange(models.Model):
     )
     value = models.IntegerField("Puntuación")
 
+    def __str__(self):
+        return "%s" % self.family_members_range
+
+
 class FamilyMonthlyIncome(models.Model):
     """Ingresos familiares"""
+
     family_monthly_income_id = models.AutoField(primary_key=True)
     family_monthly_income = models.CharField(
         "Ingreso familiar mensual",
@@ -310,14 +248,177 @@ class FamilyMonthlyIncome(models.Model):
     )
     value = models.IntegerField("Puntuación")
 
+    def __str__(self):
+        return "%s" % self.family_monthly_income
+
+
 class ParentsEducationLevel(models.Model):
     """Ingresos familiares"""
+
     parent_education_level_id = models.AutoField(primary_key=True)
     parent_education_level = models.CharField(
         "Nivel educativo del padre/madre",
         max_length=50,
     )
     value = models.IntegerField("Puntuación")
+
+    def __str__(self):
+        return "%s" % self.parent_education_level
+
+
+class SocialSecurity(models.Model):
+    """Seguridad social"""
+
+    social_security_id = models.AutoField(primary_key=True)
+    social_security = models.CharField(
+        "Afiliación a servicios de salud y seguridad social",
+        max_length=50,
+    )
+    value = models.IntegerField("Puntuación")
+
+    def __str__(self):
+        return "%s" % self.social_security
+
+
+class ProviderPerks(models.Model):
+    """Seguridad social"""
+
+    provider_perks_id = models.AutoField(primary_key=True)
+    provider_perks = models.CharField(
+        "Principal proveedor con prestaciones",
+        max_length=50,
+    )
+    value = models.IntegerField("Puntuación")
+
+    def __str__(self):
+        return "%s" % self.provider_perks
+
+
+class HomeType(models.Model):
+    """Seguridad social"""
+
+    home_type_id = models.AutoField(primary_key=True)
+    home_type = models.CharField(
+        "Tipo de vivienda",
+        max_length=50,
+    )
+    value = models.IntegerField("Puntuación")
+
+    def __str__(self):
+        return "%s" % self.home_type
+
+
+class HomeFloor(models.Model):
+    """Seguridad social"""
+
+    home_floor_id = models.AutoField(primary_key=True)
+    home_floor = models.CharField(
+        "Tipo de piso de la vivienda",
+        max_length=50,
+    )
+    value = models.IntegerField("Puntuación")
+
+    def __str__(self):
+        return "%s" % self.home_floor
+
+
+class HomeCeil(models.Model):
+    """Seguridad social"""
+
+    home_ceil_id = models.AutoField(primary_key=True)
+    home_ceil = models.CharField(
+        "Tipo de techo de la vivienda",
+        max_length=50,
+    )
+    value = models.IntegerField("Puntuación")
+
+    def __str__(self):
+        return "%s" % self.home_ceil
+
+
+class HomeWalls(models.Model):
+    """Seguridad social"""
+
+    home_walls_id = models.AutoField(primary_key=True)
+    home_walls = models.CharField(
+        "Tipo de muros de la vivienda",
+        max_length=50,
+    )
+    value = models.IntegerField("Puntuación")
+
+    def __str__(self):
+        return "%s" % self.home_walls
+
+
+class HomePersons(models.Model):
+    """Seguridad social"""
+
+    home_persons_id = models.AutoField(primary_key=True)
+    home_persons = models.CharField(
+        "Número de personas por habitación",
+        max_length=50,
+    )
+    value = models.IntegerField("Puntuación")
+
+    def __str__(self):
+        return "%s" % self.home_persons
+
+
+class ServiceWater(models.Model):
+    """Seguridad social"""
+
+    service_water_id = models.AutoField(primary_key=True)
+    service_water = models.CharField(
+        "Agua potable",
+        max_length=50,
+    )
+    value = models.IntegerField("Puntuación")
+
+    def __str__(self):
+        return "%s" % self.service_water
+
+
+class ServiceElectricity(models.Model):
+    """Seguridad social"""
+
+    service_electricity_id = models.AutoField(primary_key=True)
+    service_electricity = models.CharField(
+        "Electricidad",
+        max_length=50,
+    )
+    value = models.IntegerField("Puntuación")
+
+    def __str__(self):
+        return "%s" % self.service_electricity
+
+
+class ServiceSewer(models.Model):
+    """Seguridad social"""
+
+    service_sewer_id = models.AutoField(primary_key=True)
+    service_sewer = models.CharField(
+        "Drenaje",
+        max_length=50,
+    )
+    value = models.IntegerField("Puntuación")
+
+    def __str__(self):
+        return "%s" % self.service_sewer
+
+
+class ServiceGas(models.Model):
+    """Seguridad social"""
+
+    service_gas_id = models.AutoField(primary_key=True)
+    service_gas = models.CharField(
+        "Combustible para cocinar",
+        max_length=50,
+    )
+    value = models.IntegerField("Puntuación")
+
+    def __str__(self):
+        return "%s" % self.service_gas
+
 
 class SocioEconomicStudy(models.Model):
     """Formato de estudio socioeconómico"""
@@ -328,11 +429,18 @@ class SocioEconomicStudy(models.Model):
         editable=False,
         primary_key=True,
     )
+    marital_status = models.ForeignKey(
+        to=MaritalStatus,
+        on_delete=models.CASCADE,
+        verbose_name="Estado civil",
+    )
     poverty_range = models.ForeignKey(
         to=PovertyRange,
         on_delete=models.CASCADE,
         verbose_name="Rango de pobreza de su colonia",
-        help_text="Puedes consultar la clasificación de tu colonia en el siguiente vínculo: https://www.coneval.org.mx/Medicion/IRS/Paginas/Rezago_social_AGEB_2010.aspx\n Te recordamos que proporcionar información falsa o imprecisa descalificará tu solicitud.",
+        help_text="Puedes consultar la clasificación de tu colonia en el siguiente vínculo: "
+                  "https://www.coneval.org.mx/Medicion/IRS/Paginas/Rezago_social_AGEB_2010.aspx\n "
+                  "Te recordamos que proporcionar información falsa o imprecisa descalificará tu solicitud.",
     )
     average_grade_range = models.ForeignKey(
         to=AverageGradeRanges,
@@ -344,76 +452,60 @@ class SocioEconomicStudy(models.Model):
         on_delete=models.CASCADE,
         verbose_name="Número de integrantes de la familia",
     )
+    # ToDo: Replace with dynamic forms
+    dad_occupation = models.CharField(
+        "Ocupación del padre ", max_length=30, null=True, blank=True
+    )
+    dad_income = models.FloatField(
+        "Ingresos mensuales del padre ", blank=True, null=True
+    )
+    mom_occupation = models.CharField(
+        "Ocupación de la madre ", max_length=30, null=True, blank=True
+    )
+    mom_income = models.FloatField(
+        "Ingresos mensuales de la madre ", blank=True, null=True
+    )
+    son_occupation = models.CharField(
+        "Ocupación del hijo ", max_length=30, null=True, blank=True
+    )
+    son_income = models.FloatField(
+        "Ingresos mensuales del hijo ", blank=True, null=True
+    )
+    candidate_occupation = models.CharField(
+        "Ocupación del candidato ", max_length=30, null=True, blank=True
+    )
+    candidate_income = models.FloatField(
+        "Ingresos mensuales del candidato ", blank=True, null=True
+    )
+    other_occupation = models.CharField(
+        "Ocupación del candidato ", max_length=30, null=True, blank=True
+    )
+    other_income = models.FloatField(
+        "Ingresos mensuales del candidato ", blank=True, null=True
+    )
     family_monthly_income = models.ForeignKey(
         to=FamilyMonthlyIncome,
         on_delete=models.CASCADE,
         verbose_name="Ingreso familiar mensual",
     )
-
-    education_level_father = models.ForeignKey(
-        to=ParentsEducationLevel,
-        on_delete=models.CASCADE,
-        verbose_name="Escolaridad del padre",
-    )
-    education_level_mother = models.ForeignKey(
-        to=ParentsEducationLevel,
-        on_delete=models.CASCADE,
-        verbose_name="Escolaridad de la madre",
-    )
-
-
-
-
-    # II Datos Económicos del solicitante
-
-    dad_occupation = models.CharField(
-        "Ocupación del padre ", max_length=30, null=True, blank=False
-    )
-    dad_income = models.FloatField(
-        "Ingresos mensuales del padre ", blank=False, null=False
-    )
-    mom_occupation = models.CharField(
-        "Ocupación de la madre ", max_length=30, null=True, blank=False
-    )
-    mom_income = models.FloatField(
-        "Ingresos mensuales de la madre ", blank=False, null=False
-    )
-    son_occupation = models.CharField(
-        "Ocupación del hijo ", max_length=30, null=True, blank=False
-    )
-    son_income = models.FloatField(
-        "Ingresos mensuales del hijo ", blank=False, null=False
-    )
-    candidate_occupation = models.CharField(
-        "Ocupación del candidato ", max_length=30, null=True, blank=False
-    )
-    candidate_income = models.FloatField(
-        "Ingresos mensuales del candidato ", blank=False, null=False
-    )
-    candidate_workplace = models.CharField(
-        "Lugar de trabajo del candidato", max_length=15, null=True, blank=False
-    )
-    family_income = models.CharField(
-        "Ingreso total familiar mensual", choices=ing_fa, max_length=50
-    )
     exp_food = models.FloatField(
-        "Gastos mensuales aproximados en comida ", blank=False, null=False
+        "Gastos mensuales aproximados en comida ", blank=True, null=True
     )
     exp_rent = models.FloatField(
-        "Gastos mensuales aproximados en renta/hipoteca ", blank=False, null=False
+        "Gastos mensuales aproximados en renta/hipoteca ", blank=True, null=True
     )
     exp_water = models.FloatField(
-        "Gastos mensuales aproximados en  el  servicio de agua", blank=False, null=False
+        "Gastos mensuales aproximados en  el  servicio de agua", blank=True, null=True
     )
-    exp_elect = models.FloatField(
+    exp_energy = models.FloatField(
         "Gastos mensuales aproximados en el servicio de electricidad",
-        blank=False,
-        null=False,
+        blank=True,
+        null=True,
     )
-    exp_diversion = models.FloatField(
+    exp_leisure = models.FloatField(
         "Gastos mensuales aproximados dedicados a la diversión ",
-        blank=False,
-        null=False,
+        blank=True,
+        null=True,
     )
     exp_transport = models.FloatField(
         "Gastos mensuales aproximados dedicados al transporte", blank=False, null=False
@@ -421,113 +513,110 @@ class SocioEconomicStudy(models.Model):
     exp_education = models.FloatField(
         "Gastos mensuales aproximados dedicados a la educación", blank=False, null=False
     )
-    exp_tv_internet = models.FloatField(
-        "Gastos mensuales aproximados dedicados a servicios de cable Tv e internet",
-        blank=False,
-        null=False,
-    )
-    exp_otros = models.FloatField("Otros gastos ", blank=False, null=False)
-
-    # III Educación
-
-    dad_scholar = models.CharField(
-        "Escolaridad del padre o tutor", choices=ep, max_length=100
-    )
-    mom_scholar = models.CharField(
-        "Escolaridad de la madre", choices=em, max_length=100
-    )
-    cand_scholar = models.CharField(
-        "Escolaridad del candidato", choices=ep, max_length=100
-    )
-    spous_scholar = models.CharField(
-        "Escolaridad del esposo/a", choices=em, max_length=100
-    )
-    section3_obs = models.CharField(
-        "Observaciones", max_length=100, null=True, blank=False
-    )
-    punct_section3 = models.IntegerField("puntuación total obtenida en el apartado ")
-
-    # IV  Salud y seguridad Social
-
-    healt_prov = models.CharField(
-        "El principal proveedor en el hogar está registrado o afiliado en:",
-        choices=afi,
-        max_length=100,
-    )
-    employment_benefits = models.CharField(
-        "Principal proveedor en el hogar económicamente activo, asalariado con todas y cada una de las siguientes prestaciones laborales:",
-        choices=pres,
-        max_length=100,
-    )
-    section4_obs = models.CharField(
-        "Observaciones", max_length=100, null=True, blank=False
-    )
-    punct_section4 = models.IntegerField("puntuación total obtenida en el apartado ")
-
-    # V Vivienda
-
-    home_type = models.CharField(
-        "La casa que habita la familia es:", choices=vi, max_length=100
-    )
-    floor_type = models.CharField(
-        "el piso  de su vivienda es:", choices=pi, max_length=100
-    )
-    ceiling_type = models.CharField(
-        "El techo de su vivienda es:", choices=vi, max_length=100
-    )
-    walls_tipe = models.CharField(
-        "Los muros de su vivienda son de:", choices=mu, max_length=100
-    )
-    room_persons = models.CharField(
-        "Número de personas por cuarto:", choices=pe_cu, max_length=100
-    )
-    water_service = models.CharField(
-        "¿ Su casa cuenta con servicio de agua entubada dentro de la vivienda o fuera de la vivienda, pero dentro del terreno ?:",
-        choices=ag,
-        max_length=100,
-    )
-    drain_service = models.CharField(
-        "¿ Su casa cuenta con servicio de drenaje conectado a una red pública o a una fora séptica ?:",
-        choices=dre,
-        max_length=100,
-    )
-    elect_service = models.CharField(
-        "¿ Su casa cuenta con servicio de electricidad obtenido del servicio público, de panel solar o de otra fuente, planta paticular?:",
-        choices=ele,
-        max_length=100,
-    )
-    fuel_service = models.CharField(
-        "¿ Su casa cuenta con servicio de drenaje conectado a una red pública o a una fora séptica ?:",
-        choices=comb,
-        max_length=100,
-    )
-    section5_obs = models.CharField(
-        "Observaciones", max_length=100, null=True, blank=False
-    )
-    punct_section5 = models.IntegerField("puntuación total obtenida en el apartado ")
-
-    veracity = models.BooleanField(
-        " ¿ Confirma que toda la informacion proporcionada es verídica ?",
-        null=True,
+    exp_telecom = models.FloatField(
+        "Gastos mensuales aproximados dedicados a servicios de telefonía, cable e internet",
         blank=True,
+        null=True,
     )
-    total_punct = models.IntegerField(
-        "puntuación total obtenida en  el ESE "
-    )  # este dato  debe ser calculado a partir de los resultados de cada apartado
-    porcent_punct = models.IntegerField(
-        "nivel de vulnerabilidad o pobreza obtenido  en  el Estudio Socio Económico (Porciento) "
+    exp_medic = models.FloatField(
+        "Gastos mensuales aproximados dedicados a gastos médicos",
+        blank=True,
+        null=True,
     )
-    poverty_level = models.IntegerField(
-        "nivel de vulnerabilidad o pobreza obtenido  en  el Estudio Socio Económico (Puntos)"
+    exp_gas = models.FloatField(
+        "Gastos mensuales aproximados dedicados a gas y energía",
+        blank=True,
+        null=True,
     )
-    last_update = models.DateTimeField(auto_now=True)
+    exp_vestido = models.FloatField(
+        "Gastos mensuales aproximados dedicados a vestido",
+        blank=True,
+        null=True,
+    )
+    exp_loans = models.FloatField(
+        "Gastos mensuales aproximados dedicados a créditos e intereses",
+        blank=True,
+        null=True,
+    )
+    exp_gasolina = models.FloatField(
+        "Gastos mensuales aproximados dedicados a gasolina",
+        blank=True,
+        null=True,
+    )
+    exp_otros = models.FloatField("Otros gastos ", blank=True, null=True)
 
-    def __str__(self):
-        return (
-            "Estudiante: "
-            + self.first_name
-            + " "
-            + self.first_last_name
-            + " "
-            + self.second_last_name
-        )
+    education_level_father = models.ForeignKey(
+        to=ParentsEducationLevel,
+        on_delete=models.CASCADE,
+        verbose_name="Escolaridad del padre",
+        related_name="education_level_father",
+    )
+    education_level_mother = models.ForeignKey(
+        to=ParentsEducationLevel,
+        on_delete=models.CASCADE,
+        verbose_name="Escolaridad de la madre",
+        related_name="education_level_mother",
+    )
+    education_level_partner = models.ForeignKey(
+        to=ParentsEducationLevel,
+        on_delete=models.CASCADE,
+        verbose_name="Escolaridad de la esposa(o)",
+        related_name="education_level_partner",
+    )
+    social_security = models.ForeignKey(
+        to=SocialSecurity,
+        on_delete=models.CASCADE,
+        verbose_name="Afiliación a servicios de salud y seguridad social",
+    )
+    provider_perks = models.ForeignKey(
+        to=ProviderPerks,
+        on_delete=models.CASCADE,
+        verbose_name="Principal proveedor en el hogar cuenta con prestaciones",
+    )
+    home_type = models.ForeignKey(
+        to=HomeType,
+        on_delete=models.CASCADE,
+        verbose_name="Tipo de vivienda",
+    )
+    home_floor = models.ForeignKey(
+        to=HomeFloor,
+        on_delete=models.CASCADE,
+        verbose_name="Tipo de piso de la vivienda",
+    )
+    home_ceil = models.ForeignKey(
+        to=HomeCeil,
+        on_delete=models.CASCADE,
+        verbose_name="Tipo de techo de la vivienda",
+    )
+    home_walls = models.ForeignKey(
+        to=HomeWalls,
+        on_delete=models.CASCADE,
+        verbose_name="Tipo de muros de la vivienda",
+    )
+    home_persons = models.ForeignKey(
+        to=HomePersons,
+        on_delete=models.CASCADE,
+        verbose_name="Número de personas por habitación",
+    )
+    service_water = models.ForeignKey(
+        to=ServiceWater,
+        on_delete=models.CASCADE,
+        verbose_name="Agua potable",
+    )
+    service_electricity = models.ForeignKey(
+        to=ServiceElectricity,
+        on_delete=models.CASCADE,
+        verbose_name="Electricidad",
+    )
+    service_sewer = models.ForeignKey(
+        to=ServiceSewer,
+        on_delete=models.CASCADE,
+        verbose_name="Drenaje",
+    )
+    service_gas = models.ForeignKey(
+        to=ServiceGas,
+        on_delete=models.CASCADE,
+        verbose_name="Coombustible para cocinar",
+    )
+
+    last_update = models.DateTimeField(auto_now=True)

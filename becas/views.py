@@ -10,8 +10,6 @@ from django.urls import reverse_lazy
 from becas.forms import StudentForm, StudentAcademicProgramForm, SocioEconomicStudyForm
 from django.urls import reverse
 from becas.models import Student, Programs, StudentAcademicProgram, SocioEconomicStudy
-from django.conf import settings
-from django.contrib.auth.mixins import PermissionRequiredMixin
 from django.contrib.auth.views import redirect_to_login
 from django.contrib.messages.views import SuccessMessageMixin
 from django.shortcuts import render, get_object_or_404, redirect
@@ -89,7 +87,7 @@ class StudentAcademicProgramView(SuccessMessageMixin, CreateView):
 class StudentAcademicProgramUpdate(SuccessMessageMixin, UpdateView):
     model = StudentAcademicProgram
     form_class = StudentAcademicProgramForm
-    template_name = "academic_program.html"
+    template_name = "academic_program_update.html"
     success_url = reverse_lazy("dashboard")
     success_message = "¡Tu información académica se actualizó con éxito!"
 
@@ -107,7 +105,9 @@ class StudentAcademicProgramUpdate(SuccessMessageMixin, UpdateView):
 
 class UpdateStudentAcademicProgramRedirectView(RedirectView):
     def get_redirect_url(self):
-        if Student.objects.filter(username=self.request.user.id).exists():
+        if StudentAcademicProgram.objects.filter(
+            username=self.request.user.id
+        ).exists():
             return reverse(
                 "academic-program-update", kwargs={"pk": self.request.user.id}
             )
@@ -160,7 +160,7 @@ class SocioEconomicStudyUpdate(UpdateView):
 
 class UpdateSocioEconomicStudyRedirectView(RedirectView):
     def get_redirect_url(self):
-        if Student.objects.filter(username=self.request.user.id).exists():
+        if SocioEconomicStudy.objects.filter(username=self.request.user.id).exists():
             return reverse(
                 "socio-economic-study-update", kwargs={"pk": self.request.user.id}
             )
