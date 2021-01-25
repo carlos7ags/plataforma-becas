@@ -1,0 +1,9 @@
+- model: becas.modalidades
+  pk: 1
+  fields:
+    modalidad: Semestral
+- model: becas.modalidades
+  pk: 2
+  fields:
+    modalidad: Cuatrimestral
+
