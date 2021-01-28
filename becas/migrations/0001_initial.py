@@ -10,92 +10,257 @@ class Migration(migrations.Migration):
     initial = True
 
     dependencies = [
-        ('auth', '0012_alter_user_first_name_max_length'),
+        ("auth", "0012_alter_user_first_name_max_length"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Estados',
+            name="Estados",
             fields=[
-                ('estado_id', models.AutoField(primary_key=True, serialize=False)),
-                ('estado', models.CharField(max_length=30, verbose_name='Estado')),
+                ("estado_id", models.AutoField(primary_key=True, serialize=False)),
+                ("estado", models.CharField(max_length=30, verbose_name="Estado")),
             ],
         ),
         migrations.CreateModel(
-            name='Grados',
+            name="Grados",
             fields=[
-                ('grado_id', models.AutoField(primary_key=True, serialize=False)),
-                ('grado', models.CharField(max_length=30, verbose_name='Modalidad')),
+                ("grado_id", models.AutoField(primary_key=True, serialize=False)),
+                ("grado", models.CharField(max_length=30, verbose_name="Modalidad")),
             ],
         ),
         migrations.CreateModel(
-            name='Modalidades',
+            name="Modalidades",
             fields=[
-                ('modalidad_id', models.AutoField(primary_key=True, serialize=False)),
-                ('modalidad', models.CharField(max_length=30, verbose_name='Modalidad')),
+                ("modalidad_id", models.AutoField(primary_key=True, serialize=False)),
+                (
+                    "modalidad",
+                    models.CharField(max_length=30, verbose_name="Modalidad"),
+                ),
             ],
         ),
         migrations.CreateModel(
-            name='Municipios',
+            name="Municipios",
             fields=[
-                ('municipio_id', models.AutoField(primary_key=True, serialize=False)),
-                ('municipio', models.CharField(max_length=30, verbose_name='Municipio')),
+                ("municipio_id", models.AutoField(primary_key=True, serialize=False)),
+                (
+                    "municipio",
+                    models.CharField(max_length=30, verbose_name="Municipio"),
+                ),
             ],
         ),
         migrations.CreateModel(
-            name='Programs',
+            name="Programs",
             fields=[
-                ('program_id', models.AutoField(primary_key=True, serialize=False)),
-                ('programa', models.CharField(max_length=128, verbose_name='Programa')),
-                ('duracion', models.IntegerField(verbose_name='Duración (semestres/cuatrimestres)')),
-                ('grado', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='becas.grados', verbose_name='Grado')),
-                ('modalidad', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='becas.modalidades', verbose_name='Modalidad')),
+                ("program_id", models.AutoField(primary_key=True, serialize=False)),
+                ("programa", models.CharField(max_length=128, verbose_name="Programa")),
+                (
+                    "duracion",
+                    models.IntegerField(
+                        verbose_name="Duración (semestres/cuatrimestres)"
+                    ),
+                ),
+                (
+                    "grado",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="becas.grados",
+                        verbose_name="Grado",
+                    ),
+                ),
+                (
+                    "modalidad",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="becas.modalidades",
+                        verbose_name="Modalidad",
+                    ),
+                ),
             ],
         ),
         migrations.CreateModel(
-            name='Universities',
+            name="Universities",
             fields=[
-                ('university_id', models.AutoField(primary_key=True, serialize=False)),
-                ('university', models.CharField(max_length=30, verbose_name='Universidad')),
+                ("university_id", models.AutoField(primary_key=True, serialize=False)),
+                (
+                    "university",
+                    models.CharField(max_length=30, verbose_name="Universidad"),
+                ),
             ],
         ),
         migrations.CreateModel(
-            name='StudentAcademicProgram',
+            name="StudentAcademicProgram",
             fields=[
-                ('username', models.OneToOneField(editable=False, on_delete=django.db.models.deletion.CASCADE, primary_key=True, serialize=False, to='auth.user')),
-                ('continua', models.BooleanField(max_length=30, verbose_name='En caso de TSU, planeo continuar con mis estudios a nivel licenciatura o ingeniería.')),
-                ('nivel_actual', models.IntegerField(verbose_name='Semestre/Cuatrimestre actual')),
-                ('promedio', models.IntegerField(verbose_name='Promedio general')),
-                ('grado', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='becas.grados', verbose_name='Grado')),
-                ('programa', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='becas.programs', verbose_name='Programa')),
-                ('university', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='becas.universities', verbose_name='Universidad')),
+                (
+                    "username",
+                    models.OneToOneField(
+                        editable=False,
+                        on_delete=django.db.models.deletion.CASCADE,
+                        primary_key=True,
+                        serialize=False,
+                        to="auth.user",
+                    ),
+                ),
+                (
+                    "continua",
+                    models.BooleanField(
+                        max_length=30,
+                        verbose_name="En caso de TSU, planeo continuar con mis estudios a nivel licenciatura o ingeniería.",
+                    ),
+                ),
+                (
+                    "nivel_actual",
+                    models.IntegerField(verbose_name="Semestre/Cuatrimestre actual"),
+                ),
+                ("promedio", models.IntegerField(verbose_name="Promedio general")),
+                (
+                    "grado",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="becas.grados",
+                        verbose_name="Grado",
+                    ),
+                ),
+                (
+                    "programa",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="becas.programs",
+                        verbose_name="Programa",
+                    ),
+                ),
+                (
+                    "university",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="becas.universities",
+                        verbose_name="Universidad",
+                    ),
+                ),
             ],
         ),
         migrations.CreateModel(
-            name='Student',
+            name="Student",
             fields=[
-                ('username', models.OneToOneField(editable=False, on_delete=django.db.models.deletion.CASCADE, primary_key=True, serialize=False, to='auth.user')),
-                ('student_id', models.CharField(max_length=30, verbose_name='ID Estudiante')),
-                ('nombre', models.CharField(max_length=30, verbose_name='Nombre(s)')),
-                ('primer_apellido', models.CharField(max_length=15, verbose_name='Apellido paterno')),
-                ('segundo_apellido', models.CharField(max_length=15, verbose_name='Apellido materno')),
-                ('fecha_nacimiento', models.DateField(verbose_name='Fecha de nacimiento')),
-                ('ine', models.CharField(blank=True, help_text='Registra los 13 digitos que siguen a los simbolos "<<" en la parte posterior de tu INE.', max_length=13, null=True, validators=[django.core.validators.RegexValidator(code='invalid_ine', message='Ingresa una clave INE válida.', regex='([0-9]{13})')], verbose_name='INE')),
-                ('calle', models.CharField(max_length=100, verbose_name='Calle')),
-                ('numero_ext', models.IntegerField(verbose_name='Número exterior')),
-                ('numero_int', models.IntegerField(blank=True, null=True, verbose_name='Número interior')),
-                ('colonia', models.CharField(max_length=100, verbose_name='Colonia')),
-                ('cp', models.IntegerField(validators=[django.core.validators.MinValueValidator(20000), django.core.validators.MaxValueValidator(20999)], verbose_name='Código postal')),
-                ('localidad', models.CharField(max_length=100, verbose_name='Localidad')),
-                ('telefono', models.CharField(max_length=10, validators=[django.core.validators.RegexValidator(code='invalid_phone', message='Ingresa un teléfono válido de 10 dígitos.', regex='([0-9]{10})')], verbose_name='Teléfono fijo')),
-                ('celular', models.CharField(max_length=10, validators=[django.core.validators.RegexValidator(code='invalid_phone', message='Ingresa un teléfono válido de 10 digitos.', regex='([0-9]{10})')], verbose_name='Celular')),
-                ('lugar_nacimiento', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='becas.estados', verbose_name='Lugar de nacimiento')),
-                ('municipio', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='becas.municipios', verbose_name='Municipio')),
+                (
+                    "username",
+                    models.OneToOneField(
+                        editable=False,
+                        on_delete=django.db.models.deletion.CASCADE,
+                        primary_key=True,
+                        serialize=False,
+                        to="auth.user",
+                    ),
+                ),
+                (
+                    "student_id",
+                    models.CharField(max_length=30, verbose_name="ID Estudiante"),
+                ),
+                ("nombre", models.CharField(max_length=30, verbose_name="Nombre(s)")),
+                (
+                    "primer_apellido",
+                    models.CharField(max_length=15, verbose_name="Apellido paterno"),
+                ),
+                (
+                    "segundo_apellido",
+                    models.CharField(max_length=15, verbose_name="Apellido materno"),
+                ),
+                (
+                    "fecha_nacimiento",
+                    models.DateField(verbose_name="Fecha de nacimiento"),
+                ),
+                (
+                    "ine",
+                    models.CharField(
+                        blank=True,
+                        help_text='Registra los 13 digitos que siguen a los simbolos "<<" en la parte posterior de tu INE.',
+                        max_length=13,
+                        null=True,
+                        validators=[
+                            django.core.validators.RegexValidator(
+                                code="invalid_ine",
+                                message="Ingresa una clave INE válida.",
+                                regex="([0-9]{13})",
+                            )
+                        ],
+                        verbose_name="INE",
+                    ),
+                ),
+                ("calle", models.CharField(max_length=100, verbose_name="Calle")),
+                ("numero_ext", models.IntegerField(verbose_name="Número exterior")),
+                (
+                    "numero_int",
+                    models.IntegerField(
+                        blank=True, null=True, verbose_name="Número interior"
+                    ),
+                ),
+                ("colonia", models.CharField(max_length=100, verbose_name="Colonia")),
+                (
+                    "cp",
+                    models.IntegerField(
+                        validators=[
+                            django.core.validators.MinValueValidator(20000),
+                            django.core.validators.MaxValueValidator(20999),
+                        ],
+                        verbose_name="Código postal",
+                    ),
+                ),
+                (
+                    "localidad",
+                    models.CharField(max_length=100, verbose_name="Localidad"),
+                ),
+                (
+                    "telefono",
+                    models.CharField(
+                        max_length=10,
+                        validators=[
+                            django.core.validators.RegexValidator(
+                                code="invalid_phone",
+                                message="Ingresa un teléfono válido de 10 dígitos.",
+                                regex="([0-9]{10})",
+                            )
+                        ],
+                        verbose_name="Teléfono fijo",
+                    ),
+                ),
+                (
+                    "celular",
+                    models.CharField(
+                        max_length=10,
+                        validators=[
+                            django.core.validators.RegexValidator(
+                                code="invalid_phone",
+                                message="Ingresa un teléfono válido de 10 digitos.",
+                                regex="([0-9]{10})",
+                            )
+                        ],
+                        verbose_name="Celular",
+                    ),
+                ),
+                (
+                    "lugar_nacimiento",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="becas.estados",
+                        verbose_name="Lugar de nacimiento",
+                    ),
+                ),
+                (
+                    "municipio",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="becas.municipios",
+                        verbose_name="Municipio",
+                    ),
+                ),
             ],
         ),
         migrations.AddField(
-            model_name='programs',
-            name='university',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='becas.universities', verbose_name='Universidad'),
+            model_name="programs",
+            name="university",
+            field=models.ForeignKey(
+                on_delete=django.db.models.deletion.CASCADE,
+                to="becas.universities",
+                verbose_name="Universidad",
+            ),
         ),
     ]

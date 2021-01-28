@@ -1,0 +1,273 @@
+- model: becas.maritalstatus
+  pk: 1
+  fields:
+    marital_status: Soltero
+- model: becas.maritalstatus
+  pk: 2
+  fields:
+    marital_status: Casado
+- model: becas.povertyrange
+  pk: 1
+  fields:
+    poverty: Muy bajo
+    value: 1
+- model: becas.povertyrange
+  pk: 2
+  fields:
+    poverty: Bajo
+    value: 2
+- model: becas.povertyrange
+  pk: 3
+  fields:
+    poverty: Medio
+    value: 3
+- model: becas.povertyrange
+  pk: 4
+  fields:
+    poverty: Alto
+    value: 4
+- model: becas.povertyrange
+  pk: 5
+  fields:
+    poverty: Muy alto
+    value: 5
+- model: becas.averagegraderanges
+  pk: 1
+  fields:
+    average_grade_range: 8.50 a 8.99
+    value: 1
+- model: becas.averagegraderanges
+  pk: 2
+  fields:
+    average_grade_range: 9.00 a 10.00
+    value: 3
+- model: becas.familymembersrange
+  pk: 1
+  fields:
+    family_members_range: De 1 a 3
+    value: 1
+- model: becas.familymembersrange
+  pk: 2
+  fields:
+    family_members_range: De 4 a 7
+    value: 2
+- model: becas.familymembersrange
+  pk: 3
+  fields:
+    family_members_range: Más de 7
+    value: 3
+- model: becas.familymonthlyincome
+  pk: 1
+  fields:
+    family_monthly_income: De $0.00 a $3,696.00 pesos
+    value: 6
+- model: becas.familymonthlyincome
+  pk: 2
+  fields:
+    family_monthly_income: Más de $3,696.00 y hasta $7,393.00 pesos
+    value: 5
+- model: becas.familymonthlyincome
+  pk: 3
+  fields:
+    family_monthly_income: Más de $7,393.00 y hasta 11,089.00 pesos
+    value: 4
+- model: becas.familymonthlyincome
+  pk: 4
+  fields:
+    family_monthly_income: Más de $11,089.00 y hasta $14,786.00 pesos
+    value: 3
+- model: becas.familymonthlyincome
+  pk: 5
+  fields:
+    family_monthly_income: Más de $14,786.00 y hasta $18,483.00 pesos
+    value: 2
+- model: becas.familymonthlyincome
+  pk: 6
+  fields:
+    family_monthly_income: Más de $18,483.00 pesos
+    value: 1
+- model: becas.parentseducationlevel
+  pk: 1
+  fields:
+    parent_education_level: Ninguna
+    value: 6
+- model: becas.parentseducationlevel
+  pk: 2
+  fields:
+    parent_education_level: Primaria
+    value: 5
+- model: becas.parentseducationlevel
+  pk: 3
+  fields:
+    parent_education_level: Secundaria
+    value: 4
+- model: becas.parentseducationlevel
+  pk: 4
+  fields:
+    parent_education_level: Preparatoria/Carrera técnica
+    value: 3
+- model: becas.parentseducationlevel
+  pk: 5
+  fields:
+    parent_education_level: Licenciatura
+    value: 2
+- model: becas.parentseducationlevel
+  pk: 6
+  fields:
+    parent_education_level: Maestría/Doctorado
+    value: 1
+- model: becas.socialsecurity
+  pk: 1
+  fields:
+    social_security: Ninguna
+    value: 3
+- model: becas.socialsecurity
+  pk: 2
+  fields:
+    social_security: Médico particular
+    value: 2
+- model: becas.socialsecurity
+  pk: 3
+  fields:
+    social_security: IMSS, ISSSTE, PEMEX, INSABI, Gastos médicos mayores
+    value: 1
+- model: becas.providerperks
+  pk: 1
+  fields:
+    provider_perks: Servicio médico, sistema de ahorro para el retiro, incapacidad laboral con goce de sueldo
+    value: 1
+- model: becas.providerperks
+  pk: 2
+  fields:
+    provider_perks: Ninguna prestación
+    value: 3
+- model: becas.hometype
+  pk: 1
+  fields:
+    home_type: Prestada
+    value: 4
+- model: becas.hometype
+  pk: 2
+  fields:
+    home_type: Rentada
+    value: 3
+- model: becas.hometype
+  pk: 3
+  fields:
+    home_type: Crédito hipotecario
+    value: 2
+- model: becas.hometype
+  pk: 4
+  fields:
+    home_type: Propia
+    value: 1
+- model: becas.homefloor
+  pk: 1
+  fields:
+    home_floor: Firme de cemento, tierra
+    value: 3
+- model: becas.homefloor
+  pk: 2
+  fields:
+    home_floor: Con recubrimiento (laminado, vitropiso, mosaico, madera)
+    value: 1
+- model: becas.homeceil
+  pk: 1
+  fields:
+    home_ceil: Asbesto, palma, teja
+    value: 5
+- model: becas.homeceil
+  pk: 2
+  fields:
+    home_ceil: Lámina metálica arto
+    value: 4
+- model: becas.homeceil
+  pk: 3
+  fields:
+    home_ceil: Terrado con viguería
+    value: 3
+- model: becas.homeceil
+  pk: 4
+  fields:
+    home_ceil: Madera
+    value: 2
+- model: becas.homeceil
+  pk: 5
+  fields:
+    home_ceil: Losa de concreto o viguetas con bovedilla
+    value: 1
+- model: becas.homewalls
+  pk: 1
+  fields:
+    home_walls: Adobe
+    value: 5
+- model: becas.homewalls
+  pk: 2
+  fields:
+    home_walls: Piedra
+    value: 4
+- model: becas.homewalls
+  pk: 3
+  fields:
+    home_walls: Madera
+    value: 3
+- model: becas.homewalls
+  pk: 4
+  fields:
+    home_walls: Block
+    value: 2
+- model: becas.homewalls
+  pk: 5
+  fields:
+    home_walls: Tabique/Ladrillo
+    value: 1
+- model: becas.homepersons
+  pk: 1
+  fields:
+    home_persons: Más de 2.5
+    value: 3
+- model: becas.homepersons
+  pk: 2
+  fields:
+    home_persons: Menos de 2.5
+    value: 1
+- model: becas.servicewater
+  pk: 1
+  fields:
+    service_water: Sí
+    value: 1
+- model: becas.servicewater
+  pk: 2
+  fields:
+    service_water: No
+    value: 3
+- model: becas.serviceelectricity
+  pk: 1
+  fields:
+    service_electricity: Sí
+    value: 1
+- model: becas.serviceelectricity
+  pk: 2
+  fields:
+    service_electricity: No
+    value: 3
+- model: becas.servicegas
+  pk: 1
+  fields:
+    service_gas: Sí
+    value: 1
+- model: becas.servicegas
+  pk: 2
+  fields:
+    service_gas: No
+    value: 3
+- model: becas.servicesewer
+  pk: 1
+  fields:
+    service_sewer: Sí
+    value: 1
+- model: becas.servicesewer
+  pk: 2
+  fields:
+    service_sewer: No
+    value: 3

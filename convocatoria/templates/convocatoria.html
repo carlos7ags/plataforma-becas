@@ -1,6 +1,6 @@
 
 
-{%  for convoc, status in convocatorias %}
+{% for convoc, status in convocatorias %}
 
     <div class="card text-center my-4">
         <div class="card-header">
@@ -13,7 +13,7 @@
                 <a href="{% url "dashboard" %}" class="btn btn-success">Registrate</a>
             {% else %}
                 <a href="#" class="btn btn-danger">Cerrada</a>
-            {%  endif %}
+            {% endif %}
         </div>
         <div class="card-footer text-muted">
             {{ convoc.start_date }} / {{ convoc.end_date }}

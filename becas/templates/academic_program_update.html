@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+    {% include "sub_menu.html" %}
+
+    <div class="container">
+        <div class="row justify-content-md-center mt-4" style="background-color:white;">
+            <div class="col col-lg">
+                <h2>Información académica</h2>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container">
+        <div class="row justify-content-md-center" style="background-color:white;">
+            <div class="col col-lg">
+
+                <form method="POST" action="" id="academicProgramForm" academic-programs-url="{% url 'ajax-load-programs' %}">
+                    {% csrf_token %}
+                    {{ form|crispy }}
+                    <input type="submit" value="Guardar">
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script>
+
+        $("#id_university").change(function () {
+            var universityId = $("#id_university").val();
+            var gradoId = $("#id_grado").val();
+            $.ajax({
+                url: url,
+                data: {
+                    'university_id': universityId,
+                    'grado_id': gradoId
+                },
+                success: function (data) {
+                    $("#id_programa").html(data);
+                }
+            });
+        });
+
+        $("#id_grado").change(function () {
+            var universityId = $("#id_university").val();
+            var gradoId = $("#id_grado").val();
+            $.ajax({
+                url: url,
+                data: {
+                    'university_id': universityId,
+                    'grado_id': gradoId
+                },
+                success: function (data) {
+                    $("#id_programa").html(data);
+                }
+            });
+        });
+    </script>
+
+{% endblock %}

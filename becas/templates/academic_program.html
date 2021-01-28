@@ -9,7 +9,7 @@
     <div class="container">
         <div class="row justify-content-md-center mt-4" style="background-color:white;">
             <div class="col col-lg">
-                <h1>Información académica</h1>
+                <h2>Información académica</h2>
             </div>
         </div>
     </div>
@@ -19,61 +19,60 @@
         <div class="row justify-content-md-center" style="background-color:white;">
             <div class="col col-lg">
 
-                <form method="POST" action="" id="academicProgramForm" academic-programs-url="{% url 'ajax-load-programs' %}">
+                <form method="POST" action="">
                     {% csrf_token %}
-                    {{ form|crispy }}
-                    <input type="submit" value="Guardar">
+                    {% crispy form %}
+
                 </form>
 
             </div>
         </div>
     </div>
 
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <script>
 
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <script>
-
-        var url = $("#academicProgramForm").attr("academic-programs-url");
-        $.ajax({
-            url: url,
-            data: {
-                'university_id': '',
-                'grado_id': ''
-            },
-            success: function (data) {
-                $("#id_programa").html(data);
-            }
-        });
-
-        $("#id_university").change(function () {
-            var universityId = $("#id_university").val();
-            var gradoId = $("#id_grado").val();
+            var url = $("#academicProgramForm").attr("academic-programs-url");
             $.ajax({
                 url: url,
                 data: {
-                    'university_id': universityId,
-                    'grado_id': gradoId
+                    'university_id': '',
+                    'grado_id': ''
                 },
                 success: function (data) {
                     $("#id_programa").html(data);
                 }
             });
-        });
 
-        $("#id_grado").change(function () {
-            var universityId = $("#id_university").val();
-            var gradoId = $("#id_grado").val();
-            $.ajax({
-                url: url,
-                data: {
-                    'university_id': universityId,
-                    'grado_id': gradoId
-                },
-                success: function (data) {
-                    $("#id_programa").html(data);
-                }
+            $("#id_university").change(function () {
+                var universityId = $("#id_university").val();
+                var gradoId = $("#id_grado").val();
+                $.ajax({
+                    url: url,
+                    data: {
+                        'university_id': universityId,
+                        'grado_id': gradoId
+                    },
+                    success: function (data) {
+                        $("#id_programa").html(data);
+                    }
+                });
             });
-        });
-    </script>
 
+            $("#id_grado").change(function () {
+                var universityId = $("#id_university").val();
+                var gradoId = $("#id_grado").val();
+                $.ajax({
+                    url: url,
+                    data: {
+                        'university_id': universityId,
+                        'grado_id': gradoId
+                    },
+                    success: function (data) {
+                        $("#id_programa").html(data);
+                    }
+                });
+            });
+        </script>
+    </section>
 {% endblock %}
