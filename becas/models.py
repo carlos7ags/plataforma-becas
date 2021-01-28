@@ -19,6 +19,19 @@ class Municipios(models.Model):
         return "%s" % self.municipio
 
 
+class MaritalStatus(models.Model):
+    """Estado civil"""
+
+    marital_status_id = models.AutoField(primary_key=True)
+    marital_status = models.CharField(
+        "Estado Civil",
+        max_length=50,
+    )
+
+    def __str__(self):
+        return "%s" % self.marital_status
+
+
 class Student(models.Model):
     """Información personal"""
 
@@ -28,7 +41,9 @@ class Student(models.Model):
         editable=False,
         primary_key=True,
     )
-    student_id = models.CharField("ID Estudiante", max_length=30)
+    student_id = models.CharField(
+        "Número de identifcación del estudiante", max_length=30
+    )
     nombre = models.CharField("Nombre(s)", max_length=30)
     primer_apellido = models.CharField("Apellido paterno", max_length=15)
     segundo_apellido = models.CharField("Apellido materno", max_length=15)
@@ -51,6 +66,11 @@ class Student(models.Model):
                 code="invalid_ine",
             )
         ],
+    )
+    marital_status = models.ForeignKey(
+        to=MaritalStatus,
+        on_delete=models.CASCADE,
+        verbose_name="Estado civil",
     )
 
     """Datos de contacto"""
@@ -90,6 +110,7 @@ class Student(models.Model):
             )
         ],
     )
+    validated = models.BooleanField(default=False)
 
     def __str__(self):
         return "%s" % self.username
@@ -123,7 +144,6 @@ class Grados(models.Model):
 
 class Programs(models.Model):
     program_id = models.AutoField(primary_key=True)
-    programa = models.CharField("Programa", max_length=128)
     university = models.ForeignKey(
         to=Universities,
         on_delete=models.CASCADE,
@@ -139,6 +159,7 @@ class Programs(models.Model):
         on_delete=models.CASCADE,
         verbose_name="Modalidad",
     )
+    programa = models.CharField("Programa", max_length=128)
     duracion = models.IntegerField("Duración (semestres/cuatrimestres)")
 
     def __str__(self):
@@ -171,8 +192,15 @@ class StudentAcademicProgram(models.Model):
         on_delete=models.CASCADE,
         verbose_name="Programa",
     )
-    nivel_actual = models.IntegerField("Semestre/Cuatrimestre actual")
-    promedio = models.FloatField("Promedio general")
+    nivel_actual = models.PositiveSmallIntegerField("Semestre/Cuatrimestre actual")
+    promedio = models.FloatField(
+        "Promedio general",
+        validators=[
+            MaxValueValidator(10, "Ingrese un promedio valido (menor a 10)."),
+            MinValueValidator(8.5, "Ingrese un promedio valido (mayor a 8.5)."),
+        ],
+    )
+    validated = models.BooleanField(default=False)
 
     def __str__(self):
         return "%s" % self.username
@@ -181,19 +209,6 @@ class StudentAcademicProgram(models.Model):
 ############################################################################################################
 #                                        Estudio Socio Económico                                           #
 ############################################################################################################
-
-
-class MaritalStatus(models.Model):
-    """Estado civil"""
-
-    marital_status_id = models.AutoField(primary_key=True)
-    marital_status = models.CharField(
-        "Estado Civil",
-        max_length=50,
-    )
-
-    def __str__(self):
-        return "%s" % self.marital_status
 
 
 class PovertyRange(models.Model):
@@ -429,18 +444,13 @@ class SocioEconomicStudy(models.Model):
         editable=False,
         primary_key=True,
     )
-    marital_status = models.ForeignKey(
-        to=MaritalStatus,
-        on_delete=models.CASCADE,
-        verbose_name="Estado civil",
-    )
     poverty_range = models.ForeignKey(
         to=PovertyRange,
         on_delete=models.CASCADE,
         verbose_name="Rango de pobreza de su colonia",
         help_text="Puedes consultar la clasificación de tu colonia en el siguiente vínculo: "
-                  "https://www.coneval.org.mx/Medicion/IRS/Paginas/Rezago_social_AGEB_2010.aspx\n "
-                  "Te recordamos que proporcionar información falsa o imprecisa descalificará tu solicitud.",
+        "https://www.coneval.org.mx/Medicion/IRS/Paginas/Rezago_social_AGEB_2010.aspx\n "
+        "Te recordamos que proporcionar información falsa o imprecisa descalificará tu solicitud.",
     )
     average_grade_range = models.ForeignKey(
         to=AverageGradeRanges,
@@ -453,103 +463,102 @@ class SocioEconomicStudy(models.Model):
         verbose_name="Número de integrantes de la familia",
     )
     # ToDo: Replace with dynamic forms
-    dad_occupation = models.CharField(
-        "Ocupación del padre ", max_length=30, null=True, blank=True
+    dad_occupation = models.CharField("", max_length=30, null=True, blank=True)
+    dad_income = models.IntegerField("", blank=True, null=True)
+    mom_occupation = models.CharField("", max_length=30, null=True, blank=True)
+    mom_income = models.IntegerField("", blank=True, null=True)
+    son_occupation = models.CharField("", max_length=30, null=True, blank=True)
+    son_income = models.IntegerField("", blank=True, null=True)
+    candidate_occupation = models.CharField("", max_length=30, null=True, blank=True)
+    candidate_income = models.IntegerField(
+        "",
+        blank=True,
+        null=True,
     )
-    dad_income = models.FloatField(
-        "Ingresos mensuales del padre ", blank=True, null=True
-    )
-    mom_occupation = models.CharField(
-        "Ocupación de la madre ", max_length=30, null=True, blank=True
-    )
-    mom_income = models.FloatField(
-        "Ingresos mensuales de la madre ", blank=True, null=True
-    )
-    son_occupation = models.CharField(
-        "Ocupación del hijo ", max_length=30, null=True, blank=True
-    )
-    son_income = models.FloatField(
-        "Ingresos mensuales del hijo ", blank=True, null=True
-    )
-    candidate_occupation = models.CharField(
-        "Ocupación del candidato ", max_length=30, null=True, blank=True
-    )
-    candidate_income = models.FloatField(
-        "Ingresos mensuales del candidato ", blank=True, null=True
-    )
-    other_occupation = models.CharField(
-        "Ocupación del candidato ", max_length=30, null=True, blank=True
-    )
-    other_income = models.FloatField(
-        "Ingresos mensuales del candidato ", blank=True, null=True
+    other_occupation = models.CharField("", max_length=30, null=True, blank=True)
+    other_income = models.IntegerField(
+        "",
+        blank=True,
+        null=True,
     )
     family_monthly_income = models.ForeignKey(
         to=FamilyMonthlyIncome,
         on_delete=models.CASCADE,
         verbose_name="Ingreso familiar mensual",
     )
-    exp_food = models.FloatField(
-        "Gastos mensuales aproximados en comida ", blank=True, null=True
-    )
-    exp_rent = models.FloatField(
-        "Gastos mensuales aproximados en renta/hipoteca ", blank=True, null=True
-    )
-    exp_water = models.FloatField(
-        "Gastos mensuales aproximados en  el  servicio de agua", blank=True, null=True
-    )
-    exp_energy = models.FloatField(
-        "Gastos mensuales aproximados en el servicio de electricidad",
+    exp_food = models.IntegerField(
+        "",
         blank=True,
         null=True,
     )
-    exp_leisure = models.FloatField(
-        "Gastos mensuales aproximados dedicados a la diversión ",
+    exp_rent = models.IntegerField(
+        "",
         blank=True,
         null=True,
     )
-    exp_transport = models.FloatField(
-        "Gastos mensuales aproximados dedicados al transporte", blank=False, null=False
-    )
-    exp_education = models.FloatField(
-        "Gastos mensuales aproximados dedicados a la educación", blank=False, null=False
-    )
-    exp_telecom = models.FloatField(
-        "Gastos mensuales aproximados dedicados a servicios de telefonía, cable e internet",
+    exp_water = models.IntegerField(
+        "",
         blank=True,
         null=True,
     )
-    exp_medic = models.FloatField(
-        "Gastos mensuales aproximados dedicados a gastos médicos",
+    exp_energy = models.IntegerField(
+        "",
         blank=True,
         null=True,
     )
-    exp_gas = models.FloatField(
-        "Gastos mensuales aproximados dedicados a gas y energía",
+    exp_leisure = models.IntegerField(
+        "",
         blank=True,
         null=True,
     )
-    exp_vestido = models.FloatField(
-        "Gastos mensuales aproximados dedicados a vestido",
+    exp_transport = models.IntegerField(
+        "",
         blank=True,
         null=True,
     )
-    exp_loans = models.FloatField(
-        "Gastos mensuales aproximados dedicados a créditos e intereses",
+    exp_education = models.IntegerField(
+        "",
         blank=True,
         null=True,
     )
-    exp_gasolina = models.FloatField(
-        "Gastos mensuales aproximados dedicados a gasolina",
+    exp_telecom = models.IntegerField(
+        "",
         blank=True,
         null=True,
     )
-    exp_otros = models.FloatField("Otros gastos ", blank=True, null=True)
+    exp_medic = models.IntegerField(
+        "",
+        blank=True,
+        null=True,
+    )
+    exp_gas = models.IntegerField(
+        "",
+        blank=True,
+        null=True,
+    )
+    exp_vestido = models.IntegerField(
+        "",
+        blank=True,
+        null=True,
+    )
+    exp_loans = models.IntegerField(
+        "",
+        blank=True,
+        null=True,
+    )
+    exp_gasolina = models.IntegerField(
+        "",
+        blank=True,
+        null=True,
+    )
+    exp_otros = models.IntegerField("", blank=True, null=True)
 
     education_level_father = models.ForeignKey(
         to=ParentsEducationLevel,
         on_delete=models.CASCADE,
-        verbose_name="Escolaridad del padre",
+        verbose_name="Escolaridad del padre o tutor",
         related_name="education_level_father",
+        help_text="Si el estado civil del candidato es casado o vive en unión libre registrar su escolaridad y la de su pareja.",
     )
     education_level_mother = models.ForeignKey(
         to=ParentsEducationLevel,
@@ -557,21 +566,15 @@ class SocioEconomicStudy(models.Model):
         verbose_name="Escolaridad de la madre",
         related_name="education_level_mother",
     )
-    education_level_partner = models.ForeignKey(
-        to=ParentsEducationLevel,
-        on_delete=models.CASCADE,
-        verbose_name="Escolaridad de la esposa(o)",
-        related_name="education_level_partner",
-    )
     social_security = models.ForeignKey(
         to=SocialSecurity,
         on_delete=models.CASCADE,
-        verbose_name="Afiliación a servicios de salud y seguridad social",
+        verbose_name="El principal proveedor en el hogar está registrado o afiliado en",
     )
     provider_perks = models.ForeignKey(
         to=ProviderPerks,
         on_delete=models.CASCADE,
-        verbose_name="Principal proveedor en el hogar cuenta con prestaciones",
+        verbose_name="El principal proveedor en el hogar económicamente activo, asalariado con las siguientes prestaciones laborales",
     )
     home_type = models.ForeignKey(
         to=HomeType,
@@ -596,7 +599,7 @@ class SocioEconomicStudy(models.Model):
     home_persons = models.ForeignKey(
         to=HomePersons,
         on_delete=models.CASCADE,
-        verbose_name="Número de personas por habitación",
+        verbose_name="Personas por habitación",
     )
     service_water = models.ForeignKey(
         to=ServiceWater,
@@ -620,3 +623,6 @@ class SocioEconomicStudy(models.Model):
     )
 
     last_update = models.DateTimeField(auto_now=True)
+    validated = models.BooleanField("Validado", default=False)
+    priority = models.BooleanField("Prioritario", default=False)
+    comments = models.CharField("Comentarios", max_length=150, null=True, blank=True)

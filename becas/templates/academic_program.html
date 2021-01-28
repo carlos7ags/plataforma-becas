@@ -6,45 +6,28 @@
 
     {% include "sub_menu.html" %}
 
-    <section id="services" class="bg-light">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 mx-auto">
-                    <br><h2>Recomendaciones de llenado</h2><br>
-                    <p class="lead" align="justify">Antes de comenzar con el llenado de solicitud la solicitud para aplicar al apoyo de la beca, es necesario que cuentes con toda la información requerida de forma precisa y completa.
-                        La aplicación podrá ser guardada y actualizada posteriormente si fuera necesario.
-                    Es posible ingresar los datos desde tu celular. Sin embargo, te recomendamos utilizar una computadora de escritorio o una laptop.</p><br>
-
-                    <form method="POST" action="" id="academicProgramForm" academic-programs-url="{% url 'ajax-load-programs' %}">
-                        {% csrf_token %}
-                        <br><h2>Información académica</h2><br>
-                        <div class="row">
-                            <div class="col-6">
-                                {{ form.university|as_crispy_field }}
-                            </div>
-                            <div class="col-6">
-                                {{ form.grado|as_crispy_field }}
-                            </div>
-                        </div><br>
-                         {{ form.continua|as_crispy_field }} <br>
-
-                        <div class="row">
-                            <div class="col-4">
-                                {{ form.programa|as_crispy_field }}
-                            </div>
-                            <div class="col-4">
-                                {{ form.nivel_actual|as_crispy_field }}
-                            </div>
-                            <div class="col-4">
-                                {{ form.promedio|as_crispy_field }}
-                            </div>
-                        </div>
-                        <br>
-                        <button type="submit" class="btn btn-success"> Guardar </button>
-                    </form>
-                </div>    
-            </div>    
+    <div class="container">
+        <div class="row justify-content-md-center mt-4" style="background-color:white;">
+            <div class="col col-lg">
+                <h2>Información académica</h2>
+            </div>
         </div>
+    </div>
+
+
+    <div class="container">
+        <div class="row justify-content-md-center" style="background-color:white;">
+            <div class="col col-lg">
+
+                <form method="POST" action="">
+                    {% csrf_token %}
+                    {% crispy form %}
+
+                </form>
+
+            </div>
+        </div>
+    </div>
 
         <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
         <script>
