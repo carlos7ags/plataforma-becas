@@ -9,16 +9,40 @@
 - model: becas.universities
   pk: 3
   fields:
-    university: Instituto Tecnológico de Aguascalientes
+    university: Universidad Tecnológica El Retoño
 - model: becas.universities
   pk: 4
   fields:
-    university: Universidad Politécnica de Aguascalientes
+    university: Universidad Tecnológica de Calvillo
 - model: becas.universities
   pk: 5
   fields:
-    university: Universidad Tecnológica de Calvillo
+    university: Universidad Tecnológica del Norte de Aguascalientes
 - model: becas.universities
   pk: 6
   fields:
-    university: Universidad Tecnológica Metropolitana
+    university: Universidad Politécnica de Aguascalientes
+- model: becas.universities
+  pk: 7
+  fields:
+    university: Universidad de las Artes
+- model: becas.universities
+  pk: 8
+  fields:
+    university: Universidad Tecnológica Metropolitana de Aguascalientes,
+- model: becas.universities
+  pk: 9
+  fields:
+    university: Instituto Tecnológico El Llano Aguascalientes
+- model: becas.universities
+  pk: 10
+  fields:
+    university: Instituto Tecnológico de Pabellón de Arteaga
+- model: becas.universities
+  pk: 11
+  fields:
+    university: Instituto Tecnológico de Aguascalientes
+- model: becas.universities
+  pk: 12
+  fields:
+    university: Instituto Estatal de Seguridad Pública de Aguascalientes
