@@ -122,3 +122,7 @@
   pk: 31
   fields:
     estado: Zacatecas
+- model: becas.estados
+  pk: 32
+  fields:
+    estado: Extranjero
