@@ -247,14 +247,26 @@ class SocioEconomicStudyForm(ModelForm):
             Row(
                 Column(Field("home_type"), css_class="form-group col-md-4 mb-1"),
                 Column(Field("home_floor"), css_class="form-group col-md-4 mb-1"),
+                css_class = "form-row"
+            ),
+            Row(
                 Column(Field("home_ceil"), css_class="form-group col-md-4 mb-1"),
                 Column(Field("home_walls"), css_class="form-group col-md-4 mb-1"),
+                css_class="form-row",
+            ),
+            Row(
                 Column(Field("home_persons"), css_class="form-group col-md-4 mb-1"),
                 Column(Field("service_water"), css_class="form-group col-md-4 mb-1"),
+                css_class="form-row",
+            ),
+            Row(
                 Column(
                     Field("service_electricity"), css_class="form-group col-md-4 mb-1"
                 ),
                 Column(Field("service_sewer"), css_class="form-group col-md-4 mb-1"),
+                css_class="form-row",
+            ),
+            Row(
                 Column(Field("service_gas"), css_class="form-group col-md-4 mb-1"),
                 css_class="form-row",
             ),
