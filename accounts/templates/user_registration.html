@@ -2,10 +2,15 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
+
+        <div class="container">
+        <div class="row justify-content-center my-4" style="background-color:white;">
+                <h1>Crear nuevo usuario</h1>
+        </div>
+    </div>
+
     <div class="container">
-            <br><br>
           <div class="row justify-content-center" style="background-color:white;">
-            <h1>Crear nuevo usuario</h1>
             <form action="" method="post">{% csrf_token %}
                 {{ form|crispy }}
                 <input type="submit" value="Crear cuenta" />

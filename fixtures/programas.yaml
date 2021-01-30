@@ -1,7 +1,7 @@
 - model: becas.programs
   pk: 1
   fields:
-    programa: LIC. EN LETRAS HISPANICAS
+    programa: Lic. en Letras Hispanicas
     university: 1
     grado: 2
     modalidad: 1
@@ -9,7 +9,7 @@
 - model: becas.programs
   pk: 2
   fields:
-    programa: LIC. EN ARTES ESCENICAS_ACTUACION
+    programa: Lic. En Artes Escenicas Actuacion
     university: 1
     grado: 2
     modalidad: 1
@@ -17,7 +17,7 @@
 - model: becas.programs
   pk: 3
   fields:
-    programa: LIC. EN ARTES CINEMATOGRAFICAS Y AUDIOVISUALES
+    programa: Lic. En Artes Cinematograficas Y Audiovisuales
     university: 1
     grado: 2
     modalidad: 1
@@ -25,7 +25,7 @@
 - model: becas.programs
   pk: 4
   fields:
-    programa: LIC. EN SOCIOLOGIA
+    programa: Lic. En Sociologia
     university: 1
     grado: 2
     modalidad: 1
@@ -33,7 +33,7 @@
 - model: becas.programs
   pk: 5
   fields:
-    programa: LIC. EN DOCENCIA DE FRANCES Y ESPAÑOL COMO LENGUAS EXTRANJERAS
+    programa: Lic. En Docencia De Frances Y Español Como Lenguas Extranjeras
     university: 1
     grado: 2
     modalidad: 1
@@ -41,7 +41,7 @@
 - model: becas.programs
   pk: 6
   fields:
-    programa: LIC. EN TRABAJO SOCIAL
+    programa: Lic. En Trabajo Social
     university: 1
     grado: 2
     modalidad: 1
@@ -49,7 +49,7 @@
 - model: becas.programs
   pk: 7
   fields:
-    programa: LIC. EN DERECHO
+    programa: Lic. En Derecho
     university: 1
     grado: 2
     modalidad: 1
@@ -57,7 +57,7 @@
 - model: becas.programs
   pk: 8
   fields:
-    programa: LIC. EN COMUNICACION ORGANIZACIONAL
+    programa: Lic. En Comunicacion Organizacional
     university: 1
     grado: 2
     modalidad: 1
@@ -65,7 +65,7 @@
 - model: becas.programs
   pk: 9
   fields:
-    programa: LIC. EN ASESORIA PSICOPEDAGOGICA
+    programa: Lic. En Asesoria Psicopedagogica
     university: 1
     grado: 2
     modalidad: 1
@@ -73,7 +73,7 @@
 - model: becas.programs
   pk: 10
   fields:
-    programa: ARQUITECTO
+    programa: Arquitecto
     university: 1
     grado: 2
     modalidad: 1
@@ -81,7 +81,7 @@
 - model: becas.programs
   pk: 11
   fields:
-    programa: ING. CIVIL
+    programa: Ing. Civil
     university: 1
     grado: 2
     modalidad: 1
@@ -89,7 +89,7 @@
 - model: becas.programs
   pk: 12
   fields:
-    programa: LIC. EN URBANISMO
+    programa: Lic. En Urbanismo
     university: 1
     grado: 2
     modalidad: 1

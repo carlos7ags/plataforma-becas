@@ -34,7 +34,8 @@ class Convocatorias(models.Model):
 class Aspirantes(models.Model):
     """Información convocatorias"""
 
-    folio = models.AutoField(primary_key=True)
+    aspirante_id = models.AutoField(primary_key=True)
+    folio = models.CharField("Código", max_length=16)
     convocatoria = models.ForeignKey(
         to=Convocatorias,
         on_delete=models.CASCADE,
