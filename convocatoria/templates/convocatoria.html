@@ -10,7 +10,19 @@
             <h5 class="card-title">{{ convoc.name }} - {{ convoc.modalidad }}</h5>
             <p class="card-text">{{ convoc.description }}</p>
             {% if status == True %}
-                <a href="{% url "dashboard" %}" class="btn btn-success">Registrate</a>
+
+                <button id="create-aspirante-{{ convoc.codigo }}" type="button" class="btn btn-primary" name="button-{{ convoc.codigo }}">
+                    Registrate
+                </button>
+
+                <script type="text/javascript">
+                    $(document).ready(function () {
+                        $("#create-aspirante-{{ convoc.codigo }}").modalForm({
+                            formURL: "{% url 'create-aspirante' %}"
+                        });
+                    });
+                </script>
+
             {% else %}
                 <a href="#" class="btn btn-danger">Cerrada</a>
             {% endif %}

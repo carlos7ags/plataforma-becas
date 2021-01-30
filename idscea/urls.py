@@ -6,7 +6,7 @@ from accounts.views import UserRegistrationView
 import django.contrib.auth.views as auth_views
 from django.contrib.auth.decorators import login_required
 from becas.views import StudentProfile, StudentProfileUpdate, UpdateStudentRedirectView, StudentAcademicProgramView, StudentAcademicProgramUpdate, UpdateStudentAcademicProgramRedirectView, load_programs, DashboardView, SocioEconomicStudyView, SocioEconomicStudyUpdate, UpdateSocioEconomicStudyRedirectView
-from convocatoria.views import ConvocatoriasView
+from convocatoria.views import ConvocatoriasView, AspirantesCreateView
 
 
 urlpatterns = [
@@ -29,6 +29,7 @@ urlpatterns = [
     path('dashboard/', login_required(DashboardView.as_view()), name='dashboard'),
 
     path('convocatorias/', login_required(ConvocatoriasView.as_view()), name='convocatorias'),
+    path('convocatorias/aspirante', login_required(AspirantesCreateView.as_view()), name='create-aspirante'),
 
     path('profile/', login_required(StudentProfile.as_view()), name='student-profile'),
     url(r'profile/(?P<pk>\d+)/update/$', login_required(StudentProfileUpdate.as_view()), name='student-profile-update'),
@@ -42,5 +43,6 @@ urlpatterns = [
     url(r'academic/(?P<pk>\d+)/update/$', login_required(StudentAcademicProgramUpdate.as_view()), name='academic-program-update'),
     path('academic/redirect', login_required(UpdateStudentAcademicProgramRedirectView.as_view()), name='academic-program-redirect'),
     path('ajax/load-programs/', load_programs, name='ajax-load-programs'),
+
 
 ]
