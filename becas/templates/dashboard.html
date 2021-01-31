@@ -59,7 +59,7 @@
                                 <h5 class="card-title">Estudio Socioeconómico</h5>
                                 <p class="card-text">Para formar una mejor idea de quien eres queremos conocer un poco
                                     más de ti.</p>
-                                {% if student == True %}
+                                {% if socioeconomico == True %}
                                     <a href="{% url "socio-economic-study-redirect" %}" class="btn btn-success">Actualizar</a>
                                 {% else %}
                                     <a href="{% url "socio-economic-study-redirect" %}"
@@ -80,12 +80,12 @@
             <div class="col col-lg my-4">
                 <h2>Historial de convocatorias</h2>
 
-                {%  if active_calls == True %}
+                {% if active_calls == True %}
 
-                {% include "dashboard_calls.html" %}
+                    {% include "dashboard_calls.html" %}
                 {% else %}
-                <p>Por el momento no etstas registrado en ninguna convocatoria.</p>
-                {%  endif %}
+                    <p>Por el momento no etstas registrado en ninguna convocatoria.</p>
+                {% endif %}
 
             </div>
         </div>

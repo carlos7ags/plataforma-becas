@@ -27,7 +27,9 @@ class DashboardView(TemplateView):
         context["program"] = self.request.user in [
             student.username for student in StudentAcademicProgram.objects.all()
         ]
-
+        context["socioeconomico"] = self.request.user in [
+            student.username for student in SocioEconomicStudy.objects.all()
+        ]
         calls = Aspirantes.objects.filter(username=self.request.user.id)
         if calls:
             context["active_calls"] = True
@@ -103,7 +105,7 @@ class StudentAcademicProgramView(SuccessMessageMixin, CreateView):
 class StudentAcademicProgramUpdate(SuccessMessageMixin, UpdateView):
     model = StudentAcademicProgram
     form_class = StudentAcademicProgramForm
-    template_name = "academic_program_update.html"
+    template_name = "academic_program.html"
     success_url = reverse_lazy("dashboard")
     success_message = "¡Tu información académica se actualizó con éxito!"
 
