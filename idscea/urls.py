@@ -7,6 +7,8 @@ import django.contrib.auth.views as auth_views
 from django.contrib.auth.decorators import login_required
 from becas.views import StudentProfile, StudentProfileUpdate, UpdateStudentRedirectView, StudentAcademicProgramView, StudentAcademicProgramUpdate, UpdateStudentAcademicProgramRedirectView, load_programs, DashboardView, SocioEconomicStudyView, SocioEconomicStudyUpdate, UpdateSocioEconomicStudyRedirectView
 from convocatoria.views import ConvocatoriasView, AspirantesCreateView
+from django.conf.urls.static import static
+from django.conf import settings
 
 
 urlpatterns = [
@@ -24,7 +26,6 @@ urlpatterns = [
     path('password_reset/done/', auth_views.PasswordResetDoneView.as_view(template_name='password_reset_done.html'), name='password_reset_done'),
     path('reset/<uidb64>/<token>/', auth_views.PasswordResetConfirmView.as_view(template_name='password_reset_confirm.html'), name='password_reset_confirm'),
     path('reset/done/', auth_views.PasswordResetCompleteView.as_view(template_name='password_reset_complete.html'), name='password_reset_complete'),
-
 
     path('dashboard/', login_required(DashboardView.as_view()), name='dashboard'),
 
@@ -44,5 +45,6 @@ urlpatterns = [
     path('academic/redirect', login_required(UpdateStudentAcademicProgramRedirectView.as_view()), name='academic-program-redirect'),
     path('ajax/load-programs/', load_programs, name='ajax-load-programs'),
 
-
 ]
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -44,12 +44,19 @@ class StudentProfile(SuccessMessageMixin, CreateView):
     success_url = reverse_lazy("dashboard")
     success_message = "¡Tu perfil se actualizó con éxito!"
 
-    def form_valid(self, form):
-        if form.is_valid:
+    def get(self, request, *args, **kwargs):
+        form = self.form_class()
+        return render(request, self.template_name, {'form': form})
+
+    def post(self, request, *args, **kwargs):
+        form = self.form_class(request.POST, request.FILES)
+        if form.is_valid():
             form.instance.username = self.request.user
             obj = form.save(commit=False)
             obj.save()
-            return redirect("dashboard")
+            return redirect(self.success_url)
+        else:
+            return render(request, self.template_name, {'form': form})
 
 
 class StudentProfileUpdate(SuccessMessageMixin, UpdateView):

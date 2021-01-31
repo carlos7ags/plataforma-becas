@@ -24,7 +24,6 @@ from becas.models import Student, StudentAcademicProgram, SocioEconomicStudy
 from datetime import datetime
 from crispy_forms.helper import FormHelper
 
-
 class StudentForm(ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -52,6 +51,10 @@ class StudentForm(ModelForm):
             Row(
                 Column("ine", css_class="form-group col-md-4 mb-1"),
                 Column("marital_status", css_class="form-group col-md-4 mb-1"),
+                css_class="form-row",
+            ),
+            Row(
+                Column(Field("pic"), css_class="form-group col-md-8 mb-1"),
                 css_class="form-row",
             ),
             HTML("<br><h4>Datos de Contacto</h4>"),
