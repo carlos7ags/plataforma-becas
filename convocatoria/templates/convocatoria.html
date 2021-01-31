@@ -1,6 +1,6 @@
 
 
-{% for convoc, status in convocatorias %}
+{% for convoc, status, particpated in convocatorias %}
 
     <div class="card text-center my-4">
         <div class="card-header">
@@ -9,7 +9,12 @@
         <div class="card-body">
             <h5 class="card-title">{{ convoc.name }} - {{ convoc.modalidad }}</h5>
             <p class="card-text">{{ convoc.description }}</p>
-            {% if status == True %}
+
+
+            {% if particpated == True %}
+                        <a href="#" class="btn btn-success">Ya se ha registrado</a>
+
+            {% elif status == True %}
 
                 <button id="create-aspirante-{{ convoc.codigo }}" type="button" class="btn btn-primary" name="button-{{ convoc.codigo }}">
                     Registrate
@@ -18,7 +23,7 @@
                 <script type="text/javascript">
                     $(document).ready(function () {
                         $("#create-aspirante-{{ convoc.codigo }}").modalForm({
-                            formURL: "{% url 'create-aspirante' %}"
+                            formURL: "{% url 'create-aspirante' convocatoria=convoc.codigo %}"
                         });
                     });
                 </script>

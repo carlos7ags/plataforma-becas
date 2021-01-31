@@ -82,7 +82,18 @@
 
                 {% if active_calls == True %}
 
-                    {% include "dashboard_calls.html" %}
+                    <table class="table table-light table-striped">
+                        <tr>
+                            <th>Convocatoria</th>
+                            <th>Nombre</th>
+                            <th>Folio</th>
+                            <th>Validado</th>
+                            <th>Resultado</th>
+                            <th>Fecha de registro</th>
+                        </tr>
+                        {% include "dashboard_calls.html" %}
+                    </table>
+
                 {% else %}
                     <p>Por el momento no etstas registrado en ninguna convocatoria.</p>
                 {% endif %}

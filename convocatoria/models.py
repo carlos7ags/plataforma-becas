@@ -51,7 +51,7 @@ class Aspirantes(models.Model):
     general_score = models.IntegerField("Score", null=True)
     beneficiado = models.BooleanField("Beneficiado", null=True)
     validated = models.BooleanField(default=False)
-    date = models.DateTimeField(auto_created=True)
+    date = models.DateTimeField(auto_now_add=True)
 
     class Meta:
        unique_together = (('convocatoria', 'username',),)
