@@ -23,7 +23,7 @@ from crispy_forms.bootstrap import (
 )
 
 
-class AspirantesForm(BSModalModelForm):
+class AspirantesForm(ModelForm):
     class Meta:
         model = Aspirantes
         fields = ()

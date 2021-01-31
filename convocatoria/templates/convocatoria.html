@@ -12,21 +12,42 @@
 
 
             {% if particpated == True %}
-                        <a href="#" class="btn btn-success">Ya se ha registrado</a>
+                <a href="#" class="btn btn-success">Ya se ha registrado</a>
 
             {% elif status == True %}
 
-                <button id="create-aspirante-{{ convoc.codigo }}" type="button" class="btn btn-primary" name="button-{{ convoc.codigo }}">
+                <button type="button" class="btn btn-primary create-aspirante-{{ convoc.codigo }}">
                     Registrate
                 </button>
 
-                <script type="text/javascript">
-                    $(document).ready(function () {
-                        $("#create-aspirante-{{ convoc.codigo }}").modalForm({
-                            formURL: "{% url 'create-aspirante' convocatoria=convoc.codigo %}",
+                <div class="modal fade" id="modal-{{ convoc.codigo }}" tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                        </div>
+                    </div>
+                </div>
 
+                <script type="text/javascript">
+                    $(function () {
+                        $(".create-aspirante-{{ convoc.codigo }}").click(function () {
+                            $.ajax({
+                                url: '{% url 'create-aspirante' %}',
+                                type: 'get',
+                                dataType: 'json',
+                                beforeSend: function () {
+                                    $("#modal-{{ convoc.codigo }}").modal("show");
+                                },
+                                success: function (data) {
+                                    console.log("hii");
+                                    $("#modal-{{ convoc.codigo }} .modal-content").html(data.html_form);
+                                },
+                                fail: function () {
+                                    alert("Error with ajax");
+                                }
+                            });
                         });
                     });
+
                 </script>
 
             {% else %}

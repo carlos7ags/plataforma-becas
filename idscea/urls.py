@@ -6,7 +6,7 @@ from accounts.views import UserRegistrationView
 import django.contrib.auth.views as auth_views
 from django.contrib.auth.decorators import login_required
 from becas.views import StudentProfile, StudentProfileUpdate, UpdateStudentRedirectView, StudentAcademicProgramView, StudentAcademicProgramUpdate, UpdateStudentAcademicProgramRedirectView, load_programs, DashboardView, SocioEconomicStudyView, SocioEconomicStudyUpdate, UpdateSocioEconomicStudyRedirectView
-from convocatoria.views import ConvocatoriasView, AspirantesCreateView
+from convocatoria.views import ConvocatoriasView, aspirante_create
 from django.conf.urls.static import static
 from django.conf import settings
 
@@ -30,7 +30,7 @@ urlpatterns = [
     path('dashboard/', login_required(DashboardView.as_view()), name='dashboard'),
 
     path('convocatorias/', login_required(ConvocatoriasView.as_view()), name='convocatorias'),
-    path('convocatorias/<convocatoria>', login_required(AspirantesCreateView.as_view()), name='create-aspirante'),
+    path('convocatorias/create', login_required(aspirante_create), name='create-aspirante'),
 
     path('profile/', login_required(StudentProfile.as_view()), name='student-profile'),
     url(r'profile/(?P<pk>\d+)/update/$', login_required(StudentProfileUpdate.as_view()), name='student-profile-update'),

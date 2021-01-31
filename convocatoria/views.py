@@ -8,7 +8,8 @@ from convocatoria.forms import AspirantesForm
 from bootstrap_modal_forms.generic import BSModalCreateView
 from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
+from django.template.loader import render_to_string
 
 
 class ConvocatoriasView(TemplateView):
@@ -37,9 +38,31 @@ class ConvocatoriasView(TemplateView):
         return profile and program and socioeconomic
 
 
-class AspirantesCreateView(BSModalCreateView):
-    template_name = 'register_aspirant.html'
-    form_class = AspirantesForm
-    success_message = 'Felicidades: Tu aplicación se registro con éxito.'
-    success_url = reverse_lazy('dashboard')
+def aspirante_create(request):
+    data = dict()
+    if request.method == 'POST':
+        form = AspirantesForm(request.POST)
+        if form.is_valid():
+            obj = form.save(commit=False)
+            obj.username = request.user
+            obj.folio = convoc_code + str(obj.pk + 20210000)
+            obj.save()
+            data['form_is_valid'] = True
+            return redirect("dashboard")
+        else:
+            data['form_is_valid'] = False
+    else:
+        form = AspirantesForm()
+
+    context = {'form': form}
+    data['html_form'] = render_to_string('register_aspirant.html',
+        context,
+        request=request
+    )
+    return JsonResponse(data)
+
+
+
+
+
 
