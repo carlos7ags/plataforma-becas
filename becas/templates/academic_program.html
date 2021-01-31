@@ -22,8 +22,7 @@
                 <form method="POST" action="" id="academicProgramForm"
                       academic-programs-url="{% url 'ajax-load-programs' %}">
                     {% csrf_token %}
-                    {{ form|crispy }}
-                    <input type="submit" value="Guardar">
+                    {% crispy form %}
                 </form>
 
             </div>
@@ -33,7 +32,6 @@
     <script>
 
         var url = $("#academicProgramForm").attr("academic-programs-url");
-
 
         if (document.getElementById("id_university").selectedIndex == 0 && document.getElementById("id_grado").selectedIndex == 0) {
             $("#id_programa").html("<option value=\"\">---------</option>");
