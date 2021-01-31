@@ -23,7 +23,8 @@
                 <script type="text/javascript">
                     $(document).ready(function () {
                         $("#create-aspirante-{{ convoc.codigo }}").modalForm({
-                            formURL: "{% url 'create-aspirante' convocatoria=convoc.codigo %}"
+                            formURL: "{% url 'create-aspirante' convocatoria=convoc.codigo %}",
+
                         });
                     });
                 </script>

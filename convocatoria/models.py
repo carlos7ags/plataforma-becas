@@ -35,7 +35,7 @@ class Aspirantes(models.Model):
     """Información convocatorias"""
 
     aspirante_id = models.AutoField(primary_key=True)
-    folio = models.CharField("Código", max_length=16, unique=True)
+    folio = models.CharField("Folio", max_length=16, unique=True)
     convocatoria = models.ForeignKey(
         to=Convocatorias,
         on_delete=models.CASCADE,
@@ -44,7 +44,7 @@ class Aspirantes(models.Model):
     username = models.ForeignKey(
         settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE,
-        editable=False,
+        verbose_name="Estudiante",
     )
     grade = models.IntegerField("Calificación", null=True)
     socioeconomic_score = models.IntegerField("Estudio socioeconómico", null=True)
