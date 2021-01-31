@@ -1,0 +1,19 @@
+<table class="table table-light table-striped">
+    <tr>
+        <th>Convocatoria</th>
+        <th>Nombre</th>
+        <th>Folio</th>
+        <th>Validado</th>
+        <th>Resultado</th>
+    </tr>
+    {% for call in calls %}
+    <tr>
+        <td>{% call.convocatoria %}</td>
+        <td>{% call.convocatoria.name %}</td>
+        <td>{% call.folio %}</td>
+        <td>{% call.validated %}</td>
+        <td>{% call.beneficiado %}</td>
+        <td>Ok</td>
+    </tr>
+    {% endblock %}
+</table>

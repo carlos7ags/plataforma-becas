@@ -9,6 +9,7 @@ from django.views.generic import (
 from django.urls import reverse_lazy
 from becas.forms import StudentForm, StudentAcademicProgramForm, SocioEconomicStudyForm
 from django.urls import reverse
+from convocatoria.models import Convocatorias, Aspirantes
 from becas.models import Student, Programs, StudentAcademicProgram, SocioEconomicStudy
 from django.contrib.auth.views import redirect_to_login
 from django.contrib.messages.views import SuccessMessageMixin
@@ -26,7 +27,15 @@ class DashboardView(TemplateView):
         context["program"] = self.request.user in [
             student.username for student in StudentAcademicProgram.objects.all()
         ]
+
+        calls = Aspirantes.objects.filter(username=self.request.user.id)
+        if calls:
+            context["active_calls"] = True
+            context["calls"] = calls
+        else:
+            context["active_calls"] = False
         return context
+
 
 
 class StudentProfile(SuccessMessageMixin, CreateView):

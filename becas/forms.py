@@ -10,6 +10,7 @@ from crispy_forms.layout import (
     Div,
     Button,
     MultiField,
+    Reset
 )
 from crispy_forms.bootstrap import (
     Accordion,
@@ -75,7 +76,7 @@ class StudentForm(ModelForm):
                 Column("celular", css_class="form-group col-md-3 mb-1"),
                 css_class="form-row",
             ),
-            FormActions(Submit("save", "Guardar"), Button("cancel", "Cancelar")),
+            FormActions(Submit("save", "Guardar"),),
         )
 
     class Meta:
@@ -112,7 +113,7 @@ class StudentAcademicProgramForm(ModelForm):
                 css_class="form-row",
             ),
             "continua",
-            FormActions(Submit("save", "Guardar"), Button("cancel", "Cancelar")),
+            FormActions(Submit("save", "Guardar"),),
         )
 
     class Meta:
@@ -247,7 +248,7 @@ class SocioEconomicStudyForm(ModelForm):
             Row(
                 Column(Field("home_type"), css_class="form-group col-md-4 mb-1"),
                 Column(Field("home_floor"), css_class="form-group col-md-4 mb-1"),
-                css_class = "form-row"
+                css_class="form-row",
             ),
             Row(
                 Column(Field("home_ceil"), css_class="form-group col-md-4 mb-1"),
@@ -270,7 +271,7 @@ class SocioEconomicStudyForm(ModelForm):
                 Column(Field("service_gas"), css_class="form-group col-md-4 mb-1"),
                 css_class="form-row",
             ),
-            FormActions(Submit("save", "Guardar"), Button("cancel", "Cancelar")),
+            FormActions(Submit("save", "Guardar"),),
         )
 
     class Meta:

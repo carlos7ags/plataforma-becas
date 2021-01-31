@@ -79,24 +79,13 @@
         <div class="row justify-content-md-center my-4" style="background-color:white;">
             <div class="col col-lg my-4">
                 <h2>Historial de convocatorias</h2>
-                <table class="table table-light table-striped">
-                    <tr>
-                        <th>Convocatoria</th>
-                        <th>Resultado</th>
-                    </tr>
-                    <tr>
-                        <td>Perfil</td>
-                        <td>Ok</td>
-                    </tr>
-                    <tr>
-                        <td>Información académica</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>Estudio socioeconómico</td>
-                        <td></td>
-                    </tr>
-                </table>
+
+                {%  if active_calls == True %}
+
+                {% include "dashboard_calls.html" %}
+                {% else %}
+                <p>Por el momento no etstas registrado en ninguna convocatoria.</p>
+                {%  endif %}
 
             </div>
         </div>
