@@ -34,8 +34,8 @@ class Convocatorias(models.Model):
 class Aspirantes(models.Model):
     """Información convocatorias"""
 
-    aspirante_id = models.AutoField(primary_key=True)
-    folio = models.CharField("Código", max_length=16)
+    id = models.AutoField(primary_key=True)
+    folio = models.CharField("Folio", max_length=16, unique=True)
     convocatoria = models.ForeignKey(
         to=Convocatorias,
         on_delete=models.CASCADE,
@@ -44,13 +44,17 @@ class Aspirantes(models.Model):
     username = models.ForeignKey(
         settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE,
-        editable=False,
+        verbose_name="Estudiante",
     )
     grade = models.IntegerField("Calificación", null=True)
     socioeconomic_score = models.IntegerField("Estudio socioeconómico", null=True)
     general_score = models.IntegerField("Score", null=True)
     beneficiado = models.BooleanField("Beneficiado", null=True)
+    validated = models.BooleanField(default=False)
     date = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+       unique_together = (('convocatoria', 'username',),)
 
     def __str__(self):
         return "%s" % self.folio

@@ -1,0 +1,11 @@
+
+    {% for call in calls %}
+    <tr>
+        <td>{{ call.convocatoria.codigo }}</td>
+        <td>{{ call.convocatoria.name }}</td>
+        <td>{{ call.folio }}</td>
+        <td>{{ call.validated }}</td>
+        <td>{{ call.beneficiado }}</td>
+        <td>{{ call.date }}</td>
+    </tr>
+    {%  endfor %}

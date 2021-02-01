@@ -1,11 +1,23 @@
 from django.db import models
 from django.core.validators import RegexValidator, MinValueValidator, MaxValueValidator
 from django.conf import settings
+from PIL import Image
+import os
+from uuid import uuid4
+
+
+def path_and_rename(instance, filename):
+    upload_to = 'photos'
+    ext = filename.split('.')[-1]
+    # set filename as random string
+    filename = '{}.{}'.format(uuid4().hex, ext)
+    # return the whole path to the file
+    return os.path.join(upload_to, filename)
 
 
 class Estados(models.Model):
     estado_id = models.AutoField(primary_key=True)
-    estado = models.CharField("Estado", max_length=30)
+    estado = models.CharField("Estado", max_length=50)
 
     def __str__(self):
         return "%s" % self.estado
@@ -13,7 +25,7 @@ class Estados(models.Model):
 
 class Municipios(models.Model):
     municipio_id = models.AutoField(primary_key=True)
-    municipio = models.CharField("Municipio", max_length=30)
+    municipio = models.CharField("Municipio", max_length=50)
 
     def __str__(self):
         return "%s" % self.municipio
@@ -38,13 +50,12 @@ class Student(models.Model):
     username = models.OneToOneField(
         settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE,
-        editable=False,
         primary_key=True,
     )
     student_id = models.CharField(
-        "Número de identifcación del estudiante", max_length=30
+        "Número de identifcación del estudiante", max_length=25
     )
-    nombre = models.CharField("Nombre(s)", max_length=30)
+    nombre = models.CharField("Nombre(s)", max_length=35)
     primer_apellido = models.CharField("Apellido paterno", max_length=15)
     segundo_apellido = models.CharField("Apellido materno", max_length=15)
     fecha_nacimiento = models.DateField("Fecha de nacimiento")
@@ -111,6 +122,17 @@ class Student(models.Model):
         ],
     )
     validated = models.BooleanField(default=False)
+    pic = models.ImageField("Foto de perfil", upload_to=path_and_rename, null=False, blank=False,
+                            help_text="Esta fotografía se imprimira en la solicitud y expendiente. Se requiere fotografía tipo pasaporte.")
+
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
+        img = Image.open(self.pic.path)
+        if img.mode in ("RGBA", "P"): img = img.convert("RGB")
+        if img.height > 300 or img.width > 300:
+            output_size = (300, 300)
+            img.thumbnail(output_size)
+            img.save(self.pic.path)
 
     def __str__(self):
         return "%s" % self.username
@@ -119,7 +141,7 @@ class Student(models.Model):
 class Universities(models.Model):
 
     university_id = models.AutoField(primary_key=True)
-    university = models.CharField("Universidad", max_length=30)
+    university = models.CharField("Universidad", max_length=50)
 
     def __str__(self):
         return "%s" % self.university
@@ -128,7 +150,7 @@ class Universities(models.Model):
 class Modalidades(models.Model):
 
     modalidad_id = models.AutoField(primary_key=True)
-    modalidad = models.CharField("Modalidad", max_length=30)
+    modalidad = models.CharField("Modalidad", max_length=50)
 
     def __str__(self):
         return "%s" % self.modalidad
@@ -136,7 +158,7 @@ class Modalidades(models.Model):
 
 class Grados(models.Model):
     grado_id = models.AutoField(primary_key=True)
-    grado = models.CharField("Modalidad", max_length=30)
+    grado = models.CharField("Modalidad", max_length=50)
 
     def __str__(self):
         return "%s" % self.grado
@@ -170,7 +192,6 @@ class StudentAcademicProgram(models.Model):
     username = models.OneToOneField(
         settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE,
-        editable=False,
         primary_key=True,
     )
     university = models.ForeignKey(
@@ -185,7 +206,7 @@ class StudentAcademicProgram(models.Model):
     )
     continua = models.BooleanField(
         "En caso de TSU, planeo continuar con mis estudios a nivel licenciatura o ingeniería.",
-        max_length=30,
+        max_length=50,
     )
     programa = models.ForeignKey(
         to=Programs,
@@ -217,7 +238,7 @@ class PovertyRange(models.Model):
     poverty_id = models.AutoField(primary_key=True)
     poverty = models.CharField(
         "Rango de pobreza de su colonia",
-        max_length=30,
+        max_length=50,
     )
     value = models.IntegerField("Puntuación")
 
@@ -231,7 +252,7 @@ class AverageGradeRanges(models.Model):
     average_grade_range_id = models.AutoField(primary_key=True)
     average_grade_range = models.CharField(
         "Promedio general",
-        max_length=30,
+        max_length=50,
     )
     value = models.IntegerField("Puntuación")
 
@@ -441,7 +462,6 @@ class SocioEconomicStudy(models.Model):
     username = models.OneToOneField(
         settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE,
-        editable=False,
         primary_key=True,
     )
     poverty_range = models.ForeignKey(
@@ -463,19 +483,19 @@ class SocioEconomicStudy(models.Model):
         verbose_name="Número de integrantes de la familia",
     )
     # ToDo: Replace with dynamic forms
-    dad_occupation = models.CharField("", max_length=30, null=True, blank=True)
+    dad_occupation = models.CharField("", max_length=50, null=True, blank=True)
     dad_income = models.IntegerField("", blank=True, null=True)
-    mom_occupation = models.CharField("", max_length=30, null=True, blank=True)
+    mom_occupation = models.CharField("", max_length=50, null=True, blank=True)
     mom_income = models.IntegerField("", blank=True, null=True)
-    son_occupation = models.CharField("", max_length=30, null=True, blank=True)
+    son_occupation = models.CharField("", max_length=50, null=True, blank=True)
     son_income = models.IntegerField("", blank=True, null=True)
-    candidate_occupation = models.CharField("", max_length=30, null=True, blank=True)
+    candidate_occupation = models.CharField("", max_length=50, null=True, blank=True)
     candidate_income = models.IntegerField(
         "",
         blank=True,
         null=True,
     )
-    other_occupation = models.CharField("", max_length=30, null=True, blank=True)
+    other_occupation = models.CharField("", max_length=50, null=True, blank=True)
     other_income = models.IntegerField(
         "",
         blank=True,

@@ -14,17 +14,30 @@
         </div>
     </div>
 
+    <div class="modal fade" style="display:none;" tabindex="-1" role="dialog" id="modal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content"></div>
+        </div>
+    </div>
 
     <div class="container">
         <div class="row justify-content-md-center my-4" style="background-color:white;">
             <div class="col col-lg my-4">
-                <p>Puedes participar en cualquiera de las siguienes convocatorias.</p>
 
-                {% include "convocatoria.html" %}
+                {% if complete_forms == True %}
+                    <p>Puedes participar en cualquiera de las siguienes convocatorias.</p>
+                    {% include "convocatoria.html" %}
+                {% else %}
+                    <p>Es necesario completar tu perfil, información académica y estudio socioeconómico para participar
+                        en cualquier convocatoria.</p>
+                {% endif %}
 
             </div>
         </div>
     </div>
+
+
+
 
 
 {% endblock %}

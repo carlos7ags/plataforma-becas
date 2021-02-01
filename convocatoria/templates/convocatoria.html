@@ -1,6 +1,6 @@
 
 
-{% for convoc, status in convocatorias %}
+{% for convoc, status, particpated in convocatorias %}
 
     <div class="card text-center my-4">
         <div class="card-header">
@@ -9,8 +9,45 @@
         <div class="card-body">
             <h5 class="card-title">{{ convoc.name }} - {{ convoc.modalidad }}</h5>
             <p class="card-text">{{ convoc.description }}</p>
-            {% if status == True %}
-                <a href="{% url "dashboard" %}" class="btn btn-success">Registrate</a>
+
+
+            {% if particpated == True %}
+                <a href="#" class="btn btn-success">Ya se ha registrado</a>
+
+            {% elif status == True %}
+
+                <button type="button" class="btn btn-primary create-aspirante-{{ convoc.codigo }}">
+                    Registrate
+                </button>
+
+                <div class="modal fade" id="modal-{{ convoc.codigo }}" tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                        </div>
+                    </div>
+                </div>
+
+                <script type="text/javascript">
+                    $(function () {
+                        $(".create-aspirante-{{ convoc.codigo }}").click(function () {
+                            $.ajax({
+                                url: '{% url 'create-aspirante' convocCode=convoc.codigo %}',
+                                type: 'get',
+                                dataType: 'json',
+                                beforeSend: function () {
+                                    $("#modal-{{ convoc.codigo }}").modal("show");
+                                },
+                                success: function (data) {
+                                    $("#modal-{{ convoc.codigo }} .modal-content").html(data.html_form);
+                                },
+                                fail: function () {
+                                    alert("Error with ajax");
+                                }
+                            });
+                        });
+                    });
+                </script>
+
             {% else %}
                 <a href="#" class="btn btn-danger">Cerrada</a>
             {% endif %}
