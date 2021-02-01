@@ -10,7 +10,8 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse
 from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 from django.template.loader import render_to_string
-
+from becas.models import (PovertyRange, AverageGradeRanges, FamilyMembersRange, FamilyMonthlyIncome, ParentsEducationLevel, ParentsEducationLevel, SocialSecurity, ProviderPerks, HomeType, HomeFloor, HomeCeil, HomeWalls,
+HomePersons, ServiceWater, ServiceElectricity, ServiceSewer, ServiceGas,)
 
 class ConvocatoriasView(TemplateView):
     template_name = "convocatorias.html"
@@ -49,9 +50,10 @@ def aspirante_create(request, convocCode):
             obj.id = last_id.id + 1 if last_id else 27
             obj.convocatoria = Convocatorias.objects.filter(codigo=convocCode).first()
             obj.folio = convocCode + str(obj.id + 20210000)
+            obj.socioeconomic_score = get_socio_economic_result(request.user)
+            obj.grade = StudentAcademicProgram.objects.filter(username=request.user).first().promedio
             obj.save()
             data['form_is_valid'] = True
-            return redirect("dashboard")
         else:
             data['form_is_valid'] = False
     else:
@@ -66,7 +68,31 @@ def aspirante_create(request, convocCode):
     return JsonResponse(data)
 
 
+def get_socio_economic_result(username):
+    return 0
 
+"""
+    answers = StudentAcademicProgram.objects.filter(username=username).first()
+    elements = {
+    "poverty_range": PovertyRange,
+    "average_grade_range": AverageGradeRanges,
+    "family_members": FamilyMembersRange,
+    "family_monthly_income": FamilyMonthlyIncome,
+    "education_level_father": ParentsEducationLevel,
+    "education_level_mother": ParentsEducationLevel,
+    "social_security": SocialSecurity,
+    "provider_perks": ProviderPerks,
+    "home_type": HomeType,
+    "home_floor": HomeFloor,
+    "home_ceil": HomeCeil,
+    "home_walls": HomeWalls,
+    "home_persons": HomePersons,
+    "service_water": ServiceWater,
+    "service_electricity": ServiceElectricity,
+    "service_sewer": ServiceSewer,
+    "service_gas": ServiceGas,
+    }
+    for key, elem in elements:
+        answers[elem]
 
-
-
+"""
