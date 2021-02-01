@@ -34,7 +34,7 @@ class Convocatorias(models.Model):
 class Aspirantes(models.Model):
     """Información convocatorias"""
 
-    aspirante_id = models.AutoField(primary_key=True)
+    id = models.AutoField(primary_key=True)
     folio = models.CharField("Folio", max_length=16, unique=True)
     convocatoria = models.ForeignKey(
         to=Convocatorias,

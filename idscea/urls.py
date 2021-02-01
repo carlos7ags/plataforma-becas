@@ -30,7 +30,7 @@ urlpatterns = [
     path('dashboard/', login_required(DashboardView.as_view()), name='dashboard'),
 
     path('convocatorias/', login_required(ConvocatoriasView.as_view()), name='convocatorias'),
-    path('convocatorias/create', login_required(aspirante_create), name='create-aspirante'),
+    url(r'convocatorias/(?P<convocCode>[a-zA-Z0-9]+)/$', login_required(aspirante_create), name='create-aspirante'),
 
     path('profile/', login_required(StudentProfile.as_view()), name='student-profile'),
     url(r'profile/(?P<pk>\d+)/update/$', login_required(StudentProfileUpdate.as_view()), name='student-profile-update'),

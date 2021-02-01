@@ -38,14 +38,17 @@ class ConvocatoriasView(TemplateView):
         return profile and program and socioeconomic
 
 
-def aspirante_create(request):
+def aspirante_create(request, convocCode):
     data = dict()
     if request.method == 'POST':
         form = AspirantesForm(request.POST)
         if form.is_valid():
             obj = form.save(commit=False)
             obj.username = request.user
-            obj.folio = convoc_code + str(obj.pk + 20210000)
+            last_id = Aspirantes.objects.all().order_by("-id").first()
+            obj.id = last_id.id + 1 if last_id else 27
+            obj.convocatoria = Convocatorias.objects.filter(codigo=convocCode).first()
+            obj.folio = convocCode + str(obj.id + 20210000)
             obj.save()
             data['form_is_valid'] = True
             return redirect("dashboard")
@@ -54,7 +57,8 @@ def aspirante_create(request):
     else:
         form = AspirantesForm()
 
-    context = {'form': form}
+    context = {'form': form,
+               'convocCode': convocCode}
     data['html_form'] = render_to_string('register_aspirant.html',
         context,
         request=request
