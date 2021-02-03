@@ -1,3 +1,1862 @@
+
+- model: becas.programs
+  pk: 1
+  fields:
+    programa: Lic. en Letras Hispanicas
+    university: 1
+    grado: 2
+    modalidad: 1
+    duracion: 9
+    costo: 6798.00
+- model: becas.programs
+  pk: 2
+  fields:
+    programa: Lic. En Artes Escenicas Actuacion
+    university: 1
+    grado: 2
+    modalidad: 1
+    duracion: 8
+    costo: 6798.00
+- model: becas.programs
+  pk: 3
+  fields:
+    programa: Lic. En Artes Cinematograficas Y Audiovisuales
+    university: 1
+    grado: 2
+    modalidad: 1
+    duracion: 9
+    costo: 11844.00
+- model: becas.programs
+  pk: 4
+  fields:
+    programa: Lic. En Sociologia
+    university: 1
+    grado: 2
+    modalidad: 1
+    duracion: 8
+    costo: 6798.00
+- model: becas.programs
+  pk: 5
+  fields:
+    programa: Lic. En Docencia De Frances Y Español Como Lenguas Extranjeras
+    university: 1
+    grado: 2
+    modalidad: 1
+    duracion: 10
+    costo: 6798.00
+- model: becas.programs
+  pk: 6
+  fields:
+    programa: Lic. En Trabajo Social
+    university: 1
+    grado: 2
+    modalidad: 1
+    duracion: 9
+    costo: 6798.00
+- model: becas.programs
+  pk: 7
+  fields:
+    programa: Lic. En Derecho
+    university: 1
+    grado: 2
+    modalidad: 1
+    duracion: 10
+    costo: 6798.00
+- model: becas.programs
+  pk: 8
+  fields:
+    programa: Lic. En Comunicacion Organizacional
+    university: 1
+    grado: 2
+    modalidad: 1
+    duracion: 10
+    costo: 6798.00
+- model: becas.programs
+  pk: 9
+  fields:
+    programa: Lic. En Asesoria Psicopedagogica
+    university: 1
+    grado: 2
+    modalidad: 1
+    duracion: 8
+    costo: 6798.00
+- model: becas.programs
+  pk: 10
+  fields:
+    programa: Arquitecto
+    university: 1
+    grado: 2
+    modalidad: 1
+    duracion: 10
+    costo: 6798.00
+- model: becas.programs
+  pk: 11
+  fields:
+    programa: Ing. Civil
+    university: 1
+    grado: 2
+    modalidad: 1
+    duracion: 10
+    costo: 6798.00
+- model: becas.programs
+  pk: 12
+  fields:
+    programa: Lic. En Urbanismo
+    university: 1
+    grado: 2
+    modalidad: 1
+    duracion: 10
+    costo: 6798.00
+- model: becas.programs
+  pk: 13
+  fields:
+    programa: LIC. EN DISEÑO DE INTERIORES
+    university: 1
+    grado: 2
+    modalidad: 1
+    duracion: 9
+    costo: 6798.00
+- model: becas.programs
+  pk: 14
+  fields:
+    programa: LIC. EN DISEÑO GRAFICO
+    university: 1
+    grado: 2
+    modalidad: 1
+    duracion: 9
+    costo: 6798.00
+- model: becas.programs
+  pk: 15
+  fields:
+    programa: LIC. EN  DISEÑO DE MODA EN INDUM. Y TEXTILES
+    university: 1
+    grado: 2
+    modalidad: 1
+    duracion: 9
+    costo: 6798.00
+- model: becas.programs
+  pk: 16
+  fields:
+    programa: LIC. EN DISEÑO INDUSTRIAL
+    university: 1
+    grado: 2
+    modalidad: 1
+    duracion: 8
+    costo: 6798.00
+- model: becas.programs
+  pk: 17
+  fields:
+    programa: MEDICO CIRUJANO
+    university: 1
+    grado: 2
+    modalidad: 1
+    duracion: 10
+    costo: 6798.00
+- model: becas.programs
+  pk: 18
+  fields:
+    programa: MEDICO ESTOMATOLOGO
+    university: 1
+    grado: 2
+    modalidad: 1
+    duracion: 10
+    costo: 6798.00
+- model: becas.programs
+  pk: 19
+  fields:
+    programa: MEDICO VETERINARIO ZOOTECNISTA
+    university: 1
+    grado: 2
+    modalidad: 1
+    duracion: 10
+    costo: 6798.00
+- model: becas.programs
+  pk: 20
+  fields:
+    programa: LIC. EN TERAPIA FISICA
+    university: 1
+    grado: 2
+    modalidad: 1
+    duracion: 8
+    costo: 6798.00
+- model: becas.programs
+  pk: 21
+  fields:
+    programa: BIOLOGO
+    university: 1
+    grado: 2
+    modalidad: 1
+    duracion: 9
+    costo: 6798.00
+- model: becas.programs
+  pk: 22
+  fields:
+    programa: LIC. EN OPTOMETRIA
+    university: 1
+    grado: 2
+    modalidad: 1
+    duracion: 8
+    costo: 6798.00
+- model: becas.programs
+  pk: 23
+  fields:
+    programa: LIC. EN ENFERMERIA
+    university: 1
+    grado: 2
+    modalidad: 1
+    duracion: 8
+    costo: 6798.00
+- model: becas.programs
+  pk: 24
+  fields:
+    programa: LIC. EN NUTRICION
+    university: 1
+    grado: 2
+    modalidad: 1
+    duracion: 8
+    costo: 6798.00
+- model: becas.programs
+  pk: 25
+  fields:
+    programa: LIC. EN CULTURA FISICA Y DEPORTE
+    university: 1
+    grado: 2
+    modalidad: 1
+    duracion: 8
+    costo: 6798.00
+- model: becas.programs
+  pk: 26
+  fields:
+    programa: ING. AGRONOMO
+    university: 1
+    grado: 2
+    modalidad: 1
+    duracion: 8
+    costo: 6798.00
+- model: becas.programs
+  pk: 27
+  fields:
+    programa: LIC. EN DOCENCIA DEL IDIOMA INGLES
+    university: 1
+    grado: 2
+    modalidad: 1
+    duracion: 8
+    costo: 6798.00
+- model: becas.programs
+  pk: 28
+  fields:
+    programa: ING. EN ENERGIAS RENOVABLES
+    university: 1
+    grado: 2
+    modalidad: 1
+    duracion: 9
+    costo: 6798.00
+- model: becas.programs
+  pk: 29
+  fields:
+    programa: ING. EN DISEÑO MECANICO
+    university: 1
+    grado: 2
+    modalidad: 1
+    duracion: 9
+    costo: 6798.00
+- model: becas.programs
+  pk: 30
+  fields:
+    programa: ING. AUTOMOTRIZ
+    university: 1
+    grado: 2
+    modalidad: 1
+    duracion: 9
+    costo: 6798.00
+- model: becas.programs
+  pk: 31
+  fields:
+    programa: ING. BIOMEDICA
+    university: 1
+    grado: 2
+    modalidad: 1
+    duracion: 9
+    costo: 6798.00
+- model: becas.programs
+  pk: 32
+  fields:
+    programa: ING. EN ROBOTICA
+    university: 1
+    grado: 2
+    modalidad: 1
+    duracion: 9
+    costo: 6798.00
+- model: becas.programs
+  pk: 33
+  fields:
+    programa: ING. EN MANUFACTURA Y AUTOMATIZACION INDUSTRIAL
+    university: 1
+    grado: 2
+    modalidad: 1
+    duracion: 9
+    costo: 6798.00
+- model: becas.programs
+  pk: 34
+  fields:
+    programa: CONTADOR PUBLICO
+    university: 1
+    grado: 2
+    modalidad: 1
+    duracion: 8
+    costo: 6798.00
+- model: becas.programs
+  pk: 35
+  fields:
+    programa: LIC. EN ADMINISTRACION DE EMPRESAS
+    university: 1
+    grado: 2
+    modalidad: 1
+    duracion: 8
+    costo: 6798.00
+- model: becas.programs
+  pk: 36
+  fields:
+    programa: LIC. EN COMERCIO INTERNACIONAL
+    university: 1
+    grado: 2
+    modalidad: 1
+    duracion: 9
+    costo: 6798.00
+- model: becas.programs
+  pk: 37
+  fields:
+    programa: LIC. EN ADMINISTRACION DE LA PRODUCCION Y SERVICIOS
+    university: 1
+    grado: 2
+    modalidad: 1
+    duracion: 8
+    costo: 6798.00
+- model: becas.programs
+  pk: 38
+  fields:
+    programa: LIC. EN ADMINISTRACION FINANCIERA
+    university: 1
+    grado: 2
+    modalidad: 1
+    duracion: 8
+    costo: 6798.00
+- model: becas.programs
+  pk: 39
+  fields:
+    programa: LIC. EN RELACIONES INDUSTRIALES
+    university: 1
+    grado: 2
+    modalidad: 1
+    duracion: 8
+    costo: 6798.00
+- model: becas.programs
+  pk: 40
+  fields:
+    programa: LIC. EN ECONOMIA
+    university: 1
+    grado: 2
+    modalidad: 1
+    duracion: 8
+    costo: 6798.00
+- model: becas.programs
+  pk: 41
+  fields:
+    programa: LIC. EN MERCADOTECNIA
+    university: 1
+    grado: 2
+    modalidad: 1
+    duracion: 8
+    costo: 6798.00
+- model: becas.programs
+  pk: 42
+  fields:
+    programa: ING. BIOQUIMICO
+    university: 1
+    grado: 2
+    modalidad: 1
+    duracion: 9
+    costo: 6798.00
+- model: becas.programs
+  pk: 43
+  fields:
+    programa: ING. EN SISTEMAS COMPUTACIONALES
+    university: 1
+    grado: 2
+    modalidad: 1
+    duracion: 9
+    costo: 6798.00
+- model: becas.programs
+  pk: 44
+  fields:
+    programa: LIC. EN MATEMATICAS APLICADAS
+    university: 1
+    grado: 2
+    modalidad: 1
+    duracion: 10
+    costo: 6798.00
+- model: becas.programs
+  pk: 45
+  fields:
+    programa: ING. EN COMPUTACION INTELIGENTE
+    university: 1
+    grado: 2
+    modalidad: 1
+    duracion: 10
+    costo: 6798.00
+- model: becas.programs
+  pk: 46
+  fields:
+    programa: ING. EN ELECTRONICA
+    university: 1
+    grado: 2
+    modalidad: 1
+    duracion: 9
+    costo: 6798.00
+- model: becas.programs
+  pk: 47
+  fields:
+    programa: ING. INDUSTRIAL ESTADISTICO
+    university: 1
+    grado: 2
+    modalidad: 1
+    duracion: 10
+    costo: 6798.00
+- model: becas.programs
+  pk: 48
+  fields:
+    programa: LIC. EN HISTORIA
+    university: 1
+    grado: 2
+    modalidad: 1
+    duracion: 9
+    costo: 6798.00
+- model: becas.programs
+  pk: 49
+  fields:
+    programa: LIC. EN PSICOLOGIA
+    university: 1
+    grado: 2
+    modalidad: 1
+    duracion: 9
+    costo: 6798.00
+- model: becas.programs
+  pk: 50
+  fields:
+    programa: LIC. EN FILOSOFIA
+    university: 1
+    grado: 2
+    modalidad: 1
+    duracion: 8
+    costo: 6798.00
+- model: becas.programs
+  pk: 51
+  fields:
+    programa: LIC. EN CIENCIAS POLITICAS Y ADMON. PUB.
+    university: 1
+    grado: 2
+    modalidad: 1
+    duracion: 9
+    costo: 6798.00
+- model: becas.programs
+  pk: 52
+  fields:
+    programa: LIC. EN COMUNICACION E INFORMACION
+    university: 1
+    grado: 2
+    modalidad: 1
+    duracion: 8
+    costo: 6798.00
+- model: becas.programs
+  pk: 53
+  fields:
+    programa: LIC. EN GESTION TURISTICA
+    university: 1
+    grado: 2
+    modalidad: 1
+    duracion: 8
+    costo: 6798.00
+- model: becas.programs
+  pk: 54
+  fields:
+    programa: LIC. EN MUSICA
+    university: 1
+    grado: 2
+    modalidad: 1
+    duracion: 10
+    costo: 11844.00
+- model: becas.programs
+  pk: 55
+  fields:
+    programa: LIC. EN BIOTECNOLOGIA
+    university: 1
+    grado: 2
+    modalidad: 1
+    duracion: 9
+    costo: 6798.00
+- model: becas.programs
+  pk: 56
+  fields:
+    programa: LIC. EN ADMINISTRACION Y GESTION FISCAL DE PYMES
+    university: 1
+    grado: 2
+    modalidad: 1
+    duracion: 8
+    costo: 6798.00
+- model: becas.programs
+  pk: 57
+  fields:
+    programa: LIC. EN LOGISTICA EMPRESARIAL
+    university: 1
+    grado: 2
+    modalidad: 1
+    duracion: 9
+    costo: 6798.00
+- model: becas.programs
+  pk: 58
+  fields:
+    programa: LIC. EN AGRONEGOCIOS
+    university: 1
+    grado: 2
+    modalidad: 1
+    duracion: 9
+    costo: 6798.00
+- model: becas.programs
+  pk: 59
+  fields:
+    programa: LIC. EN COMERCIO ELECTRONICO
+    university: 1
+    grado: 2
+    modalidad: 1
+    duracion: 9
+    costo: 6798.00
+- model: becas.programs
+  pk: 60
+  fields:
+    programa: LIC. EN INFORMATICA Y TECNOLOGIAS COMPUTACIONALES
+    university: 1
+    grado: 2
+    modalidad: 1
+    duracion: 9
+    costo: 6798.00
+- model: becas.programs
+  pk: 61
+  fields:
+    programa: LIC EN ESTUDIOS DEL ARTE Y GESTION CULTURAL
+    university: 1
+    grado: 2
+    modalidad: 1
+    duracion: 9
+    costo: 6798.00
+- model: becas.programs
+  pk: 62
+  fields:
+    programa: QUIMICO FARMACEUTICO BIOLOGO
+    university: 1
+    grado: 2
+    modalidad: 1
+    duracion: 9
+    costo: 6798.00
+- model: becas.programs
+  pk: 63
+  fields:
+    programa: INGENIERO EN ALIMENTOS
+    university: 1
+    grado: 2
+    modalidad: 1
+    duracion: 8
+    costo: 6798.00
+- model: becas.programs
+  pk: 64
+  fields:
+    programa: LIC. EN COMUNICACION CORPORATIVA ESTRATEGICA
+    university: 1
+    grado: 2
+    modalidad: 1
+    duracion: 8
+    costo: 6798.00
+- model: becas.programs
+  pk: 65
+  fields:
+    programa: LIC. EN ACTUACION
+    university: 1
+    grado: 2
+    modalidad: 1
+    duracion: 8
+    costo: 6798.00
+
+
+
+
+- model: becas.programs
+  pk: 66
+  fields:
+    programa: Contador Público
+    university: 2
+    grado: 2
+    modalidad: 2
+    duracion: 5
+    costo: 750.00
+- model: becas.programs
+  pk: 67
+  fields:
+    programa: Ing. en Desarrollo e Innovación Empresarial
+    university: 2
+    grado: 3
+    modalidad: 2
+    duracion: 5
+    costo: 750.00
+- model: becas.programs
+  pk: 68
+  fields:
+    programa: Ing. en Desarrollo y Gestión de Software 
+    university: 2
+    grado: 3
+    modalidad: 2
+    duracion: 5
+    costo: 750.00
+- model: becas.programs
+  pk: 69
+  fields:
+    programa: Ing. en Logística Internacional 
+    university: 2
+    grado: 3
+    modalidad: 2
+    duracion: 5
+    costo: 750.00
+- model: becas.programs
+  pk: 70
+  fields:
+    programa: Ing. en Mantenimiento Industrial 
+    university: 2
+    grado: 3
+    modalidad: 2
+    duracion: 5
+    costo: 750.00
+- model: becas.programs
+  pk: 71
+  fields:
+    programa: Ing. en Mecatrónica 
+    university: 2
+    grado: 3
+    modalidad: 2
+    duracion: 5
+    costo: 750.00
+- model: becas.programs
+  pk: 72
+  fields:
+    programa: Ing. en Mecatrónica (DUAL)
+    university: 2
+    grado: 3
+    modalidad: 2
+    duracion: 5
+    costo: 750.00
+- model: becas.programs
+  pk: 73
+  fields:
+    programa: Ing. en Mecatrónica (DUAL)
+    university: 2
+    grado: 3
+    modalidad: 2
+    duracion: 5
+    costo: 750.00
+- model: becas.programs
+  pk: 74
+  fields:
+    programa: Ing. en Tecnologías de la Información 
+    university: 2
+    grado: 3
+    modalidad: 2
+    duracion: 5
+    costo: 750.00
+- model: becas.programs
+  pk: 75
+  fields:
+    programa: Ing. en Tecnologías de la Información y Comunicación
+    university: 2
+    grado: 3
+    modalidad: 2
+    duracion: 5
+    costo: 750.00
+- model: becas.programs
+  pk: 76
+  fields:
+    programa: Ing. Financiera y Fiscal 
+    university: 2
+    grado: 3
+    modalidad: 2
+    duracion: 5
+    costo: 750.00
+- model: becas.programs
+  pk: 77
+  fields:
+    programa: Ing. en Desarrollo e Innovación Empresarial
+    university: 2
+    grado: 3
+    modalidad: 2
+    duracion: 5
+    costo: 750.00
+- model: becas.programs
+  pk: 78
+  fields:
+    programa: Ing. Redes Inteligentes y Ciberseguridad
+    university: 2
+    grado: 3
+    modalidad: 2
+    duracion: 5
+    costo: 750.00
+- model: becas.programs
+  pk: 79
+  fields:
+    programa: Ing. Técnica en Robótica Industrial 
+    university: 2
+    grado: 3
+    modalidad: 2
+    duracion: 5
+    costo: 750.00
+- model: becas.programs
+  pk: 80
+  fields:
+    programa: Ingeniería en Desarrollo Empresarial y Dirección de Proyectos 
+    university: 2
+    grado: 3
+    modalidad: 2
+    duracion: 5
+    costo: 750.00
+- model: becas.programs
+  pk: 81
+  fields:
+    programa: Licenciatura en Contaduría 
+    university: 2
+    grado: 2
+    modalidad: 2
+    duracion: 5
+    costo: 750.00
+- model: becas.programs
+  pk: 82
+  fields:
+    programa: Licenciatura en Diseño y Gestión de Redes Logísticas 
+    university: 2
+    grado: 2
+    modalidad: 2
+    duracion: 5
+    costo: 750.00
+- model: becas.programs
+  pk: 83
+  fields:
+    programa: Licenciatura en Gestión de Negocios y Proyectos 
+    university: 2
+    grado: 2
+    modalidad: 2
+    duracion: 5
+    costo: 750.00
+- model: becas.programs
+  pk: 84
+  fields:
+    programa: Licenciatura en Gestión del Capital Humano 
+    university: 2
+    grado: 2
+    modalidad: 2
+    duracion: 5
+    costo: 750.00
+- model: becas.programs
+  pk: 85
+  fields:
+    programa: Licenciatura en Innovación de Negocios y Mercadotecnia 
+    university: 2
+    grado: 2
+    modalidad: 2
+    duracion: 5
+    costo: 750.00
+- model: becas.programs
+  pk: 86
+  fields:
+    programa: Licenciatura en Protección Civil y Emergencias 
+    university: 2
+    grado: 2
+    modalidad: 2
+    duracion: 5
+    costo: 750.00
+- model: becas.programs
+  pk: 87
+  fields:
+    programa: TSU en Administración Área Administración y Evaluación de Proyectos
+    university: 2
+    grado: 1
+    modalidad: 2
+    duracion: 5
+    costo: 550.00
+- model: becas.programs
+  pk: 88
+  fields:
+    programa: TSU en Administración Área Capital Humano
+    university: 2
+    grado: 1
+    modalidad: 2
+    duracion: 5
+    costo: 550.00
+- model: becas.programs
+  pk: 89
+  fields:
+    programa: TSU en Administración Área Formulación y Evaluación de Proyectos
+    university: 2
+    grado: 1
+    modalidad: 2
+    duracion: 5
+    costo: 550.00
+- model: becas.programs
+  pk: 90
+  fields:
+    programa: TSU en Administración Área Recursos Humanos 
+    university: 2
+    grado: 1
+    modalidad: 2
+    duracion: 5
+    costo: 550.00
+- model: becas.programs
+  pk: 91
+  fields:
+    programa: TSU en Contaduría 
+    university: 2
+    grado: 1
+    modalidad: 2
+    duracion: 5
+    costo: 550.00
+- model: becas.programs
+  pk: 92
+  fields:
+    programa: TSU en Desarrollo de Negocios Área Logística y Transporte
+    university: 2
+    grado: 1
+    modalidad: 2
+    duracion: 5
+    costo: 550.00
+- model: becas.programs
+  pk: 93
+  fields:
+    programa: TSU en Desarrollo de Negocios Área Mercadotecnia
+    university: 2
+    grado: 1
+    modalidad: 2
+    duracion: 5
+    costo: 550.00
+- model: becas.programs
+  pk: 94
+  fields:
+    programa: TSU en Energías Renovables Área Energía Solar
+    university: 2
+    grado: 1
+    modalidad: 2
+    duracion: 5
+    costo: 550.00
+- model: becas.programs
+  pk: 95
+  fields:
+    programa: TSU en Logística Área Cadena de Suministros
+    university: 2
+    grado: 1
+    modalidad: 2
+    duracion: 5
+    costo: 550.00
+- model: becas.programs
+  pk: 96
+  fields:
+    programa: TSU en Mantenimiento Área Industrial
+    university: 2
+    grado: 1
+    modalidad: 2
+    duracion: 5
+    costo: 550.00
+- model: becas.programs
+  pk: 97
+  fields:
+    programa: TSU en Mecánica Área Automotriz
+    university: 2
+    grado: 1
+    modalidad: 2
+    duracion: 5
+    costo: 550.00
+- model: becas.programs
+  pk: 98
+  fields:
+    programa: TSU en Mecatrónica Área Automatización
+    university: 2
+    grado: 1
+    modalidad: 2
+    duracion: 5
+    costo: 550.00
+- model: becas.programs
+  pk: 99
+  fields:
+    programa: TSU en Mecatrónica Área Automatización (DUAL)
+    university: 2
+    grado: 1
+    modalidad: 2
+    duracion: 5
+    costo: 550.00
+- model: becas.programs
+  pk: 100
+  fields:
+    programa: TSU en Mecatrónica Área Sistemas de Manufactura Flexible
+    university: 2
+    grado: 1
+    modalidad: 2
+    duracion: 5
+    costo: 550.00
+- model: becas.programs
+  pk: 101
+  fields:
+    programa: TSU en Paramédico 
+    university: 2
+    grado: 1
+    modalidad: 2
+    duracion: 5
+    costo: 550.00
+- model: becas.programs
+  pk: 102
+  fields:
+    programa: TSU en Procesos Industriales Área Manufactura
+    university: 2
+    grado: 1
+    modalidad: 2
+    duracion: 5
+    costo: 550.00
+- model: becas.programs
+  pk: 103
+  fields:
+    programa: TSU en Tecnologías de la Información Área Desarrollo de Software Multiplataforma
+    university: 2
+    grado: 1
+    modalidad: 2
+    duracion: 5
+    costo: 550.00
+- model: becas.programs
+  pk: 104
+  fields:
+    programa: TSU en Tecnologías de la Información Área Desarrollo de Software Multiplataforma (DUAL)
+    university: 2
+    grado: 1
+    modalidad: 2
+    duracion: 5
+    costo: 550.00
+- model: becas.programs
+  pk: 105
+  fields:
+    programa: TSU en Tecnologías de la Información Área Infraestructura de Redes Digitales
+    university: 2
+    grado: 1
+    modalidad: 2
+    duracion: 5
+    costo: 550.00
+- model: becas.programs
+  pk: 106
+  fields:
+    programa: TSU en Tecnologías de la Información y Comunicación Área Redes y Telecomunicaciones
+    university: 2
+    grado: 1
+    modalidad: 2
+    duracion: 5
+    costo: 550.00
+- model: becas.programs
+  pk: 107
+  fields:
+    programa: TSU en Tecnologías de la Información y Comunicación Área Sistemas Informáticos
+    university: 2
+    grado: 1
+    modalidad: 2
+    duracion: 5
+    costo: 550.00
+
+
+
+
+
+- model: becas.programs
+  pk: 108
+  fields:
+    programa: INGENIERÍA EN TECNOLOGÍA DE LA INFORMACIÓN
+    university: 3
+    grado: 3
+    modalidad: 2
+    duracion: 5
+    costo: 750.00
+- model: becas.programs
+  pk: 109
+  fields:
+    programa: INGENIERÍA EN MECATRÓNICA
+    university: 3
+    grado: 3
+    modalidad: 2
+    duracion: 5
+    costo: 750.00
+- model: becas.programs
+  pk: 110
+  fields:
+    programa: LICENCIATURA EN GESTIÓN INSTITUCIONAL EDUCATIVA Y CURRICULAR
+    university: 3
+    grado: 2
+    modalidad: 2
+    duracion: 5
+    costo: 750.00
+- model: becas.programs
+  pk: 111
+  fields:
+    programa: LICENCIATURA EN GESTIÓN DEL CAPITAL HUMANO
+    university: 3
+    grado: 2
+    modalidad: 2
+    duracion: 5
+    costo: 750.00
+- model: becas.programs
+  pk: 112
+  fields:
+    programa: LICENCIATURA EN INNOVACION DE NEGOCIOS Y MERCADOTECNIA
+    university: 3
+    grado: 2
+    modalidad: 2
+    duracion: 5
+    costo: 750.00
+- model: becas.programs
+  pk: 113
+  fields:
+    programa: TÉCNICO SUPERIOR UNIVERSITARIO EN DISEÑO DIGITAL ÁREA ANIMACIÓN
+    university: 3
+    grado: 1
+    modalidad: 2
+    duracion: 7
+    costo: 550.00
+- model: becas.programs
+  pk: 114
+  fields:
+    programa: TÉCNICO SUPERIOR UNIVERSITARIO EN LENGUA INGLESA
+    university: 3
+    grado: 1
+    modalidad: 2
+    duracion: 7
+    costo: 550.00
+- model: becas.programs
+  pk: 115
+  fields:
+    programa: TÉCNICO SUPERIOR UNIVERSITARIO EN DESARROLLO DE NEGOCIOS ÁREA MERCADOTECNIA
+    university: 3
+    grado: 1
+    modalidad: 2
+    duracion: 7
+    costo: 550.00
+- model: becas.programs
+  pk: 116
+  fields:
+    programa: TÉCNICO SUPERIOR UNIVERSITARIO EN ADMINISTRACIÓN ÁREA CAPITAL HUMANO
+    university: 3
+    grado: 1
+    modalidad: 2
+    duracion: 7
+    costo: 550.00
+- model: becas.programs
+  pk: 117
+  fields:
+    programa: TÉCNICO SUPERIOR UNIVERSITARIO EN MECATRÓNICA ÁREA AUTOMATIZACIÓN
+    university: 3
+    grado: 1
+    modalidad: 2
+    duracion: 7
+    costo: 550.00
+- model: becas.programs
+  pk: 118
+  fields:
+    programa: TÉCNICO SUPERIOR UNIVERSITARIO EN MECATRÓNICA ÁREA SISTEMAS DE MANUFACTURA FLEXIBLE
+    university: 3
+    grado: 1
+    modalidad: 2
+    duracion: 7
+    costo: 550.00
+- model: becas.programs
+  pk: 119
+  fields:
+    programa: TECNICO SUPERIOR UNIVERSITARIO EN TECNOLOGIAS DE LA INFORMACIÓN ÁREA DESARROLLO DE SOFTWARE MULTIPLATAFORMA
+    university: 3
+    grado: 1
+    modalidad: 2
+    duracion: 7
+    costo: 550.00
+
+
+
+
+- model: becas.programs
+  pk: 120
+  fields:
+    programa: Técnico Superior Universitario en Administración, Área Capital Humano
+    university: 4
+    grado: 1
+    modalidad: 2
+    duracion: 6
+    costo: 2320.00
+- model: becas.programs
+  pk: 121
+  fields:
+    programa: Técnico Superior Universitario en Desarrollo e Innovación, Área Mercadotecnia
+    university: 4
+    grado: 1
+    modalidad: 2
+    duracion: 6
+    costo: 2320.00
+- model: becas.programs
+  pk: 122
+  fields:
+    programa: Técnico Superior Universitario en Mantenimiento, Área Industrial
+    university: 4
+    grado: 1
+    modalidad: 2
+    duracion: 6
+    costo: 2320.00
+- model: becas.programs
+  pk: 123
+  fields:
+    programa: Técnico Superior Universitario en Procesos Industriales, Área Manufactura
+    university: 4
+    grado: 1
+    modalidad: 2
+    duracion: 6
+    costo: 2320.00
+- model: becas.programs
+  pk: 124
+  fields:
+    programa: Técnico Superior Universitario en Tecnología de la Información, Área Desarrollo de Software Multiplataforma
+    university: 4
+    grado: 1
+    modalidad: 2
+    duracion: 6
+    costo: 2320.00
+- model: becas.programs
+  pk: 125
+  fields:
+    programa: Técnico Superior Universitario en Turismo, Desarrollo de Productos Alternativos
+    university: 4
+    grado: 1
+    modalidad: 2
+    duracion: 6
+    costo: 2320.00
+- model: becas.programs
+  pk: 126
+  fields:
+    programa: Técnico Superior Universitario en Gastronomía
+    university: 4
+    grado: 1
+    modalidad: 2
+    duracion: 6
+    costo: 2320.00
+- model: becas.programs
+  pk: 127
+  fields:
+    programa: Licenciatura en Gestión del Capital Humano
+    university: 4
+    grado: 2
+    modalidad: 2
+    duracion: 5
+    costo: 3520.00
+- model: becas.programs
+  pk: 128
+  fields:
+    programa: Licenciatura en Innovación de Negocios y Mercadotecnia
+    university: 4
+    grado: 2
+    modalidad: 2
+    duracion: 5
+    costo: 3520.00
+- model: becas.programs
+  pk: 129
+  fields:
+    programa: Licenciatura en Gestión de Desarrollo Turistico
+    university: 4
+    grado: 2
+    modalidad: 2
+    duracion: 5
+    costo: 3520.00
+- model: becas.programs
+  pk: 130
+  fields:
+    programa: Ingeniería en Sistemas Productivos
+    university: 4
+    grado: 3
+    modalidad: 2
+    duracion: 5
+    costo: 3520.00
+
+
+
+
+- model: becas.programs
+  pk: 131
+  fields:
+    programa: ADMINISTRACIÓN ÁREA DE ADMINISTRACIÓN Y EVALUACIÓN DE PROYECTOS
+    university: 5
+    grado: 1
+    modalidad: 2
+    duracion: 6
+    costo: 615.00
+- model: becas.programs
+  pk: 132
+  fields:
+    programa: DESARROLLO DE NEGOCIOS ÁREA DE MERCADOTECNIA
+    university: 5
+    grado: 1
+    modalidad: 2
+    duracion: 6
+    costo: 615.00
+- model: becas.programs
+  pk: 133
+  fields:
+    programa: CONTADURÍA
+    university: 5
+    grado: 1
+    modalidad: 2
+    duracion: 6
+    costo: 615.00
+- model: becas.programs
+  pk: 134
+  fields:
+    programa: TECNOLOGÍAS DE LA INFORMACIÓN Y COMUNICACIONES ÁREA DE SISTEMAS INFORMÁTICOS
+    university: 5
+    grado: 1
+    modalidad: 2
+    duracion: 6
+    costo: 615.00
+- model: becas.programs
+  pk: 135
+  fields:
+    programa: TECNOLOGÍAS DE LA INFORMACIÓN Y COMUNICACIONES ÁREA DE SISTEMAS INFORMÁTICOS (DESPRESURIZADO)
+    university: 5
+    grado: 1
+    modalidad: 2
+    duracion: 9
+    costo: 385.00
+- model: becas.programs
+  pk: 136
+  fields:
+    programa: TECNOLOGÍAS DE LA INFORMACIÓN Y COMUNICACIONES ÁREA DE MULTIMEDIA Y COMERCIO ELECTRÓNICO
+    university: 5
+    grado: 1
+    modalidad: 2
+    duracion: 6
+    costo: 615.00
+- model: becas.programs
+  pk: 137
+  fields:
+    programa: MANTENIMIENTO ÁREA INDUSTRIAL
+    university: 5
+    grado: 1
+    modalidad: 2
+    duracion: 6
+    costo: 615.00
+- model: becas.programs
+  pk: 138
+  fields:
+    programa: MANTENIMIENTO ÁREA INDUSTRIAL (DESPRESURIZADO)
+    university: 5
+    grado: 1
+    modalidad: 2
+    duracion: 9
+    costo: 385.00
+- model: becas.programs
+  pk: 139
+  fields:
+    programa: PROCESOS INDUSTRIALES ÁREA DE MANUFACTURA
+    university: 5
+    grado: 1
+    modalidad: 2
+    duracion: 6
+    costo: 615.00
+- model: becas.programs
+  pk: 140
+  fields:
+    programa: PROCESOS INDUSTRIALES ÁREA AUTOMOTRIZ
+    university: 5
+    grado: 1
+    modalidad: 2
+    duracion: 6
+    costo: 615.00
+- model: becas.programs
+  pk: 141
+  fields:
+    programa: MECÁNICA ÁREA AUTOMOTRIZ
+    university: 5
+    grado: 1
+    modalidad: 2
+    duracion: 6
+    costo: 615.00
+- model: becas.programs
+  pk: 142
+  fields:
+    programa: MECATRONICA ÁREA DE SISTEMAS DE MANUFACTURA FLEXIBLE
+    university: 5
+    grado: 1
+    modalidad: 2
+    duracion: 6
+    costo: 615.00
+- model: becas.programs
+  pk: 143
+  fields:
+    programa: MECATRONICA ÁREA DE AUTOMATIZACIÓN
+    university: 5
+    grado: 1
+    modalidad: 2
+    duracion: 6
+    costo: 615.00
+- model: becas.programs
+  pk: 144
+  fields:
+    programa: AGRICULTURA SUSTENTABLE Y PROTEGIDA
+    university: 5
+    grado: 1
+    modalidad: 2
+    duracion: 6
+    costo: 615.00
+- model: becas.programs
+  pk: 145
+  fields:
+    programa: ADMINISTRACIÓN ÁREA DE CAPITAL HUMANO
+    university: 5
+    grado: 1
+    modalidad: 2
+    duracion: 6
+    costo: 615.00
+- model: becas.programs
+  pk: 146
+  fields:
+    programa: ADMINISTRACIÓN ÁREA DE CAPITAL HUMANO (DESPRESURIZADO) 
+    university: 5
+    grado: 1
+    modalidad: 2
+    duracion: 9
+    costo: 385.00
+- model: becas.programs
+  pk: 147
+  fields:
+    programa: ADMINISTRACIÓN ÁREA DE FORMULACIÓN Y EVALUACIÓN DE PROYECTOS
+    university: 5
+    grado: 1
+    modalidad: 2
+    duracion: 6
+    costo: 615.00
+- model: becas.programs
+  pk: 148
+  fields:
+    programa: LOGÍSTICA ÁREA DE CADENA DE SUMINISTROS
+    university: 5
+    grado: 1
+    modalidad: 2
+    duracion: 6
+    costo: 615.00
+- model: becas.programs
+  pk: 149
+  fields:
+    programa: TECNOLOGÍAS DE LA INFORMACIÓN Y COMUNICACIONES ÁREA DE DESARROLLO DE SOFTWARE MULTIPLATAFORMA
+    university: 5
+    grado: 1
+    modalidad: 2
+    duracion: 6
+    costo: 615.00
+- model: becas.programs
+  pk: 150
+  fields:
+    programa: TECNOLOGÍAS DE LA INFORMACIÓN Y COMUNICACIONES ÁREA DE DESARROLLO DE SOFTWARE MULTIPLATAFORMA (DESPRESURIZADO)
+    university: 5
+    grado: 1
+    modalidad: 2
+    duracion: 9
+    costo: 385.00
+- model: becas.programs
+  pk: 151
+  fields:
+    programa: TECNOLOGÍAS DE LA INFORMACIÓN Y COMUNICACIONES ÁREA DE ENTORNOS VIRTUALES Y NEGOCIOS DIGITALES
+    university: 5
+    grado: 1
+    modalidad: 2
+    duracion: 6
+    costo: 615.00
+- model: becas.programs
+  pk: 152
+  fields:
+    programa: AGRICULTURA SUSTENTABLE Y PROTEGIDA ÁREA DE VITIVINICULTURA
+    university: 5
+    grado: 1
+    modalidad: 2
+    duracion: 6
+    costo: 615.00
+- model: becas.programs
+  pk: 153
+  fields:
+    programa: LICENCIATURA EN TECNOLOGÍAS DE LA INFORMACIÓN Y COMUNICACIÓN
+    university: 5
+    grado: 2
+    modalidad: 2
+    duracion: 5
+    costo: 880.00
+- model: becas.programs
+  pk: 154
+  fields:
+    programa: LICENCIATURA EN SISTEMAS PRODUCTIVOS
+    university: 5
+    grado: 2
+    modalidad: 2
+    duracion: 5
+    costo: 880.00
+- model: becas.programs
+  pk: 155
+  fields:
+    programa: LICENCIATURA EN MANTENIMIENTO INDUSTRIAL
+    university: 5
+    grado: 2
+    modalidad: 2
+    duracion: 5
+    costo: 880.00
+- model: becas.programs
+  pk: 156
+  fields:
+    programa: LICENCIATURA EN MECATRÓNICA
+    university: 5
+    grado: 2
+    modalidad: 2
+    duracion: 5
+    costo: 880.00
+- model: becas.programs
+  pk: 157
+  fields:
+    programa: LICENCIATURA EN AGRICULTURA SUSTENTABLE Y PROTEGIDA
+    university: 5
+    grado: 2
+    modalidad: 2
+    duracion: 5
+    costo: 880.00
+- model: becas.programs
+  pk: 158
+  fields:
+    programa: LICENCIATURA EN METAL MECÁNICA
+    university: 5
+    grado: 2
+    modalidad: 2
+    duracion: 5
+    costo: 880.00
+- model: becas.programs
+  pk: 159
+  fields:
+    programa: LICENCIATURA EN GESTIÓN DE PROYECTOS
+    university: 5
+    grado: 2
+    modalidad: 2
+    duracion: 5
+    costo: 880.00
+- model: becas.programs
+  pk: 160
+  fields:
+    programa: LICENCIATURA EN GESTIÓN DE NEGOCIOS Y PROYECTOS
+    university: 5
+    grado: 2
+    modalidad: 2
+    duracion: 5
+    costo: 880.00
+- model: becas.programs
+  pk: 161
+  fields:
+    programa: LICENCIATURA EN INNOVACIÓN DE NEGOCIOS Y MERCADOTECNIA
+    university: 5
+    grado: 2
+    modalidad: 2
+    duracion: 5
+    costo: 880.00
+- model: becas.programs
+  pk: 162
+  fields:
+    programa: LICENCIATURA EN GESTIÓN DEL CAPITAL HUMANO
+    university: 5
+    grado: 2
+    modalidad: 2
+    duracion: 5
+    costo: 880.00
+- model: becas.programs
+  pk: 163
+  fields:
+    programa: LICENCIATURA EN DISEÑO Y GESTIÓN DE REDES LOGÍSTICAS
+    university: 5
+    grado: 2
+    modalidad: 2
+    duracion: 5
+    costo: 880.00
+- model: becas.programs
+  pk: 164
+  fields:
+    programa: LICENCIATURA EN DESARROLLO Y GESTIÓN DE SOFTWARE
+    university: 5
+    grado: 2
+    modalidad: 2
+    duracion: 5
+    costo: 880.00
+- model: becas.programs
+  pk: 165
+  fields:
+    programa: LICENCIATURA EN CONTADURÍA
+    university: 5
+    grado: 2
+    modalidad: 2
+    duracion: 5
+    costo: 880.00
+
+
+
+
+- model: becas.programs
+  pk: 166
+  fields:
+    programa: INGENIERÍA EN ELECTRÓNICA
+    university: 6
+    grado: 3
+    modalidad: 2
+    duracion: 10
+    costo: 4000.00
+- model: becas.programs
+  pk: 167
+  fields:
+    programa: INGENIERÍA EN ENERGÍA
+    university: 6
+    grado: 3
+    modalidad: 2
+    duracion: 10
+    costo: 4000.00
+- model: becas.programs
+  pk: 168
+  fields:
+    programa: INGENIERÍA INDUSTRIAL
+    university: 6
+    grado: 3
+    modalidad: 2
+    duracion: 10
+    costo: 4000.00
+- model: becas.programs
+  pk: 169
+  fields:
+    programa: INGENIERÍA MECATRÓNICA
+    university: 6
+    grado: 3
+    modalidad: 2
+    duracion: 10
+    costo: 4000.00
+- model: becas.programs
+  pk: 170
+  fields:
+    programa: INGENIERÍA EN MECÁNICA AUTOMOTRIZ
+    university: 6
+    grado: 3
+    modalidad: 2
+    duracion: 10
+    costo: 4000.00
+- model: becas.programs
+  pk: 171
+  fields:
+    programa: INGENIERÍA EN SISTEMAS ESTRATÉGICOS DE INFORMACIÓN
+    university: 6
+    grado: 3
+    modalidad: 2
+    duracion: 10
+    costo: 4000.00
+- model: becas.programs
+  pk: 172
+  fields:
+    programa: INGENIERÍA EN SISTEMAS COMPUTACIONALES
+    university: 6
+    grado: 3
+    modalidad: 2
+    duracion: 10
+    costo: 4000.00
+- model: becas.programs
+  pk: 173
+  fields:
+    programa: LICENCIATURA EN NEGOCIOS Y ADMINISTRACIÓN
+    university: 6
+    grado: 2
+    modalidad: 2
+    duracion: 10
+    costo: 4000.00
+- model: becas.programs
+  pk: 174
+  fields:
+    programa: LICENCIATURA EN NEGOCIOS INTERNACIONALES
+    university: 6
+    grado: 2
+    modalidad: 2
+    duracion: 10
+    costo: 4000.00
+
+- model: becas.programs
+  pk: 175
+  fields:
+    programa: LICENCIATURA EN ARTES VISUALES
+    university: 7
+    grado: 2
+    modalidad: 1
+    duracion: 8
+    costo: 4500.00
+- model: becas.programs
+  pk: 176
+  fields:
+    programa: LICENCIATURA EN DANZA CLÁSICA EN LA MODALIDAD DE INTÉRPRETE
+    university: 7
+    grado: 2
+    modalidad: 1
+    duracion: 16
+    costo: 4500.00
+- model: becas.programs
+  pk: 177
+  fields:
+    programa: LICENCIATURA EN DANZA CONTEMPORÁNEA EN LA MODALIDAD DE INTÉRPRETE
+    university: 7
+    grado: 2
+    modalidad: 1
+    duracion: 8
+    costo: 4500.00
+- model: becas.programs
+  pk: 178
+  fields:
+    programa: LICENCIATURA EN TEATRO
+    university: 7
+    grado: 2
+    modalidad: 1
+    duracion: 8
+    costo: 4500.00
+- model: becas.programs
+  pk: 179
+  fields:
+    programa: TÉCNICO SUPERIOR UNIVERSITARIO EN CANTO
+    university: 7
+    grado: 1
+    modalidad: 1
+    duracion: 12
+    costo: 3500.00
+
+
+
+
+- model: becas.programs
+  pk: 180
+  fields:
+    programa: Técnico Superior Universitario en Mecatrónica área Robótica
+    university: 8
+    grado: 1
+    modalidad: 2
+    duracion: 7
+    costo: 2400.00
+- model: becas.programs
+  pk: 181
+  fields:
+    programa: Técnico Superior Universitario en Nanotecnología área Materiales
+    university: 8
+    grado: 1
+    modalidad: 2
+    duracion: 7
+    costo: 2400.00
+- model: becas.programs
+  pk: 182
+  fields:
+    programa: Técnico Superior Universitario en Operaciones Comerciales Internacionales área Negocios Internacionales
+    university: 8
+    grado: 1
+    modalidad: 2
+    duracion: 7
+    costo: 2400.00
+- model: becas.programs
+  pk: 183
+  fields:
+    programa: Técnico Superior Universitario en Tecnologías de la Información área Desarrollo de Software Multiplataforma
+    university: 8
+    grado: 1
+    modalidad: 2
+    duracion: 7
+    costo: 2400.00
+
+
+
+
+- model: becas.programs
+  pk: 184
+  fields:
+    programa: Ingeniería en Agronomía
+    university: 9
+    grado: 3
+    modalidad: 1
+    duracion: 9
+    costo: 3300.00
+- model: becas.programs
+  pk: 185
+  fields:
+    programa: Ingeniería en Innovación Agrícola Sustentable
+    university: 9
+    grado: 3
+    modalidad: 1
+    duracion: 9
+    costo: 2300.00
+- model: becas.programs
+  pk: 186
+  fields:
+    programa: Ingeniería en Gestión Empresarial
+    university: 9
+    grado: 3
+    modalidad: 1
+    duracion: 9
+    costo: 2300.00
+- model: becas.programs
+  pk: 187
+  fields:
+    programa: Ingeniería en Tecnologías de la Información y Comunicaciones
+    university: 9
+    grado: 3
+    modalidad: 1
+    duracion: 9
+    costo: 2300.00
+- model: becas.programs
+  pk: 188
+  fields:
+    programa: Ingeniería en Biotecnología
+    university: 9
+    grado: 3
+    modalidad: 1
+    duracion: 9
+    costo: 2300.00
+- model: becas.programs
+  pk: 189
+  fields:
+    programa: Licenciatura en Administración
+    university: 9
+    grado: 2
+    modalidad: 1
+    duracion: 9
+    costo: 3300.00
+
+
+
+
+- model: becas.programs
+  pk: 190
+  fields:
+    programa: INGENIERÍA EN GESTIÓN EMPRESARIAL
+    university: 10
+    grado: 3
+    modalidad: 1
+    duracion: 12
+    costo: 3300.00
+- model: becas.programs
+  pk: 191
+  fields:
+    programa: INGENIERÍA EN LOGÍSTICA
+    university: 10
+    grado: 3
+    modalidad: 1
+    duracion: 12
+    costo: 3300.00
+- model: becas.programs
+  pk: 192
+  fields:
+    programa: INGENIERÍA INDUSTRIAL
+    university: 10
+    grado: 3
+    modalidad: 1
+    duracion: 12
+    costo: 3300.00
+- model: becas.programs
+  pk: 193
+  fields:
+    programa: INGENIERÍA MECATRÓNICA
+    university: 10
+    grado: 3
+    modalidad: 1
+    duracion: 12
+    costo: 3300.00
+- model: becas.programs
+  pk: 194
+  fields:
+    programa: INGENIERÍA EN TECNOLOGÍAS DE LA INFORMACIÓN Y COMUNICACIONES
+    university: 10
+    grado: 3
+    modalidad: 1
+    duracion: 12
+    costo: 3300.00
+
+
+
+- model: becas.programs
+  pk: 195
+  fields:
+    programa: Ingeniería Química
+    university: 11
+    grado: 3
+    modalidad: 1
+    duracion: 9
+    costo: 2850.00
+- model: becas.programs
+  pk: 196
+  fields:
+    programa: Ingeniería Industrial
+    university: 11
+    grado: 3
+    modalidad: 1
+    duracion: 9
+    costo: 2850.00
+- model: becas.programs
+  pk: 197
+  fields:
+    programa: Ingeniería Mecánica
+    university: 11
+    grado: 3
+    modalidad: 1
+    duracion: 9
+    costo: 2850.00
+- model: becas.programs
+  pk: 198
+  fields:
+    programa: Ingeniería Eléctrica
+    university: 11
+    grado: 3
+    modalidad: 1
+    duracion: 9
+    costo: 2850.00
+- model: becas.programs
+  pk: 199
+  fields:
+    programa: Ingeniería en Tecnologías de la información y Comunicaciones
+    university: 11
+    grado: 3
+    modalidad: 1
+    duracion: 9
+    costo: 2850.00
+- model: becas.programs
+  pk: 200
+  fields:
+    programa: Ingeniería en Materiales
+    university: 11
+    grado: 3
+    modalidad: 1
+    duracion: 9
+    costo: 2850.00
+- model: becas.programs
+  pk: 201
+  fields:
+    programa: Ingeniería Electrónica
+    university: 11
+    grado: 3
+    modalidad: 1
+    duracion: 9
+    costo: 2850.00
+- model: becas.programs
+  pk: 202
+  fields:
+    programa: Licenciatura en Administración
+    university: 11
+    grado: 2
+    modalidad: 1
+    duracion: 9
+    costo: 2850.00
+
+
+
 - model: becas.programs
   pk: 1
   fields:
@@ -1816,3 +3675,4 @@
     modalidad: 1
     duracion: 9
     costo: 2850.00
+

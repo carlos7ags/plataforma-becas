@@ -5,15 +5,27 @@ from django.views.generic import (
     RedirectView,
     UpdateView,
     TemplateView,
+    View,
 )
 from django.urls import reverse_lazy
 from becas.forms import StudentForm, StudentAcademicProgramForm, SocioEconomicStudyForm
+from django.urls import reverse, reverse_lazy
 from django.urls import reverse
 from convocatoria.models import Convocatorias, Aspirantes
 from becas.models import Student, Programs, StudentAcademicProgram, SocioEconomicStudy
 from django.contrib.auth.views import redirect_to_login
 from django.contrib.messages.views import SuccessMessageMixin
 from django.shortcuts import render, get_object_or_404, redirect
+from django.http import HttpResponse, HttpResponseRedirect
+
+
+import os
+from django.conf import settings
+from django.http import HttpResponse
+from django.template.loader import get_template
+from xhtml2pdf import pisa
+from django.contrib.staticfiles import finders
+
 
 
 class DashboardView(TemplateView):
@@ -177,3 +189,56 @@ class UpdateSocioEconomicStudyRedirectView(RedirectView):
             )
         else:
             return reverse("socio-economic-study")
+
+
+
+
+class ConstanciaPdfView(View):
+    def get(self, request,*args,**kwargs):
+        try:
+            template = get_template('constancia_print.html')
+            context = {'title': 'mi primer pdf'}
+            html= template.render(context)
+            response = HttpResponse(content_type='application/pdf')
+            #response['Content-Disposition'] = 'attachment; filename="report.pdf"'
+            # create a pdf
+            pisaStatus = pisa.CreatePDF(
+                html, dest=response)
+            return response
+        except:
+            pass
+        return redirect("dashboard")
+
+
+class SolicitudPdfView(View):
+    def get(self, request,*args,**kwargs):
+        try:
+            template = get_template('solicitud_print.html')
+            context = {'title': 'mi primer pdf'}
+            html= template.render(context)
+            response = HttpResponse(content_type='application/pdf')
+            #response['Content-Disposition'] = 'attachment; filename="report.pdf"'
+            # create a pdf
+            pisaStatus = pisa.CreatePDF(
+                html, dest=response)
+            return response
+        except:
+            pass
+        return redirect("dashboard")
+
+
+class EsePdfView(View):
+    def get(self, request,*args,**kwargs):
+        try:
+            template = get_template('ese_print.html')
+            context = {'title': 'mi primer pdf'}
+            html= template.render(context)
+            response = HttpResponse(content_type='application/pdf')
+            #response['Content-Disposition'] = 'attachment; filename="report.pdf"'
+            # create a pdf
+            pisaStatus = pisa.CreatePDF(
+                html, dest=response)
+            return response
+        except:
+            pass
+        return redirect("dashboard")

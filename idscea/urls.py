@@ -5,10 +5,20 @@ from django.views.generic import TemplateView
 from accounts.views import UserRegistrationView
 import django.contrib.auth.views as auth_views
 from django.contrib.auth.decorators import login_required
+
+from becas.views import StudentProfile, StudentProfileUpdate, UpdateStudentRedirectView, StudentAcademicProgramView, StudentAcademicProgramUpdate, UpdateStudentAcademicProgramRedirectView, load_programs, DashboardView, SocioEconomicStudyView, SocioEconomicStudyUpdate, UpdateSocioEconomicStudyRedirectView, ConstanciaPdfView, SolicitudPdfView, EsePdfView
+from convocatoria.views import ConvocatoriasView
 from becas.views import StudentProfile, StudentProfileUpdate, UpdateStudentRedirectView, StudentAcademicProgramView, StudentAcademicProgramUpdate, UpdateStudentAcademicProgramRedirectView, load_programs, DashboardView, SocioEconomicStudyView, SocioEconomicStudyUpdate, UpdateSocioEconomicStudyRedirectView
 from convocatoria.views import ConvocatoriasView, aspirante_create
 from django.conf.urls.static import static
 from django.conf import settings
+
+import os
+from django.conf import settings
+from django.http import HttpResponse
+from django.template.loader import get_template
+from xhtml2pdf import pisa
+from django.contrib.staticfiles import finders
 
 
 urlpatterns = [
@@ -45,6 +55,10 @@ urlpatterns = [
     path('academic/redirect', login_required(UpdateStudentAcademicProgramRedirectView.as_view()), name='academic-program-redirect'),
     path('ajax/load-programs/', load_programs, name='ajax-load-programs'),
 
+    path('generate_constancia/', ConstanciaPdfView.as_view(), name='constancia-print-pdf'),
+    path('generate_solicitud/', SolicitudPdfView.as_view(), name='solicitud-print-pdf'),
+    path('generate_ese/', EsePdfView.as_view(), name='ese-print-pdf'),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
