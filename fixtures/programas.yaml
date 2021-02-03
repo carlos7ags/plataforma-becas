@@ -6,6 +6,7 @@
     grado: 2
     modalidad: 1
     duracion: 9
+    costo: 6798.00
 - model: becas.programs
   pk: 2
   fields:
@@ -14,6 +15,7 @@
     grado: 2
     modalidad: 1
     duracion: 8
+    costo: 6798.00
 - model: becas.programs
   pk: 3
   fields:
@@ -22,6 +24,7 @@
     grado: 2
     modalidad: 1
     duracion: 9
+    costo: 11844.00
 - model: becas.programs
   pk: 4
   fields:
@@ -30,6 +33,7 @@
     grado: 2
     modalidad: 1
     duracion: 8
+    costo: 6798.00
 - model: becas.programs
   pk: 5
   fields:
@@ -38,6 +42,7 @@
     grado: 2
     modalidad: 1
     duracion: 10
+    costo: 6798.00
 - model: becas.programs
   pk: 6
   fields:
@@ -46,6 +51,7 @@
     grado: 2
     modalidad: 1
     duracion: 9
+    costo: 6798.00
 - model: becas.programs
   pk: 7
   fields:
@@ -54,6 +60,7 @@
     grado: 2
     modalidad: 1
     duracion: 10
+    costo: 6798.00
 - model: becas.programs
   pk: 8
   fields:
@@ -62,6 +69,7 @@
     grado: 2
     modalidad: 1
     duracion: 10
+    costo: 6798.00
 - model: becas.programs
   pk: 9
   fields:
@@ -70,6 +78,7 @@
     grado: 2
     modalidad: 1
     duracion: 8
+    costo: 6798.00
 - model: becas.programs
   pk: 10
   fields:
@@ -78,6 +87,7 @@
     grado: 2
     modalidad: 1
     duracion: 10
+    costo: 6798.00
 - model: becas.programs
   pk: 11
   fields:
@@ -86,6 +96,7 @@
     grado: 2
     modalidad: 1
     duracion: 10
+    costo: 6798.00
 - model: becas.programs
   pk: 12
   fields:
@@ -94,6 +105,7 @@
     grado: 2
     modalidad: 1
     duracion: 10
+    costo: 6798.00
 - model: becas.programs
   pk: 13
   fields:
@@ -102,6 +114,7 @@
     grado: 2
     modalidad: 1
     duracion: 9
+    costo: 6798.00
 - model: becas.programs
   pk: 14
   fields:
@@ -110,6 +123,7 @@
     grado: 2
     modalidad: 1
     duracion: 9
+    costo: 6798.00
 - model: becas.programs
   pk: 15
   fields:
@@ -118,6 +132,7 @@
     grado: 2
     modalidad: 1
     duracion: 9
+    costo: 6798.00
 - model: becas.programs
   pk: 16
   fields:
@@ -126,6 +141,7 @@
     grado: 2
     modalidad: 1
     duracion: 8
+    costo: 6798.00
 - model: becas.programs
   pk: 17
   fields:
@@ -134,6 +150,7 @@
     grado: 2
     modalidad: 1
     duracion: 10
+    costo: 6798.00
 - model: becas.programs
   pk: 18
   fields:
@@ -142,6 +159,7 @@
     grado: 2
     modalidad: 1
     duracion: 10
+    costo: 6798.00
 - model: becas.programs
   pk: 19
   fields:
@@ -150,6 +168,7 @@
     grado: 2
     modalidad: 1
     duracion: 10
+    costo: 6798.00
 - model: becas.programs
   pk: 20
   fields:
@@ -158,6 +177,7 @@
     grado: 2
     modalidad: 1
     duracion: 8
+    costo: 6798.00
 - model: becas.programs
   pk: 21
   fields:
@@ -166,6 +186,7 @@
     grado: 2
     modalidad: 1
     duracion: 9
+    costo: 6798.00
 - model: becas.programs
   pk: 22
   fields:
@@ -174,6 +195,7 @@
     grado: 2
     modalidad: 1
     duracion: 8
+    costo: 6798.00
 - model: becas.programs
   pk: 23
   fields:
@@ -182,6 +204,7 @@
     grado: 2
     modalidad: 1
     duracion: 8
+    costo: 6798.00
 - model: becas.programs
   pk: 24
   fields:
@@ -190,6 +213,7 @@
     grado: 2
     modalidad: 1
     duracion: 8
+    costo: 6798.00
 - model: becas.programs
   pk: 25
   fields:
@@ -198,6 +222,7 @@
     grado: 2
     modalidad: 1
     duracion: 8
+    costo: 6798.00
 - model: becas.programs
   pk: 26
   fields:
@@ -206,6 +231,7 @@
     grado: 2
     modalidad: 1
     duracion: 8
+    costo: 6798.00
 - model: becas.programs
   pk: 27
   fields:
@@ -214,6 +240,7 @@
     grado: 2
     modalidad: 1
     duracion: 8
+    costo: 6798.00
 - model: becas.programs
   pk: 28
   fields:
@@ -222,6 +249,7 @@
     grado: 2
     modalidad: 1
     duracion: 9
+    costo: 6798.00
 - model: becas.programs
   pk: 29
   fields:
@@ -230,6 +258,7 @@
     grado: 2
     modalidad: 1
     duracion: 9
+    costo: 6798.00
 - model: becas.programs
   pk: 30
   fields:
@@ -238,6 +267,7 @@
     grado: 2
     modalidad: 1
     duracion: 9
+    costo: 6798.00
 - model: becas.programs
   pk: 31
   fields:
@@ -246,6 +276,7 @@
     grado: 2
     modalidad: 1
     duracion: 9
+    costo: 6798.00
 - model: becas.programs
   pk: 32
   fields:
@@ -254,6 +285,7 @@
     grado: 2
     modalidad: 1
     duracion: 9
+    costo: 6798.00
 - model: becas.programs
   pk: 33
   fields:
@@ -262,6 +294,7 @@
     grado: 2
     modalidad: 1
     duracion: 9
+    costo: 6798.00
 - model: becas.programs
   pk: 34
   fields:
@@ -270,6 +303,7 @@
     grado: 2
     modalidad: 1
     duracion: 8
+    costo: 6798.00
 - model: becas.programs
   pk: 35
   fields:
@@ -278,6 +312,7 @@
     grado: 2
     modalidad: 1
     duracion: 8
+    costo: 6798.00
 - model: becas.programs
   pk: 36
   fields:
@@ -286,6 +321,7 @@
     grado: 2
     modalidad: 1
     duracion: 9
+    costo: 6798.00
 - model: becas.programs
   pk: 37
   fields:
@@ -294,6 +330,7 @@
     grado: 2
     modalidad: 1
     duracion: 8
+    costo: 6798.00
 - model: becas.programs
   pk: 38
   fields:
@@ -302,6 +339,7 @@
     grado: 2
     modalidad: 1
     duracion: 8
+    costo: 6798.00
 - model: becas.programs
   pk: 39
   fields:
@@ -310,6 +348,7 @@
     grado: 2
     modalidad: 1
     duracion: 8
+    costo: 6798.00
 - model: becas.programs
   pk: 40
   fields:
@@ -318,6 +357,7 @@
     grado: 2
     modalidad: 1
     duracion: 8
+    costo: 6798.00
 - model: becas.programs
   pk: 41
   fields:
@@ -326,6 +366,7 @@
     grado: 2
     modalidad: 1
     duracion: 8
+    costo: 6798.00
 - model: becas.programs
   pk: 42
   fields:
@@ -334,6 +375,7 @@
     grado: 2
     modalidad: 1
     duracion: 9
+    costo: 6798.00
 - model: becas.programs
   pk: 43
   fields:
@@ -342,6 +384,7 @@
     grado: 2
     modalidad: 1
     duracion: 9
+    costo: 6798.00
 - model: becas.programs
   pk: 44
   fields:
@@ -350,6 +393,7 @@
     grado: 2
     modalidad: 1
     duracion: 10
+    costo: 6798.00
 - model: becas.programs
   pk: 45
   fields:
@@ -358,6 +402,7 @@
     grado: 2
     modalidad: 1
     duracion: 10
+    costo: 6798.00
 - model: becas.programs
   pk: 46
   fields:
@@ -366,6 +411,7 @@
     grado: 2
     modalidad: 1
     duracion: 9
+    costo: 6798.00
 - model: becas.programs
   pk: 47
   fields:
@@ -374,6 +420,7 @@
     grado: 2
     modalidad: 1
     duracion: 10
+    costo: 6798.00
 - model: becas.programs
   pk: 48
   fields:
@@ -382,6 +429,7 @@
     grado: 2
     modalidad: 1
     duracion: 9
+    costo: 6798.00
 - model: becas.programs
   pk: 49
   fields:
@@ -390,6 +438,7 @@
     grado: 2
     modalidad: 1
     duracion: 9
+    costo: 6798.00
 - model: becas.programs
   pk: 50
   fields:
@@ -398,6 +447,7 @@
     grado: 2
     modalidad: 1
     duracion: 8
+    costo: 6798.00
 - model: becas.programs
   pk: 51
   fields:
@@ -406,6 +456,7 @@
     grado: 2
     modalidad: 1
     duracion: 9
+    costo: 6798.00
 - model: becas.programs
   pk: 52
   fields:
@@ -414,6 +465,7 @@
     grado: 2
     modalidad: 1
     duracion: 8
+    costo: 6798.00
 - model: becas.programs
   pk: 53
   fields:
@@ -422,6 +474,7 @@
     grado: 2
     modalidad: 1
     duracion: 8
+    costo: 6798.00
 - model: becas.programs
   pk: 54
   fields:
@@ -430,6 +483,7 @@
     grado: 2
     modalidad: 1
     duracion: 10
+    costo: 11844.00
 - model: becas.programs
   pk: 55
   fields:
@@ -438,6 +492,7 @@
     grado: 2
     modalidad: 1
     duracion: 9
+    costo: 6798.00
 - model: becas.programs
   pk: 56
   fields:
@@ -446,6 +501,7 @@
     grado: 2
     modalidad: 1
     duracion: 8
+    costo: 6798.00
 - model: becas.programs
   pk: 57
   fields:
@@ -454,6 +510,7 @@
     grado: 2
     modalidad: 1
     duracion: 9
+    costo: 6798.00
 - model: becas.programs
   pk: 58
   fields:
@@ -462,6 +519,7 @@
     grado: 2
     modalidad: 1
     duracion: 9
+    costo: 6798.00
 - model: becas.programs
   pk: 59
   fields:
@@ -470,6 +528,7 @@
     grado: 2
     modalidad: 1
     duracion: 9
+    costo: 6798.00
 - model: becas.programs
   pk: 60
   fields:
@@ -478,6 +537,7 @@
     grado: 2
     modalidad: 1
     duracion: 9
+    costo: 6798.00
 - model: becas.programs
   pk: 61
   fields:
@@ -486,6 +546,7 @@
     grado: 2
     modalidad: 1
     duracion: 9
+    costo: 6798.00
 - model: becas.programs
   pk: 62
   fields:
@@ -494,6 +555,7 @@
     grado: 2
     modalidad: 1
     duracion: 9
+    costo: 6798.00
 - model: becas.programs
   pk: 63
   fields:
@@ -502,6 +564,7 @@
     grado: 2
     modalidad: 1
     duracion: 8
+    costo: 6798.00
 - model: becas.programs
   pk: 64
   fields:
@@ -510,6 +573,7 @@
     grado: 2
     modalidad: 1
     duracion: 8
+    costo: 6798.00
 - model: becas.programs
   pk: 65
   fields:
@@ -518,6 +582,7 @@
     grado: 2
     modalidad: 1
     duracion: 8
+    costo: 6798.00
 
 
 
@@ -530,6 +595,7 @@
     grado: 2
     modalidad: 2
     duracion: 5
+    costo: 750.00
 - model: becas.programs
   pk: 67
   fields:
@@ -538,6 +604,7 @@
     grado: 3
     modalidad: 2
     duracion: 5
+    costo: 750.00
 - model: becas.programs
   pk: 68
   fields:
@@ -546,6 +613,7 @@
     grado: 3
     modalidad: 2
     duracion: 5
+    costo: 750.00
 - model: becas.programs
   pk: 69
   fields:
@@ -554,6 +622,7 @@
     grado: 3
     modalidad: 2
     duracion: 5
+    costo: 750.00
 - model: becas.programs
   pk: 70
   fields:
@@ -562,6 +631,7 @@
     grado: 3
     modalidad: 2
     duracion: 5
+    costo: 750.00
 - model: becas.programs
   pk: 71
   fields:
@@ -570,6 +640,7 @@
     grado: 3
     modalidad: 2
     duracion: 5
+    costo: 750.00
 - model: becas.programs
   pk: 72
   fields:
@@ -578,6 +649,7 @@
     grado: 3
     modalidad: 2
     duracion: 5
+    costo: 750.00
 - model: becas.programs
   pk: 73
   fields:
@@ -586,6 +658,7 @@
     grado: 3
     modalidad: 2
     duracion: 5
+    costo: 750.00
 - model: becas.programs
   pk: 74
   fields:
@@ -594,6 +667,7 @@
     grado: 3
     modalidad: 2
     duracion: 5
+    costo: 750.00
 - model: becas.programs
   pk: 75
   fields:
@@ -602,6 +676,7 @@
     grado: 3
     modalidad: 2
     duracion: 5
+    costo: 750.00
 - model: becas.programs
   pk: 76
   fields:
@@ -610,6 +685,7 @@
     grado: 3
     modalidad: 2
     duracion: 5
+    costo: 750.00
 - model: becas.programs
   pk: 77
   fields:
@@ -618,6 +694,7 @@
     grado: 3
     modalidad: 2
     duracion: 5
+    costo: 750.00
 - model: becas.programs
   pk: 78
   fields:
@@ -626,6 +703,7 @@
     grado: 3
     modalidad: 2
     duracion: 5
+    costo: 750.00
 - model: becas.programs
   pk: 79
   fields:
@@ -634,6 +712,7 @@
     grado: 3
     modalidad: 2
     duracion: 5
+    costo: 750.00
 - model: becas.programs
   pk: 80
   fields:
@@ -642,6 +721,7 @@
     grado: 3
     modalidad: 2
     duracion: 5
+    costo: 750.00
 - model: becas.programs
   pk: 81
   fields:
@@ -650,6 +730,7 @@
     grado: 2
     modalidad: 2
     duracion: 5
+    costo: 750.00
 - model: becas.programs
   pk: 82
   fields:
@@ -658,6 +739,7 @@
     grado: 2
     modalidad: 2
     duracion: 5
+    costo: 750.00
 - model: becas.programs
   pk: 83
   fields:
@@ -666,6 +748,7 @@
     grado: 2
     modalidad: 2
     duracion: 5
+    costo: 750.00
 - model: becas.programs
   pk: 84
   fields:
@@ -674,6 +757,7 @@
     grado: 2
     modalidad: 2
     duracion: 5
+    costo: 750.00
 - model: becas.programs
   pk: 85
   fields:
@@ -682,6 +766,7 @@
     grado: 2
     modalidad: 2
     duracion: 5
+    costo: 750.00
 - model: becas.programs
   pk: 86
   fields:
@@ -690,6 +775,7 @@
     grado: 2
     modalidad: 2
     duracion: 5
+    costo: 750.00
 - model: becas.programs
   pk: 87
   fields:
@@ -698,6 +784,7 @@
     grado: 1
     modalidad: 2
     duracion: 5
+    costo: 550.00
 - model: becas.programs
   pk: 88
   fields:
@@ -706,6 +793,7 @@
     grado: 1
     modalidad: 2
     duracion: 5
+    costo: 550.00
 - model: becas.programs
   pk: 89
   fields:
@@ -714,6 +802,7 @@
     grado: 1
     modalidad: 2
     duracion: 5
+    costo: 550.00
 - model: becas.programs
   pk: 90
   fields:
@@ -722,6 +811,7 @@
     grado: 1
     modalidad: 2
     duracion: 5
+    costo: 550.00
 - model: becas.programs
   pk: 91
   fields:
@@ -730,6 +820,7 @@
     grado: 1
     modalidad: 2
     duracion: 5
+    costo: 550.00
 - model: becas.programs
   pk: 92
   fields:
@@ -738,6 +829,7 @@
     grado: 1
     modalidad: 2
     duracion: 5
+    costo: 550.00
 - model: becas.programs
   pk: 93
   fields:
@@ -746,6 +838,7 @@
     grado: 1
     modalidad: 2
     duracion: 5
+    costo: 550.00
 - model: becas.programs
   pk: 94
   fields:
@@ -754,6 +847,7 @@
     grado: 1
     modalidad: 2
     duracion: 5
+    costo: 550.00
 - model: becas.programs
   pk: 95
   fields:
@@ -762,6 +856,7 @@
     grado: 1
     modalidad: 2
     duracion: 5
+    costo: 550.00
 - model: becas.programs
   pk: 96
   fields:
@@ -770,6 +865,7 @@
     grado: 1
     modalidad: 2
     duracion: 5
+    costo: 550.00
 - model: becas.programs
   pk: 97
   fields:
@@ -778,6 +874,7 @@
     grado: 1
     modalidad: 2
     duracion: 5
+    costo: 550.00
 - model: becas.programs
   pk: 98
   fields:
@@ -786,6 +883,7 @@
     grado: 1
     modalidad: 2
     duracion: 5
+    costo: 550.00
 - model: becas.programs
   pk: 99
   fields:
@@ -794,6 +892,7 @@
     grado: 1
     modalidad: 2
     duracion: 5
+    costo: 550.00
 - model: becas.programs
   pk: 100
   fields:
@@ -802,6 +901,7 @@
     grado: 1
     modalidad: 2
     duracion: 5
+    costo: 550.00
 - model: becas.programs
   pk: 101
   fields:
@@ -810,6 +910,7 @@
     grado: 1
     modalidad: 2
     duracion: 5
+    costo: 550.00
 - model: becas.programs
   pk: 102
   fields:
@@ -818,6 +919,7 @@
     grado: 1
     modalidad: 2
     duracion: 5
+    costo: 550.00
 - model: becas.programs
   pk: 103
   fields:
@@ -826,6 +928,7 @@
     grado: 1
     modalidad: 2
     duracion: 5
+    costo: 550.00
 - model: becas.programs
   pk: 104
   fields:
@@ -834,6 +937,7 @@
     grado: 1
     modalidad: 2
     duracion: 5
+    costo: 550.00
 - model: becas.programs
   pk: 105
   fields:
@@ -842,6 +946,7 @@
     grado: 1
     modalidad: 2
     duracion: 5
+    costo: 550.00
 - model: becas.programs
   pk: 106
   fields:
@@ -850,6 +955,7 @@
     grado: 1
     modalidad: 2
     duracion: 5
+    costo: 550.00
 - model: becas.programs
   pk: 107
   fields:
@@ -858,6 +964,7 @@
     grado: 1
     modalidad: 2
     duracion: 5
+    costo: 550.00
 
 
 
@@ -871,6 +978,7 @@
     grado: 3
     modalidad: 2
     duracion: 5
+    costo: 750.00
 - model: becas.programs
   pk: 109
   fields:
@@ -879,6 +987,7 @@
     grado: 3
     modalidad: 2
     duracion: 5
+    costo: 750.00
 - model: becas.programs
   pk: 110
   fields:
@@ -887,6 +996,7 @@
     grado: 2
     modalidad: 2
     duracion: 5
+    costo: 750.00
 - model: becas.programs
   pk: 111
   fields:
@@ -895,6 +1005,7 @@
     grado: 2
     modalidad: 2
     duracion: 5
+    costo: 750.00
 - model: becas.programs
   pk: 112
   fields:
@@ -903,6 +1014,7 @@
     grado: 2
     modalidad: 2
     duracion: 5
+    costo: 750.00
 - model: becas.programs
   pk: 113
   fields:
@@ -911,6 +1023,7 @@
     grado: 1
     modalidad: 2
     duracion: 7
+    costo: 550.00
 - model: becas.programs
   pk: 114
   fields:
@@ -919,6 +1032,7 @@
     grado: 1
     modalidad: 2
     duracion: 7
+    costo: 550.00
 - model: becas.programs
   pk: 115
   fields:
@@ -927,6 +1041,7 @@
     grado: 1
     modalidad: 2
     duracion: 7
+    costo: 550.00
 - model: becas.programs
   pk: 116
   fields:
@@ -935,6 +1050,7 @@
     grado: 1
     modalidad: 2
     duracion: 7
+    costo: 550.00
 - model: becas.programs
   pk: 117
   fields:
@@ -943,6 +1059,7 @@
     grado: 1
     modalidad: 2
     duracion: 7
+    costo: 550.00
 - model: becas.programs
   pk: 118
   fields:
@@ -951,6 +1068,7 @@
     grado: 1
     modalidad: 2
     duracion: 7
+    costo: 550.00
 - model: becas.programs
   pk: 119
   fields:
@@ -959,6 +1077,7 @@
     grado: 1
     modalidad: 2
     duracion: 7
+    costo: 550.00
 
 
 
@@ -971,6 +1090,7 @@
     grado: 1
     modalidad: 2
     duracion: 6
+    costo: 2320.00
 - model: becas.programs
   pk: 121
   fields:
@@ -979,6 +1099,7 @@
     grado: 1
     modalidad: 2
     duracion: 6
+    costo: 2320.00
 - model: becas.programs
   pk: 122
   fields:
@@ -987,6 +1108,7 @@
     grado: 1
     modalidad: 2
     duracion: 6
+    costo: 2320.00
 - model: becas.programs
   pk: 123
   fields:
@@ -995,6 +1117,7 @@
     grado: 1
     modalidad: 2
     duracion: 6
+    costo: 2320.00
 - model: becas.programs
   pk: 124
   fields:
@@ -1003,6 +1126,7 @@
     grado: 1
     modalidad: 2
     duracion: 6
+    costo: 2320.00
 - model: becas.programs
   pk: 125
   fields:
@@ -1011,6 +1135,7 @@
     grado: 1
     modalidad: 2
     duracion: 6
+    costo: 2320.00
 - model: becas.programs
   pk: 126
   fields:
@@ -1019,6 +1144,7 @@
     grado: 1
     modalidad: 2
     duracion: 6
+    costo: 2320.00
 - model: becas.programs
   pk: 127
   fields:
@@ -1027,6 +1153,7 @@
     grado: 2
     modalidad: 2
     duracion: 5
+    costo: 3520.00
 - model: becas.programs
   pk: 128
   fields:
@@ -1035,6 +1162,7 @@
     grado: 2
     modalidad: 2
     duracion: 5
+    costo: 3520.00
 - model: becas.programs
   pk: 129
   fields:
@@ -1043,6 +1171,7 @@
     grado: 2
     modalidad: 2
     duracion: 5
+    costo: 3520.00
 - model: becas.programs
   pk: 130
   fields:
@@ -1051,6 +1180,7 @@
     grado: 3
     modalidad: 2
     duracion: 5
+    costo: 3520.00
 
 
 
@@ -1063,6 +1193,7 @@
     grado: 1
     modalidad: 2
     duracion: 6
+    costo: 615.00
 - model: becas.programs
   pk: 132
   fields:
@@ -1071,6 +1202,7 @@
     grado: 1
     modalidad: 2
     duracion: 6
+    costo: 615.00
 - model: becas.programs
   pk: 133
   fields:
@@ -1079,6 +1211,7 @@
     grado: 1
     modalidad: 2
     duracion: 6
+    costo: 615.00
 - model: becas.programs
   pk: 134
   fields:
@@ -1087,6 +1220,7 @@
     grado: 1
     modalidad: 2
     duracion: 6
+    costo: 615.00
 - model: becas.programs
   pk: 135
   fields:
@@ -1095,6 +1229,7 @@
     grado: 1
     modalidad: 2
     duracion: 9
+    costo: 385.00
 - model: becas.programs
   pk: 136
   fields:
@@ -1103,6 +1238,7 @@
     grado: 1
     modalidad: 2
     duracion: 6
+    costo: 615.00
 - model: becas.programs
   pk: 137
   fields:
@@ -1111,6 +1247,7 @@
     grado: 1
     modalidad: 2
     duracion: 6
+    costo: 615.00
 - model: becas.programs
   pk: 138
   fields:
@@ -1119,6 +1256,7 @@
     grado: 1
     modalidad: 2
     duracion: 9
+    costo: 385.00
 - model: becas.programs
   pk: 139
   fields:
@@ -1127,6 +1265,7 @@
     grado: 1
     modalidad: 2
     duracion: 6
+    costo: 615.00
 - model: becas.programs
   pk: 140
   fields:
@@ -1135,6 +1274,7 @@
     grado: 1
     modalidad: 2
     duracion: 6
+    costo: 615.00
 - model: becas.programs
   pk: 141
   fields:
@@ -1143,6 +1283,7 @@
     grado: 1
     modalidad: 2
     duracion: 6
+    costo: 615.00
 - model: becas.programs
   pk: 142
   fields:
@@ -1151,6 +1292,7 @@
     grado: 1
     modalidad: 2
     duracion: 6
+    costo: 615.00
 - model: becas.programs
   pk: 143
   fields:
@@ -1159,6 +1301,7 @@
     grado: 1
     modalidad: 2
     duracion: 6
+    costo: 615.00
 - model: becas.programs
   pk: 144
   fields:
@@ -1167,6 +1310,7 @@
     grado: 1
     modalidad: 2
     duracion: 6
+    costo: 615.00
 - model: becas.programs
   pk: 145
   fields:
@@ -1175,6 +1319,7 @@
     grado: 1
     modalidad: 2
     duracion: 6
+    costo: 615.00
 - model: becas.programs
   pk: 146
   fields:
@@ -1183,6 +1328,7 @@
     grado: 1
     modalidad: 2
     duracion: 9
+    costo: 385.00
 - model: becas.programs
   pk: 147
   fields:
@@ -1191,6 +1337,7 @@
     grado: 1
     modalidad: 2
     duracion: 6
+    costo: 615.00
 - model: becas.programs
   pk: 148
   fields:
@@ -1199,6 +1346,7 @@
     grado: 1
     modalidad: 2
     duracion: 6
+    costo: 615.00
 - model: becas.programs
   pk: 149
   fields:
@@ -1207,6 +1355,7 @@
     grado: 1
     modalidad: 2
     duracion: 6
+    costo: 615.00
 - model: becas.programs
   pk: 150
   fields:
@@ -1215,6 +1364,7 @@
     grado: 1
     modalidad: 2
     duracion: 9
+    costo: 385.00
 - model: becas.programs
   pk: 151
   fields:
@@ -1223,6 +1373,7 @@
     grado: 1
     modalidad: 2
     duracion: 6
+    costo: 615.00
 - model: becas.programs
   pk: 152
   fields:
@@ -1231,6 +1382,7 @@
     grado: 1
     modalidad: 2
     duracion: 6
+    costo: 615.00
 - model: becas.programs
   pk: 153
   fields:
@@ -1239,6 +1391,7 @@
     grado: 2
     modalidad: 2
     duracion: 5
+    costo: 880.00
 - model: becas.programs
   pk: 154
   fields:
@@ -1247,6 +1400,7 @@
     grado: 2
     modalidad: 2
     duracion: 5
+    costo: 880.00
 - model: becas.programs
   pk: 155
   fields:
@@ -1255,6 +1409,7 @@
     grado: 2
     modalidad: 2
     duracion: 5
+    costo: 880.00
 - model: becas.programs
   pk: 156
   fields:
@@ -1263,6 +1418,7 @@
     grado: 2
     modalidad: 2
     duracion: 5
+    costo: 880.00
 - model: becas.programs
   pk: 157
   fields:
@@ -1271,6 +1427,7 @@
     grado: 2
     modalidad: 2
     duracion: 5
+    costo: 880.00
 - model: becas.programs
   pk: 158
   fields:
@@ -1279,6 +1436,7 @@
     grado: 2
     modalidad: 2
     duracion: 5
+    costo: 880.00
 - model: becas.programs
   pk: 159
   fields:
@@ -1287,6 +1445,7 @@
     grado: 2
     modalidad: 2
     duracion: 5
+    costo: 880.00
 - model: becas.programs
   pk: 160
   fields:
@@ -1295,6 +1454,7 @@
     grado: 2
     modalidad: 2
     duracion: 5
+    costo: 880.00
 - model: becas.programs
   pk: 161
   fields:
@@ -1303,6 +1463,7 @@
     grado: 2
     modalidad: 2
     duracion: 5
+    costo: 880.00
 - model: becas.programs
   pk: 162
   fields:
@@ -1311,6 +1472,7 @@
     grado: 2
     modalidad: 2
     duracion: 5
+    costo: 880.00
 - model: becas.programs
   pk: 163
   fields:
@@ -1319,6 +1481,7 @@
     grado: 2
     modalidad: 2
     duracion: 5
+    costo: 880.00
 - model: becas.programs
   pk: 164
   fields:
@@ -1327,6 +1490,7 @@
     grado: 2
     modalidad: 2
     duracion: 5
+    costo: 880.00
 - model: becas.programs
   pk: 165
   fields:
@@ -1335,6 +1499,7 @@
     grado: 2
     modalidad: 2
     duracion: 5
+    costo: 880.00
 
 
 
@@ -1347,6 +1512,7 @@
     grado: 3
     modalidad: 2
     duracion: 10
+    costo: 4000.00
 - model: becas.programs
   pk: 167
   fields:
@@ -1355,6 +1521,7 @@
     grado: 3
     modalidad: 2
     duracion: 10
+    costo: 4000.00
 - model: becas.programs
   pk: 168
   fields:
@@ -1363,6 +1530,7 @@
     grado: 3
     modalidad: 2
     duracion: 10
+    costo: 4000.00
 - model: becas.programs
   pk: 169
   fields:
@@ -1371,6 +1539,7 @@
     grado: 3
     modalidad: 2
     duracion: 10
+    costo: 4000.00
 - model: becas.programs
   pk: 170
   fields:
@@ -1379,6 +1548,7 @@
     grado: 3
     modalidad: 2
     duracion: 10
+    costo: 4000.00
 - model: becas.programs
   pk: 171
   fields:
@@ -1387,6 +1557,7 @@
     grado: 3
     modalidad: 2
     duracion: 10
+    costo: 4000.00
 - model: becas.programs
   pk: 172
   fields:
@@ -1395,6 +1566,7 @@
     grado: 3
     modalidad: 2
     duracion: 10
+    costo: 4000.00
 - model: becas.programs
   pk: 173
   fields:
@@ -1403,6 +1575,7 @@
     grado: 2
     modalidad: 2
     duracion: 10
+    costo: 4000.00
 - model: becas.programs
   pk: 174
   fields:
@@ -1411,6 +1584,7 @@
     grado: 2
     modalidad: 2
     duracion: 10
+    costo: 4000.00
 
 
 
@@ -1423,6 +1597,7 @@
     grado: 2
     modalidad: 1
     duracion: 8
+    costo: 4500.00
 - model: becas.programs
   pk: 176
   fields:
@@ -1431,6 +1606,7 @@
     grado: 2
     modalidad: 1
     duracion: 16
+    costo: 4500.00
 - model: becas.programs
   pk: 177
   fields:
@@ -1439,6 +1615,7 @@
     grado: 2
     modalidad: 1
     duracion: 8
+    costo: 4500.00
 - model: becas.programs
   pk: 178
   fields:
@@ -1447,6 +1624,7 @@
     grado: 2
     modalidad: 1
     duracion: 8
+    costo: 4500.00
 - model: becas.programs
   pk: 179
   fields:
@@ -1455,6 +1633,7 @@
     grado: 1
     modalidad: 1
     duracion: 12
+    costo: 3500.00
 
 
 
@@ -1467,6 +1646,7 @@
     grado: 1
     modalidad: 2
     duracion: 7
+    costo: 2400.00
 - model: becas.programs
   pk: 181
   fields:
@@ -1475,6 +1655,7 @@
     grado: 1
     modalidad: 2
     duracion: 7
+    costo: 2400.00
 - model: becas.programs
   pk: 182
   fields:
@@ -1483,6 +1664,7 @@
     grado: 1
     modalidad: 2
     duracion: 7
+    costo: 2400.00
 - model: becas.programs
   pk: 183
   fields:
@@ -1491,6 +1673,7 @@
     grado: 1
     modalidad: 2
     duracion: 7
+    costo: 2400.00
 
 
 
@@ -1503,6 +1686,7 @@
     grado: 3
     modalidad: 1
     duracion: 9
+    costo: 3300.00
 - model: becas.programs
   pk: 185
   fields:
@@ -1511,6 +1695,7 @@
     grado: 3
     modalidad: 1
     duracion: 9
+    costo: 2300.00
 - model: becas.programs
   pk: 186
   fields:
@@ -1519,6 +1704,7 @@
     grado: 3
     modalidad: 1
     duracion: 9
+    costo: 2300.00
 - model: becas.programs
   pk: 187
   fields:
@@ -1527,6 +1713,7 @@
     grado: 3
     modalidad: 1
     duracion: 9
+    costo: 2300.00
 - model: becas.programs
   pk: 188
   fields:
@@ -1535,6 +1722,7 @@
     grado: 3
     modalidad: 1
     duracion: 9
+    costo: 2300.00
 - model: becas.programs
   pk: 189
   fields:
@@ -1543,6 +1731,7 @@
     grado: 2
     modalidad: 1
     duracion: 9
+    costo: 3300.00
 
 
 
@@ -1555,6 +1744,7 @@
     grado: 3
     modalidad: 1
     duracion: 12
+    costo: 3300.00
 - model: becas.programs
   pk: 191
   fields:
@@ -1563,6 +1753,7 @@
     grado: 3
     modalidad: 1
     duracion: 12
+    costo: 3300.00
 - model: becas.programs
   pk: 192
   fields:
@@ -1571,6 +1762,7 @@
     grado: 3
     modalidad: 1
     duracion: 12
+    costo: 3300.00
 - model: becas.programs
   pk: 193
   fields:
@@ -1579,6 +1771,7 @@
     grado: 3
     modalidad: 1
     duracion: 12
+    costo: 3300.00
 - model: becas.programs
   pk: 194
   fields:
@@ -1587,6 +1780,7 @@
     grado: 3
     modalidad: 1
     duracion: 12
+    costo: 3300.00
 
 
 
@@ -1599,6 +1793,7 @@
     grado: 3
     modalidad: 1
     duracion: 9
+    costo: 2850.00
 - model: becas.programs
   pk: 196
   fields:
@@ -1607,6 +1802,7 @@
     grado: 3
     modalidad: 1
     duracion: 9
+    costo: 2850.00
 - model: becas.programs
   pk: 197
   fields:
@@ -1615,6 +1811,7 @@
     grado: 3
     modalidad: 1
     duracion: 9
+    costo: 2850.00
 - model: becas.programs
   pk: 198
   fields:
@@ -1623,6 +1820,7 @@
     grado: 3
     modalidad: 1
     duracion: 9
+    costo: 2850.00
 - model: becas.programs
   pk: 199
   fields:
@@ -1631,6 +1829,7 @@
     grado: 3
     modalidad: 1
     duracion: 9
+    costo: 2850.00
 - model: becas.programs
   pk: 200
   fields:
@@ -1639,6 +1838,7 @@
     grado: 3
     modalidad: 1
     duracion: 9
+    costo: 2850.00
 - model: becas.programs
   pk: 201
   fields:
@@ -1647,6 +1847,7 @@
     grado: 3
     modalidad: 1
     duracion: 9
+    costo: 2850.00
 - model: becas.programs
   pk: 202
   fields:
@@ -1655,24 +1856,8 @@
     grado: 2
     modalidad: 1
     duracion: 9
+    costo: 2850.00
 
 
 
-
-- model: becas.programs
-  pk: 203
-  fields:
-    programa: Instituto Estatal de Seguridad Pública de Aguascalientes
-    university: 12
-    grado: 3
-    modalidad: 1
-    duracion: 9
-- model: becas.programs
-  pk: 204
-  fields:
-    programa: Instituto Estatal de Seguridad Pública de Aguascalientes 1
-    university: 12
-    grado: 3
-    modalidad: 1
-    duracion: 9
 
