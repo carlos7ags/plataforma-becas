@@ -19,12 +19,12 @@
     <link href="{% static 'assets/css/sticky-footer.css' %}" rel="stylesheet">
 
 </head>
-<body style="background-color:whitesmoke;">
+<body style="background-color:#15375C;">
 <main role="main">
-    <div style="background-color:whitesmoke;">
-        <nav class="navbar navbar-expand-lg navbar-dark" style="background-color:#15375C;">
+    <div style="background-color:#15375C;">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <a class="navbar-brand" href={% url "home" %}>
-                <img src="{% static "images/logo1.png" %}" width=auto height="45" class="d-inline-block align-top"
+                <img src="{% static "images/logo2.png" %}" width=auto height="45" class="d-inline-block align-top"
                      alt="">
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
@@ -50,22 +50,23 @@
                         </li>
                     {% endif %}
                 </ul>
-                <a class="navbar-brand text-white">
+                <a class="navbar-brand">
                     Plataforma de solicitud de becas
                 </a>
             </div>
         </nav>
     </div>
-
-    {% block content %}
-    {% endblock %}
-
+    <div>
+      <section id="about">
+            <img src="{% static 'images/principal.jpg' %}" alt="logo" width="100%">
+      </section>
+    </div>
 </main>
 <!-- Footer -->
-<footer class="footer" style="background-color:#15375C;">
+<footer class="footer" style="background-color:whitesmoke;">
         <span class="text-muted">
-        <h2 class="m-0 text-center" style="color:whitesmoke;">Contacto</h2>
-        <p class="m-0 text-center" style="color:whitesmoke;">
+        <h2 class="m-0 text-center" style="color:#15375C;">Contacto</h2>
+        <p class="m-0 text-center" style="color:#15375C;">
             Av. San Miguel esquina con Av. Aguascalientes (Museo Descubre)
             <br>Fracc. Jardines del Parque, C.P. 20270
             <br>Aguascalientes, Aguascalientes
