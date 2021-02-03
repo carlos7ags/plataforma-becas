@@ -13,7 +13,7 @@ from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    url(r'^$', TemplateView.as_view(template_name='base.html'), name='home'),
+    url(r'^$', TemplateView.as_view(template_name='home.html'), name='home'),
 
     url(r'^new-user/$', UserRegistrationView.as_view(), name='user_registration'),
     path('register/done/', TemplateView.as_view(template_name="register_done.html"), name='register_done'),
