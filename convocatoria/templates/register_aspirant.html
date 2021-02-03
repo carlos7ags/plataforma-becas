@@ -1,4 +1,4 @@
-<form method="post" action="{% url 'create-aspirante' %}" class="create-aspirante-{{ convoc.codigo }}-form">
+<form method="post" action="{% url 'create-aspirante' convocCode=convocCode %}" class="create-aspirante-{{ convocCode }}-form">
     {% csrf_token %}
 
     <div class="modal-header">
@@ -28,7 +28,7 @@
 </form>
 
 <script type="text/javascript">
-    $("#modal-{{ convoc.codigo }}").on("submit", ".create-aspirante-{{ convoc.codigo }}-form", function () {
+    $("#modal-{{ convocCode }}").on("submit", ".create-aspirante-{{ convocCode }}-form", function () {
             var form = $(this);
             $.ajax({
               url: form.attr("action"),

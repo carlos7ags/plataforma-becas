@@ -31,14 +31,13 @@
                     $(function () {
                         $(".create-aspirante-{{ convoc.codigo }}").click(function () {
                             $.ajax({
-                                url: '{% url 'create-aspirante' %}',
+                                url: '{% url 'create-aspirante' convocCode=convoc.codigo %}',
                                 type: 'get',
                                 dataType: 'json',
                                 beforeSend: function () {
                                     $("#modal-{{ convoc.codigo }}").modal("show");
                                 },
                                 success: function (data) {
-                                    console.log("hii");
                                     $("#modal-{{ convoc.codigo }} .modal-content").html(data.html_form);
                                 },
                                 fail: function () {
@@ -47,7 +46,6 @@
                             });
                         });
                     });
-
                 </script>
 
             {% else %}
