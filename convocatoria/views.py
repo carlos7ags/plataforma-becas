@@ -39,7 +39,7 @@ class ConvocatoriasView(TemplateView):
         return profile and program and socioeconomic
 
 
-def aspirante_create(request):
+def aspirante_create(request, convocCode):
     data = dict()
     if request.method == 'POST':
         form = AspirantesForm(request.POST)
@@ -59,7 +59,8 @@ def aspirante_create(request):
     else:
         form = AspirantesForm()
 
-    context = {'form': form}
+    context = {'form': form,
+               'convocCode': convocCode}
     data['html_form'] = render_to_string('register_aspirant.html',
         context,
         request=request
