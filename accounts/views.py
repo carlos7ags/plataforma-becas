@@ -14,4 +14,4 @@ class UserRegistrationView(CreateView):
         return super().form_valid(form)
 
     def get_success_url(self):
-        return reverse("student-profile-redirect")
+        return reverse("dashboard")

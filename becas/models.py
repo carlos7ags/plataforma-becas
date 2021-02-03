@@ -184,9 +184,10 @@ class Programs(models.Model):
     )
     programa = models.CharField("Programa", max_length=128)
     duracion = models.IntegerField("Duración (semestres/cuatrimestres)")
+    costo = models.IntegerField("Costo por semestre/cuatrimestre")
 
     def __str__(self):
-        return "%s" % self.programa
+        return "%s - %s" % (self.university, self.programa)
 
 
 class StudentAcademicProgram(models.Model):
