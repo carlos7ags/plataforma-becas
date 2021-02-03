@@ -39,12 +39,10 @@ class DashboardView(TemplateView):
         return context
 
 
-
-class StudentProfile(SuccessMessageMixin, CreateView):
+class StudentProfile(CreateView):
     form_class = StudentForm
     template_name = "student_profile.html"
     success_url = reverse_lazy("dashboard")
-    success_message = "¡Tu perfil se actualizó con éxito!"
 
     def get(self, request, *args, **kwargs):
         form = self.form_class()
@@ -53,20 +51,19 @@ class StudentProfile(SuccessMessageMixin, CreateView):
     def post(self, request, *args, **kwargs):
         form = self.form_class(request.POST, request.FILES)
         if form.is_valid():
-            form.instance.username = self.request.user
             obj = form.save(commit=False)
+            obj.username = self.request.user
             obj.save()
             return redirect(self.success_url)
         else:
             return render(request, self.template_name, {'form': form})
 
 
-class StudentProfileUpdate(SuccessMessageMixin, UpdateView):
+class StudentProfileUpdate(UpdateView):
     model = Student
     form_class = StudentForm
     template_name = "student_profile.html"
     success_url = reverse_lazy("dashboard")
-    success_message = "¡Tu perfil se actualizó con éxito!"
 
     def user_passes_test(self, request):
         self.object = self.get_object()
@@ -88,11 +85,10 @@ class UpdateStudentRedirectView(RedirectView):
             return reverse("student-profile")
 
 
-class StudentAcademicProgramView(SuccessMessageMixin, CreateView):
+class StudentAcademicProgramView(CreateView):
     form_class = StudentAcademicProgramForm
     template_name = "academic_program.html"
     success_url = reverse_lazy("dashboard")
-    success_message = "¡Tu información académica se actualizó con éxito!"
 
     def form_valid(self, form):
         if form.is_valid:
@@ -102,12 +98,11 @@ class StudentAcademicProgramView(SuccessMessageMixin, CreateView):
             return redirect("dashboard")
 
 
-class StudentAcademicProgramUpdate(SuccessMessageMixin, UpdateView):
+class StudentAcademicProgramUpdate(UpdateView):
     model = StudentAcademicProgram
     form_class = StudentAcademicProgramForm
     template_name = "academic_program.html"
     success_url = reverse_lazy("dashboard")
-    success_message = "¡Tu información académica se actualizó con éxito!"
 
     def user_passes_test(self, request):
         self.object = self.get_object()
@@ -149,7 +144,6 @@ class SocioEconomicStudyView(CreateView):
     form_class = SocioEconomicStudyForm
     template_name = "socio_economic_study.html"
     success_url = reverse_lazy("dashboard")
-    success_message = "¡Tu ESE se actualizó con éxito!"
 
     def form_valid(self, form):
         if form.is_valid:
@@ -164,7 +158,6 @@ class SocioEconomicStudyUpdate(UpdateView):
     form_class = SocioEconomicStudyForm
     template_name = "socio_economic_study.html"
     success_url = reverse_lazy("dashboard")
-    success_message = "¡Tu ESE se actualizó con éxito!"
 
     def user_passes_test(self, request):
         self.object = self.get_object()

@@ -9,7 +9,35 @@
     <div class="container">
         <div class="row justify-content-md-center my-4" style="background-color:white;">
             <div class="col col-lg">
-                <h1>Dashboard</h1>
+                <h2>Dashboard</h2>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container">
+        <div class="row justify-content-betweencontainer-sm my-4" style="background-color:white;">
+            <div class="col col-lg my-4">
+                <h4>Instrucciones</h4>
+                <p class="lead">Bienvenido a la plataforma de solicitud de becas FIBEIPES.</p>
+                <p>Para participar en alguna de nuestras convocatorias es necesario completar los siguientes
+                    pasos:</p>
+                <ol>
+                    <li>Revisa que cumplas con los requisitos de participación en alguna de las convocatorias
+                        abiertas.
+                    </li>
+                    <li>Completa tu perfil con tus datos personales.</li>
+                    <li>Ingresa tu información académica de forma precisa.</li>
+                    <li>Aplica el cuestionario socioeconómico de acuerdo con tus cinrcunstancias actuales.</li>
+                    <li>Registrate en la convocatoria seleccionada.</li>
+                </ol>
+                <p style="justify-content">Cuando tu aplicación este liste, toda la información será validada por el enlace de tu institución
+                    académica.
+                    Es necesario que toda la información ingresada sea correcta o de lo contrario tu solicitud será
+                    rechazada. Una vez que tu solicitud sea aprobada podrás imprimir tu solicitud, el estudio socioeconómico y la
+                    relación de documentos que deberán ser entregados en tu oficina de Control Escolar antes del cierre de la
+                    convocatoria.</p>
+
             </div>
         </div>
     </div>
@@ -18,9 +46,7 @@
     <div class="container">
         <div class="row justify-content-md-center my-4" style="background-color:white;">
             <div class="col col-lg my-4">
-                <h2>Estatus</h2>
-                <p>Para participar en alguna de nuestras convocatorias asegurate de completar los siguientes
-                    formularios.</p>
+                <h4>Estatus de tu solicitud</h4>
 
                 <div class="row">
                     <div class="col-sm-4">
@@ -57,8 +83,7 @@
                         <div class="card">
                             <div class="card-body">
                                 <h5 class="card-title">Estudio Socioeconómico</h5>
-                                <p class="card-text">Para formar una mejor idea de quien eres queremos conocer un poco
-                                    más de ti.</p>
+                                <p class="card-text">Necesitamos una mejor idea de quien eres, queremos conocerte.</p>
                                 {% if socioeconomico == True %}
                                     <a href="{% url "socio-economic-study-redirect" %}" class="btn btn-success">Actualizar</a>
                                 {% else %}
@@ -70,36 +95,32 @@
                     </div>
                 </div>
 
+                <div class="row justify-content-md-center my-4" style="background-color:white;">
+                    <div class="col col-lg my-4">
+
+                        <h4>Aplicaciones enviadas</h4>
+
+                        {% if active_calls == True %}
+
+                            <table class="table table-light table-striped">
+                                <tr>
+                                    <th>Convocatoria</th>
+                                    <th>Nombre</th>
+                                    <th>Folio</th>
+                                    <th>Validado</th>
+                                    <th>Resultado</th>
+                                    <th>Fecha de registro</th>
+                                </tr>
+                                {% include "dashboard_calls.html" %}
+                            </table>
+
+                        {% else %}
+                            <p>Por el momento no etstas registrado en ninguna convocatoria.</p>
+                        {% endif %}
+
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-
-
-    <div class="container">
-        <div class="row justify-content-md-center my-4" style="background-color:white;">
-            <div class="col col-lg my-4">
-                <h2>Historial de convocatorias</h2>
-
-                {% if active_calls == True %}
-
-                    <table class="table table-light table-striped">
-                        <tr>
-                            <th>Convocatoria</th>
-                            <th>Nombre</th>
-                            <th>Folio</th>
-                            <th>Validado</th>
-                            <th>Resultado</th>
-                            <th>Fecha de registro</th>
-                        </tr>
-                        {% include "dashboard_calls.html" %}
-                    </table>
-
-                {% else %}
-                    <p>Por el momento no etstas registrado en ninguna convocatoria.</p>
-                {% endif %}
-
-            </div>
-        </div>
-    </div>
-
 {% endblock %}
