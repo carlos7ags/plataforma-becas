@@ -54,9 +54,9 @@ class Student(models.Model):
         primary_key=True,
     )
     student_id = models.CharField(
-        "Número de identifcación del estudiante", max_length=50
+        "Número de identifcación del estudiante", max_length=25
     )
-    nombre = models.CharField("Nombre(s)", max_length=50)
+    nombre = models.CharField("Nombre(s)", max_length=25)
     primer_apellido = models.CharField("Apellido paterno", max_length=15)
     segundo_apellido = models.CharField("Apellido materno", max_length=15)
     fecha_nacimiento = models.DateField("Fecha de nacimiento")
