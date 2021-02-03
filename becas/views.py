@@ -10,6 +10,8 @@ from django.views.generic import (
 from django.urls import reverse_lazy
 from becas.forms import StudentForm, StudentAcademicProgramForm, SocioEconomicStudyForm
 from django.urls import reverse, reverse_lazy
+from django.urls import reverse
+from convocatoria.models import Convocatorias, Aspirantes
 from becas.models import Student, Programs, StudentAcademicProgram, SocioEconomicStudy
 from django.contrib.auth.views import redirect_to_login
 from django.contrib.messages.views import SuccessMessageMixin
@@ -37,7 +39,17 @@ class DashboardView(TemplateView):
         context["program"] = self.request.user in [
             student.username for student in StudentAcademicProgram.objects.all()
         ]
+        context["socioeconomico"] = self.request.user in [
+            student.username for student in SocioEconomicStudy.objects.all()
+        ]
+        calls = Aspirantes.objects.filter(username=self.request.user.id)
+        if calls:
+            context["active_calls"] = True
+            context["calls"] = calls
+        else:
+            context["active_calls"] = False
         return context
+
 
 
 class StudentProfile(SuccessMessageMixin, CreateView):
@@ -46,12 +58,19 @@ class StudentProfile(SuccessMessageMixin, CreateView):
     success_url = reverse_lazy("dashboard")
     success_message = "¡Tu perfil se actualizó con éxito!"
 
-    def form_valid(self, form):
-        if form.is_valid:
+    def get(self, request, *args, **kwargs):
+        form = self.form_class()
+        return render(request, self.template_name, {'form': form})
+
+    def post(self, request, *args, **kwargs):
+        form = self.form_class(request.POST, request.FILES)
+        if form.is_valid():
             form.instance.username = self.request.user
             obj = form.save(commit=False)
             obj.save()
-            return redirect("dashboard")
+            return redirect(self.success_url)
+        else:
+            return render(request, self.template_name, {'form': form})
 
 
 class StudentProfileUpdate(SuccessMessageMixin, UpdateView):
@@ -98,7 +117,7 @@ class StudentAcademicProgramView(SuccessMessageMixin, CreateView):
 class StudentAcademicProgramUpdate(SuccessMessageMixin, UpdateView):
     model = StudentAcademicProgram
     form_class = StudentAcademicProgramForm
-    template_name = "academic_program_update.html"
+    template_name = "academic_program.html"
     success_url = reverse_lazy("dashboard")
     success_message = "¡Tu información académica se actualizó con éxito!"
 

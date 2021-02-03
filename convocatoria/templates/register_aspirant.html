@@ -1,0 +1,49 @@
+<form method="post" action="{% url 'create-aspirante' convocCode=convocCode %}" class="create-aspirante-{{ convocCode }}-form">
+    {% csrf_token %}
+
+    <div class="modal-header">
+        <h5 class="modal-title">Registro de aspirante</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+
+    <div class="modal-body">
+
+        <p>Bajo protesta de decir verdad, certifico que la información manifestada en la presente aplicación es
+            verídica.</p>
+
+        <input type="checkbox" class="form-chek-input"
+               onchange="document.getElementById('button-register').disabled = !this.checked;" name='visto'
+               id='visto'/>
+        <label class="form-check-label" for="visto">Acepto, bajo protesta de decir verdad.</label>
+
+    </div>
+
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+        <button type="submit" class="btn btn-primary" id="button-register" disabled>Registrarse</button>
+    </div>
+
+</form>
+
+<script type="text/javascript">
+    $("#modal-{{ convocCode }}").on("submit", ".create-aspirante-{{ convocCode }}-form", function () {
+            var form = $(this);
+            $.ajax({
+              url: form.attr("action"),
+              data: form.serialize(),
+              type: form.attr("method"),
+              dataType: 'json',
+              success: function (data) {
+                if (data.form_is_valid) {
+                 window.location.href = {% url "convocatorias" %};
+                }
+                else {
+                  $("#modal-{{ convoc.codigo }} .modal-content").html(data.html_form);
+                }
+              }
+            });
+            return false;
+    });
+</script>

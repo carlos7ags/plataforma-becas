@@ -10,6 +10,7 @@ from crispy_forms.layout import (
     Div,
     Button,
     MultiField,
+    Reset
 )
 from crispy_forms.bootstrap import (
     Accordion,
@@ -22,7 +23,6 @@ from crispy_forms.bootstrap import AccordionGroup, FormActions, TabHolder, Tab
 from becas.models import Student, StudentAcademicProgram, SocioEconomicStudy
 from datetime import datetime
 from crispy_forms.helper import FormHelper
-
 
 class StudentForm(ModelForm):
     def __init__(self, *args, **kwargs):
@@ -53,6 +53,10 @@ class StudentForm(ModelForm):
                 Column("marital_status", css_class="form-group col-md-4 mb-1"),
                 css_class="form-row",
             ),
+            Row(
+                Column(Field("pic"), css_class="form-group col-md-8 mb-1"),
+                css_class="form-row",
+            ),
             HTML("<br><h4>Datos de Contacto</h4>"),
             Row(
                 Column("calle", css_class="form-group col-md-8 mb-1"),
@@ -75,7 +79,7 @@ class StudentForm(ModelForm):
                 Column("celular", css_class="form-group col-md-3 mb-1"),
                 css_class="form-row",
             ),
-            FormActions(Submit("save", "Guardar"), Button("cancel", "Cancelar")),
+            FormActions(Submit("save", "Guardar"),),
         )
 
     class Meta:
@@ -112,7 +116,7 @@ class StudentAcademicProgramForm(ModelForm):
                 css_class="form-row",
             ),
             "continua",
-            FormActions(Submit("save", "Guardar"), Button("cancel", "Cancelar")),
+            FormActions(Submit("save", "Guardar"),),
         )
 
     class Meta:
@@ -247,7 +251,7 @@ class SocioEconomicStudyForm(ModelForm):
             Row(
                 Column(Field("home_type"), css_class="form-group col-md-4 mb-1"),
                 Column(Field("home_floor"), css_class="form-group col-md-4 mb-1"),
-                css_class = "form-row"
+                css_class="form-row",
             ),
             Row(
                 Column(Field("home_ceil"), css_class="form-group col-md-4 mb-1"),
@@ -270,7 +274,7 @@ class SocioEconomicStudyForm(ModelForm):
                 Column(Field("service_gas"), css_class="form-group col-md-4 mb-1"),
                 css_class="form-row",
             ),
-            FormActions(Submit("save", "Guardar"), Button("cancel", "Cancelar")),
+            FormActions(Submit("save", "Guardar"),),
         )
 
     class Meta:

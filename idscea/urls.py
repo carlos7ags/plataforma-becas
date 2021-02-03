@@ -5,8 +5,13 @@ from django.views.generic import TemplateView
 from accounts.views import UserRegistrationView
 import django.contrib.auth.views as auth_views
 from django.contrib.auth.decorators import login_required
+
 from becas.views import StudentProfile, StudentProfileUpdate, UpdateStudentRedirectView, StudentAcademicProgramView, StudentAcademicProgramUpdate, UpdateStudentAcademicProgramRedirectView, load_programs, DashboardView, SocioEconomicStudyView, SocioEconomicStudyUpdate, UpdateSocioEconomicStudyRedirectView, ConstanciaPdfView, SolicitudPdfView, EsePdfView
 from convocatoria.views import ConvocatoriasView
+from becas.views import StudentProfile, StudentProfileUpdate, UpdateStudentRedirectView, StudentAcademicProgramView, StudentAcademicProgramUpdate, UpdateStudentAcademicProgramRedirectView, load_programs, DashboardView, SocioEconomicStudyView, SocioEconomicStudyUpdate, UpdateSocioEconomicStudyRedirectView
+from convocatoria.views import ConvocatoriasView, aspirante_create
+from django.conf.urls.static import static
+from django.conf import settings
 
 import os
 from django.conf import settings
@@ -32,10 +37,10 @@ urlpatterns = [
     path('reset/<uidb64>/<token>/', auth_views.PasswordResetConfirmView.as_view(template_name='password_reset_confirm.html'), name='password_reset_confirm'),
     path('reset/done/', auth_views.PasswordResetCompleteView.as_view(template_name='password_reset_complete.html'), name='password_reset_complete'),
 
-
     path('dashboard/', login_required(DashboardView.as_view()), name='dashboard'),
 
     path('convocatorias/', login_required(ConvocatoriasView.as_view()), name='convocatorias'),
+    url(r'convocatorias/(?P<convocCode>[a-zA-Z0-9]+)/$', login_required(aspirante_create), name='create-aspirante'),
 
     path('profile/', login_required(StudentProfile.as_view()), name='student-profile'),
     url(r'profile/(?P<pk>\d+)/update/$', login_required(StudentProfileUpdate.as_view()), name='student-profile-update'),
@@ -53,5 +58,7 @@ urlpatterns = [
     path('generate_constancia/', ConstanciaPdfView.as_view(), name='constancia-print-pdf'),
     path('generate_solicitud/', SolicitudPdfView.as_view(), name='solicitud-print-pdf'),
     path('generate_ese/', EsePdfView.as_view(), name='ese-print-pdf'),
-
 ]
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+

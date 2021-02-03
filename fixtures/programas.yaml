@@ -1525,7 +1525,7 @@
 - model: becas.programs
   pk: 168
   fields:
-    programa:	INGENIERÍA INDUSTRIAL
+    programa: INGENIERÍA INDUSTRIAL
     university: 6
     grado: 3
     modalidad: 2
@@ -1570,7 +1570,7 @@
 - model: becas.programs
   pk: 173
   fields:
-    programa:	LICENCIATURA EN NEGOCIOS Y ADMINISTRACIÓN
+    programa: LICENCIATURA EN NEGOCIOS Y ADMINISTRACIÓN
     university: 6
     grado: 2
     modalidad: 2
@@ -1584,11 +1584,14 @@
     grado: 2
     modalidad: 2
     duracion: 10
+<<<<<<< HEAD
     costo: 4000.00
 
 
 
 
+=======
+>>>>>>> b3a084f650e4ca00ab45c26832985788f11572e3
 - model: becas.programs
   pk: 175
   fields:
@@ -1780,11 +1783,14 @@
     grado: 3
     modalidad: 1
     duracion: 12
+<<<<<<< HEAD
     costo: 3300.00
 
 
 
 
+=======
+>>>>>>> b3a084f650e4ca00ab45c26832985788f11572e3
 - model: becas.programs
   pk: 195
   fields:
@@ -1833,7 +1839,7 @@
 - model: becas.programs
   pk: 200
   fields:
-    programa:	Ingeniería en Materiales
+    programa: Ingeniería en Materiales
     university: 11
     grado: 3
     modalidad: 1

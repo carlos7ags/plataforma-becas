@@ -60,7 +60,7 @@
                                 <h5 class="card-title">Estudio Socioeconómico</h5>
                                 <p class="card-text">Para formar una mejor idea de quien eres queremos conocer un poco
                                     más de ti.</p>
-                                {% if student == True %}
+                                {% if socioeconomico == True %}
                                     <a href="{% url "socio-economic-study-redirect" %}" class="btn btn-success">Actualizar</a>
                                 {% else %}
                                     <a href="{% url "socio-economic-study-redirect" %}"
@@ -80,24 +80,24 @@
         <div class="row justify-content-md-center my-4" style="background-color:white;">
             <div class="col col-lg my-4">
                 <h2>Historial de convocatorias</h2>
-                <table class="table table-light table-striped">
-                    <tr>
-                        <th>Convocatoria</th>
-                        <th>Resultado</th>
-                    </tr>
-                    <tr>
-                        <td>Perfil</td>
-                        <td>Ok</td>
-                    </tr>
-                    <tr>
-                        <td>Información académica</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>Estudio socioeconómico</td>
-                        <td></td>
-                    </tr>
-                </table>
+
+                {% if active_calls == True %}
+
+                    <table class="table table-light table-striped">
+                        <tr>
+                            <th>Convocatoria</th>
+                            <th>Nombre</th>
+                            <th>Folio</th>
+                            <th>Validado</th>
+                            <th>Resultado</th>
+                            <th>Fecha de registro</th>
+                        </tr>
+                        {% include "dashboard_calls.html" %}
+                    </table>
+
+                {% else %}
+                    <p>Por el momento no etstas registrado en ninguna convocatoria.</p>
+                {% endif %}
 
             </div>
         </div>
