@@ -1,11 +1,39 @@
+{% load static %}
 
-    {% for call in calls %}
+{% for call in calls %}
     <tr>
         <td>{{ call.convocatoria.codigo }}</td>
-        <td>{{ call.convocatoria.name }}</td>
         <td>{{ call.folio }}</td>
-        <td>{{ call.validated }}</td>
-        <td>{{ call.beneficiado }}</td>
         <td>{{ call.date }}</td>
+        {% if call.validated == True %}
+            <td>Sí</td>
+            <td clas="w-25">
+                <img src={%  static "images/pdf.png" %} class="img" alt="Solicitud" width="40">
+            </td>
+            <td>
+                <img src={%  static "images/pdf.png" %} class="img" alt="Socioeconómico" width="40">
+            </td>
+            <td>
+                <img src={%  static "images/pdf.png" %} class="img" alt="Expendiente" width="40">
+            </td>
+        {% else %}
+            <td>No</td>
+            <td>
+                <img src={%  static "images/empty_doc.png" %} class="img" alt="Empty" width="40">
+            </td>
+            <td>
+                <img src={%  static "images/empty_doc.png" %} class="img" alt="Empty" width="40">
+            </td>
+            <td>
+                <img src={%  static "images/empty_doc.png" %} class="img" alt="Empty" width="40">
+            </td>
+        {% endif %}
+        {% if call.beneficiado == None %}
+            <td>Pendiente</td>
+        {% elif call.beneficiado == True %}
+            <td>Seleccionado</td>
+        {% else %}
+            <td>No seleccionado</td>
+        {% endif %}
     </tr>
-    {%  endfor %}
+{% endfor %}

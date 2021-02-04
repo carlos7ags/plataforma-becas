@@ -103,15 +103,21 @@
                         {% if active_calls == True %}
 
                             <table class="table table-light table-striped">
+                              <div class="table-responsive">
+                                <table class="table align-middle" style="text-align:center">
                                 <tr>
                                     <th>Convocatoria</th>
-                                    <th>Nombre</th>
                                     <th>Folio</th>
-                                    <th>Validado</th>
-                                    <th>Resultado</th>
                                     <th>Fecha de registro</th>
+                                    <th>Validado</th>
+                                    <th>Solicitud</th>
+                                    <th>Estudio</th>
+                                    <th>Expediente</th>
+                                    <th>Resultado</th>
                                 </tr>
                                 {% include "dashboard_calls.html" %}
+                            </table>
+                              </div>
                             </table>
 
                         {% else %}
