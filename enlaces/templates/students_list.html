@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block content %}
+
+    {% include "sub_menu_enlaces.html" %}
+
+    <div class="container">
+        <div class="row justify-content-md-center my-4" style="background-color:white;">
+            <div class="col col-lg">
+                <h2>Validación de estudiantes</h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row justify-content-betweencontainer-sm my-4" style="background-color:white;">
+            <div class="col col-lg my-4">
+                <h4>Solicitudes recibidas: {{ university }}</h4>
+                    <table class="table table-light table-striped">
+                        <div class="table-responsive">
+                            <table class="table align-middle" style="text-align:center">
+                                <tr>
+                                    <th>CURP</th>
+                                    <th>ID Estudiante</th>
+                                    <th>Nombre</th>
+                                    <th>Perfil</th>
+                                    <th>ESE</th>
+                                    <th>Solicitud</th>
+                                </tr>
+                                {% for student in object_list %}
+                                    <tr>
+                                        <td>{{ student.username|upper }}</td>
+                                        <td>{{ student.student_id|upper }}</td>
+                                        <td>{{ student.primer_apellido|title }} {{ student.segundo_apellido|title }} {{ student.nombre|title }}</td>
+                                        {% if student.validated == True %}
+                                        <td>
+                                            <img src={% static "images/pdf.png" %} class="img" alt="Expendiente"
+                                                 width="40">
+                                        </td>
+                                        {% else %}
+                                        <td>
+                                            <img src={% static "images/empty_doc.png" %} class="img" alt="Empty"
+                                                 width="40">
+                                        </td>
+                                        {%  endif %}
+                                        {% if ese.validated == True %}
+                                        <td>
+                                            <img src={% static "images/pdf.png" %} class="img" alt="Expendiente"
+                                                 width="40">
+                                        </td>
+                                        {% else %}
+                                        <td>
+                                            <img src={% static "images/empty_doc.png" %} class="img" alt="Empty"
+                                                 width="40">
+                                        </td>
+                                        {%  endif %}
+                                        {% if solicitud.validated == True %}
+                                        <td>
+                                            <img src={% static "images/pdf.png" %} class="img" alt="Expendiente"
+                                                 width="40">
+                                        </td>
+                                        {% else %}
+                                        <td>
+                                            <img src={% static "images/empty_doc.png" %} class="img" alt="Empty"
+                                                 width="40">
+                                        </td>
+                                        {%  endif %}
+                                    </tr>
+                                {% empty %}
+                                    <td>
+                                    No hay registros.
+                                    </td>
+                                {% endfor %}
+                            </table>
+                        </div>
+                    </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+
+
+<h1>Articles</h1>
+<ul>
+    {% for article in object_list %}
+        <li>{{ article.pub_date|date }} - {{ article.headline }}</li>
+    {% empty %}
+        <li>No hay registros.</li>
+    {% endfor %}
+</ul>

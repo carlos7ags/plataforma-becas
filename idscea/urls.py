@@ -9,7 +9,7 @@ from becas.views import StudentProfile, StudentProfileUpdate, UpdateStudentRedir
 from convocatoria.views import ConvocatoriasView, aspirante_create
 from django.conf.urls.static import static
 from django.conf import settings
-
+from enlaces.views import StudentsValidationList, DashboardEnlacesView, ProgramasUpdate
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -44,6 +44,10 @@ urlpatterns = [
     url(r'academic/(?P<pk>\d+)/update/$', login_required(StudentAcademicProgramUpdate.as_view()), name='academic-program-update'),
     path('academic/redirect', login_required(UpdateStudentAcademicProgramRedirectView.as_view()), name='academic-program-redirect'),
     path('ajax/load-programs/', load_programs, name='ajax-load-programs'),
+
+    path('enlaces/', login_required(DashboardEnlacesView.as_view()), name='dashboard-enlaces'),
+    path('enlaces/student_validation', login_required(StudentsValidationList.as_view()), name='student-validation'),
+    path('enlaces/student_validation', login_required(ProgramasUpdate.as_view()), name='programs-update'),
 
 ]
 

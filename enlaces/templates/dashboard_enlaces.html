@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block content %}
+
+    {% include "sub_menu_enlaces.html" %}
+
+    <div class="container">
+        <div class="row justify-content-md-center my-4" style="background-color:white;">
+            <div class="col col-lg">
+                <h2>Validación de estudiantes</h2>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container">
+        <div class="row justify-content-betweencontainer-sm my-4" style="background-color:white;">
+            <div class="col col-lg my-4">
+                <h4>Instrucciones</h4>
+                <p class="lead">Bienvenido a la plataforma de solicitud de becas FIBEIPES.</p>
+                <p class="lead">En este menú puedes revisar las solicitudes recibídas y validar la participación de tus estudiantes.</p>
+                <p class="lead">Es importante que revises con detalle toda la información capturada por ellos.</p>
+            </div>
+        </div>
+    </div>
+{% endblock %}
