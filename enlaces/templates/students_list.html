@@ -18,26 +18,25 @@
     <div class="container">
         <div class="row justify-content-betweencontainer-sm my-4" style="background-color:white;">
             <div class="col col-lg my-4">
-                <h4>Solicitudes recibidas:</h4>
-                <p>{{ universidad }}</p>
-                <table class="table table-light table-striped">
+                <h4>Solicitudes recibidas:</h4><p>{{ universidad }}</p>
+                <table class="table table-light">
                     <div class="table-responsive">
-                        <table class="table align-middle" style="text-align:center">
+                        <table class="table align-middle table-striped" style="text-align:center">
                             <tr>
                                 <th>CURP</th>
                                 <th>ID Estudiante</th>
                                 <th>Nombre</th>
                                 <th>Estatus</th>
                             </tr>
-                            {% for student in object_list %}
+                            {% for applicant in object_list %}
                                 <tr>
-                                    <td>{{ student.username|upper }}</td>
-                                    <td>{{ student.student_id|upper }}</td>
-                                    <td>{{ student.primer_apellido|title }} {{ student.segundo_apellido|title }} {{ student.nombre|title }}</td>
-                                    {% if student.validated == True %}
+                                    <td>{{ applicant.username|upper }}</td>
+                                    <td>{{ applicant.username.student.student_id|upper }}</td>
+                                    <td>{{ applicant.username.student.primer_apellido|title }} {{ applicant.username.student.segundo_apellido|title }} {{ applicant.username.student.nombre|title }}</td>
+                                    {% if applicant.validated == True %}
                                         <td>
                                             <a type="button" class="btn btn-outline-success"
-                                               href="{% url 'aspirant-view' student.id %}">
+                                               href="{% url 'aspirant-view' applicant.id %}">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                                      fill="currentColor" class="bi bi-bookmark-check-fill"
                                                      viewBox="0 0 16 16">
@@ -49,7 +48,7 @@
                                     {% else %}
                                         <td>
                                             <a type="button" class="btn btn-outline-primary"
-                                               href="{% url 'aspirant-view' student.id %}">
+                                               href="{% url 'aspirant-view' applicant.id %}">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                                      fill="currentColor" class="bi bi-bookmark-dash"
                                                      viewBox="0 0 16 16">
@@ -67,11 +66,9 @@
                                 </td>
                             {% endfor %}
                         </table>
-                    </div>
-                </table>
 
 
-                <div class="pagination justify-content-center" style="border-bottom: #0b2e13">
+                        <div class="pagination justify-content-center" style="border-bottom: #0b2e13">
                         <span class="step-links">
                             {% if page_obj.has_previous %}
                                 <a class="previous round" href="?page=1">&laquo;</a>
@@ -87,12 +84,12 @@
                                 <a class="next round" href="?page={{ page_obj.paginator.num_pages }}">&raquo;</a>
                             {% endif %}
                         </span>
-                </div>
-            </div>
-            </table>
+                        </div>
+                    </div>
+                </table>
 
+            </div>
         </div>
-    </div>
     </div>
 
 {% endblock %}

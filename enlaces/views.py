@@ -7,6 +7,8 @@ from convocatoria.models import Aspirantes
 from enlaces.models import Enlaces
 from django.contrib.auth.mixins import UserPassesTestMixin, LoginRequiredMixin
 from django.urls import reverse_lazy
+from django.contrib.auth.models import User
+
 
 
 class AdminStaffRequiredMixin(LoginRequiredMixin, UserPassesTestMixin):
@@ -58,8 +60,17 @@ class StudentsValidationList(AdminStaffRequiredMixin, ListView):
     paginate_by = 25
     ordering = ["username"]
 
+    """        aspirant_usernames = Aspirantes.objects.all().values_list("username__username", flat=True)
+
+            all_aspirants = User.objects.filter(username__in=aspirant_usernames).select_related("studentacademicprogram").filter(
+                studentacademicprogram__university=enlace_universidad).select_related("student")
+            print(all_aspirants.values())"""
+
     def get_queryset(self):
-        return Aspirantes.objects.select_related("username__studentacademicprogram").filter(username__studentacademicprogram__university=Enlaces.objects.filter(username=self.request.user.id).first().university).all()
+        enlace_universidad = Enlaces.objects.filter(username=self.request.user.id).first().university
+        all_aspirants = Aspirantes.objects.select_related("username__studentacademicprogram").filter(
+            username__studentacademicprogram__university=enlace_universidad).select_related("username__student").all()
+        return all_aspirants
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -68,5 +79,5 @@ class StudentsValidationList(AdminStaffRequiredMixin, ListView):
 
 
 class StudentsValidationDetail(AdminStaffRequiredMixin, DetailView):
-    model = Student
+    model = Aspirantes
     template_name = "students_detail.html"

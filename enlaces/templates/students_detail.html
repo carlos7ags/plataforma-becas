@@ -2,6 +2,7 @@
 
 {% load crispy_forms_tags %}
 {% load static %}
+{% load humanize %}
 
 {% block content %}
 
@@ -25,19 +26,15 @@
                         <table class="table align-middle" style="text-align:center">
                             <tr>
                                 <th>CURP</th>
-                                <th>ID Estudiante</th>
-                                <th>Nombre</th>
                                 <th>Estatus</th>
                             </tr>
-                            {% for student in object_list %}
+                            {% for applicant in object_list %}
                                 <tr>
-                                    <td>{{ student.username|upper }}</td>
-                                    <td>{{ student.username.student.student_id|upper }}</td>
-                                    <td>{{ student.primer_apellido|title }} {{ student.segundo_apellido|title }} {{ student.nombre|title }}</td>
-                                    {% if student.validated == True %}
+                                    <td>{{ applicant.username|upper }}</td>
+                                    {% if applicant.validated == True %}
                                         <td>
                                             <a type="button" class="btn btn-outline-success"
-                                               href="{% url 'aspirant-view' student.id %}">
+                                               href="{% url 'aspirant-view' applicant.id %}">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                                      fill="currentColor" class="bi bi-bookmark-check-fill"
                                                      viewBox="0 0 16 16">
@@ -49,7 +46,7 @@
                                     {% else %}
                                         <td>
                                             <a type="button" class="btn btn-outline-primary"
-                                               href="{% url 'aspirant-view' student.id %}">
+                                               href="{% url 'aspirant-view' applicant.id %}">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                                      fill="currentColor" class="bi bi-bookmark-dash"
                                                      viewBox="0 0 16 16">
