@@ -35,3 +35,29 @@ admin.site.register(SocioEconomicStudy)
 admin.site.register(Student)
 admin.site.register(StudentAcademicProgram)
 admin.site.register(Universities)
+
+from import_export import resources
+from import_export.admin import ImportExportModelAdmin
+
+
+# ToDo: Crear dos clases como está para cada menu que queramos descargar a excel
+
+class StudentResource(resources.ModelResource):
+	class Meta: model = Student
+
+class StudentAdmin(ImportExportModelAdmin):
+	resource_class = StudentResource
+
+class SocioEconomicStudyResource(resources.ModelResource):
+	class Meta: model = SocioEconomicStudy
+
+class SocioEconomicStudyAdmin(ImportExportModelAdmin):
+	resource_class = SocioEconomicStudyResource
+
+class StudentAcademicProgramResource(resources.ModelResource):
+    class Meta: model = SocioEconomicStudy
+
+class StudentAcademicProgramAdmin(ImportExportModelAdmin):
+    resource_class = StudentAcademicProgramResource
+
+
