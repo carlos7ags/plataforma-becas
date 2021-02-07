@@ -35,8 +35,11 @@
                 <ul class="navbar-nav mr-auto mt-2 mt-lg-0 ">
                     {% if request.user.is_authenticated %}
                         <li class="nav-item">
-                            <a class="nav-link" href="{% url "dashboard" %}">Dashboard</a>
-                        </li>
+                            {% if request.user.is_staff %}
+                                <a class="nav-link" href="{% url "dashboard-enlaces" %}">Dashboard</a>
+                            {% else %}
+                                <a class="nav-link" href="{% url "dashboard" %}">Dashboard</a>
+                            {% endif %}                        </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{% url "logout" %}">Cerrar sesión</a>
                         </li>
@@ -51,6 +54,11 @@
                 </ul>
                 <a class="navbar-brand text-white">
                     Plataforma de solicitud de becas
+                    {% if request.user.student.pic.url %}
+                   <span><img src="{{ request.user.student.pic.url }}" alt="" class="rounded-circle" width="40" height="40"></span>
+                    {%  else %}
+                   <span><img src="{% static "images/default.jpg" %}" alt="" class="rounded-circle" width="40" height="40"></span>
+                    {%  endif %}
                 </a>
             </div>
         </nav>
