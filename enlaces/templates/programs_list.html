@@ -1,0 +1,168 @@
+{% extends "base.html" %}
+
+{% load crispy_forms_tags %}
+{% load humanize %}
+{% load static %}
+
+{% block content %}
+
+    <style>
+        a {
+            text-decoration: none;
+            display: inline-block;
+            padding: 8px 16px;
+        }
+
+        a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        .previous {
+            background-color: #f1f1f1;
+            color: black;
+        }
+
+        .next {
+            background-color: #f1f1f1;
+            color: black;
+        }
+
+        .round {
+            border-radius: 50%;
+        }
+    </style>
+
+
+
+    {% include "sub_menu_enlaces.html" %}
+
+    <div class="container">
+        <div class="row justify-content-md-center my-4" style="background-color:white;">
+            <div class="col col-lg">
+                <h2>Programas Académicos</h2>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="modal fade" id="confirmDeleteModal" tabindex="-1" caller-id="" role="dialog"
+         aria-labelledby="confirmDeleteModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-body confirm-delete">
+                    ¡Esta acción es permanente!
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal" id="confirmDeleteButtonModal">
+                        Borrar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="container">
+        <div class="row justify-content-betweencontainer-sm my-4" style="background-color:white;">
+            <div class="col col-lg my-4">
+                <h4>Actualización de programas académicos:</h4><p>{{ universidad }}</p>
+                <a type="button" class="btn btn-outline-primary" href="{% url 'programs-create' %}">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                         class="bi bi-plus-square-fill" viewBox="0 0 16 16">
+                        <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z"/>
+                    </svg>
+                    Crear nuevo
+                </a>
+                <table class="table table-light">
+                    <div class="table-responsive">
+                        <table class="table align-middle table-striped" style="text-align:center">
+                            <tr>
+                                <th>Grado</th>
+                                <th>Modalidad</th>
+                                <th>Programa</th>
+                                <th>Duración</th>
+                                <th>Costo</th>
+                                <th>Actualizar</th>
+                                <th>Borrar</th>
+                            </tr>
+                            {% for programa in page_obj %}
+                                <tr>
+                                    <td>{{ programa.grado|title }}</td>
+                                    <td>{{ programa.modalidad|title }}</td>
+                                    <td>{{ programa.programa|title }}</td>
+                                    <td>{{ programa.duracion|intcomma }}</td>
+                                    <td>{{ programa.costo|intcomma:2 }}</td>
+                                    <td>
+                                        <a type="button" class="btn btn-outline-success"
+                                           href="{% url 'programs-update' programa.program_id %}">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                 fill="currentColor" class="bi bi-card-text" viewBox="0 0 16 16">
+                                                <path d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h13zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z"/>
+                                                <path d="M3 5.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zM3 8a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 3 8zm0 2.5a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5z"/>
+                                            </svg>
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a type="button" href="{% url 'programs-delete' programa.program_id %}"
+                                           class="btn btn-outline-danger confirm-delete" title="Delete"
+                                           data-toggle="modal" data-target="#confirmDeleteModal"
+                                           id="deleteButton{{ programa.program_id }}">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                 fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                                                <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"></path>
+                                                <path fill-rule="evenodd"
+                                                      d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4L4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"></path>
+                                            </svg>
+                                        </a>
+                                    </td>
+                                </tr>
+                            {% empty %}
+                                <td>
+                                    No hay registros.
+                                </td>
+                            {% endfor %}
+                        </table>
+
+
+                        <div class="pagination justify-content-center" style="border-bottom: #0b2e13">
+                        <span class="step-links">
+                            {% if page_obj.has_previous %}
+                                <a class="previous round" href="?page=1">&laquo;</a>
+                                <a class="previous round" href="?page={{ page_obj.previous_page_number }}">&#8249;</a>
+                            {% endif %}
+
+                            <span class="current">
+                                Página {{ page_obj.number }} de {{ page_obj.paginator.num_pages }}
+                            </span>
+
+                            {% if page_obj.has_next %}
+                                <a class="next round" href="?page={{ page_obj.next_page_number }}">&#8250;</a>
+                                <a class="next round" href="?page={{ page_obj.paginator.num_pages }}">&raquo;</a>
+                            {% endif %}
+                        </span>
+                        </div>
+                    </div>
+                </table>
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+        $(document).on('click', '.confirm-delete', function () {
+            $("#confirmDeleteModal").attr("caller-id", $(this).attr("id"));
+        });
+
+        $(document).on('click', '#confirmDeleteButtonModal', function () {
+            var caller = $("#confirmDeleteButtonModal").closest(".modal").attr("caller-id");
+            window.location = $("#".concat(caller)).attr("href");
+        });
+    </script>
+
+{% endblock %}
+

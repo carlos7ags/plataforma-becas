@@ -32,7 +32,7 @@
                             {% for student in object_list %}
                                 <tr>
                                     <td>{{ student.username|upper }}</td>
-                                    <td>{{ student.student_id|upper }}</td>
+                                    <td>{{ student.username.student.student_id|upper }}</td>
                                     <td>{{ student.primer_apellido|title }} {{ student.segundo_apellido|title }} {{ student.nombre|title }}</td>
                                     {% if student.validated == True %}
                                         <td>

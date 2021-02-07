@@ -9,7 +9,7 @@ from becas.views import StudentProfile, StudentProfileUpdate, UpdateStudentRedir
 from convocatoria.views import ConvocatoriasView, aspirante_create
 from django.conf.urls.static import static
 from django.conf import settings
-from enlaces.views import StudentsValidationList, DashboardEnlacesView, ProgramasUpdate
+from enlaces.views import StudentsValidationList, DashboardEnlacesView, ProgramsUpdate, ProgramsList, ProgramsCreate, ProgramsDelete
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -47,7 +47,11 @@ urlpatterns = [
 
     path('enlaces/', login_required(DashboardEnlacesView.as_view()), name='dashboard-enlaces'),
     path('enlaces/student_validation', login_required(StudentsValidationList.as_view()), name='student-validation'),
-    path('enlaces/student_validation', login_required(ProgramasUpdate.as_view()), name='programs-update'),
+    path('enlaces/programs/list', login_required(ProgramsList.as_view()), name='programs-list'),
+    url(r'programs/(?P<pk>\d+)/update/$', login_required(ProgramsUpdate.as_view()), name='programs-update'),
+    path('enlaces/programs/create', login_required(ProgramsCreate.as_view()), name='programs-create'),
+    path('enlaces/programs/delete/<int:pk>', login_required(ProgramsDelete.as_view()), name='programs-delete'),
+    path('enlaces/aspirant/<int:pk>', login_required(ProgramsDelete.as_view()), name='aspirant-view'),
 
 ]
 

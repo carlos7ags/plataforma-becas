@@ -2,7 +2,6 @@ from django.urls import reverse
 from django.views.generic import CreateView
 
 from accounts.forms import UserCreationForm
-from becas.models import Student
 
 
 class UserRegistrationView(CreateView):
