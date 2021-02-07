@@ -69,7 +69,7 @@ class StudentsValidationList(AdminStaffRequiredMixin, ListView):
     def get_queryset(self):
         enlace_universidad = Enlaces.objects.filter(username=self.request.user.id).first().university
         all_aspirants = Aspirantes.objects.select_related("username__studentacademicprogram").filter(
-            username__studentacademicprogram__university=enlace_universidad).select_related("username__student").all()
+            username__studentacademicprogram__university=enlace_universidad).select_related("username__student").order_by('validated', 'username').all()
         return all_aspirants
 
     def get_context_data(self, **kwargs):
@@ -78,6 +78,20 @@ class StudentsValidationList(AdminStaffRequiredMixin, ListView):
         return context
 
 
-class StudentsValidationDetail(AdminStaffRequiredMixin, DetailView):
+class StudentsValidationDetail(AdminStaffRequiredMixin, UpdateView):
     model = Aspirantes
     template_name = "students_detail.html"
+    success_url = reverse_lazy('programs-list')
+    fields = ["comments", "validated"]
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        print()
+        context['student'] = Student.objects.filter(username=self.object.username).first()
+        context['ses'] = SocioEconomicStudy.objects.filter(username=self.object.username).first()
+        context['academic'] = StudentAcademicProgram.objects.filter(username=self.object.username).first()
+        context['email'] = User.objects.filter(username=self.object.username).first().email
+        tel = "(%c%c%c)-%c%c%c-%c%c%c%c" % tuple(context['student'].telefono)
+        cel = "(%c%c%c)-%c%c%c-%c%c%c%c" % tuple(context['student'].celular)
+        context['telefonos'] = "Teléfono: " + tel + ", Celular: " + cel
+        return context
