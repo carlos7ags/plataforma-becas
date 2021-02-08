@@ -11,283 +11,817 @@ class Migration(migrations.Migration):
     initial = True
 
     dependencies = [
-        ('auth', '0012_alter_user_first_name_max_length'),
+        ("auth", "0012_alter_user_first_name_max_length"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='AverageGradeRanges',
+            name="AverageGradeRanges",
             fields=[
-                ('average_grade_range_id', models.AutoField(primary_key=True, serialize=False)),
-                ('average_grade_range', models.CharField(max_length=50, verbose_name='Promedio general')),
-                ('value', models.IntegerField(verbose_name='Puntuación')),
+                (
+                    "average_grade_range_id",
+                    models.AutoField(primary_key=True, serialize=False),
+                ),
+                (
+                    "average_grade_range",
+                    models.CharField(max_length=50, verbose_name="Promedio general"),
+                ),
+                ("value", models.IntegerField(verbose_name="Puntuación")),
             ],
         ),
         migrations.CreateModel(
-            name='Estados',
+            name="Estados",
             fields=[
-                ('estado_id', models.AutoField(primary_key=True, serialize=False)),
-                ('estado', models.CharField(max_length=50, verbose_name='Estado')),
+                ("estado_id", models.AutoField(primary_key=True, serialize=False)),
+                ("estado", models.CharField(max_length=50, verbose_name="Estado")),
             ],
         ),
         migrations.CreateModel(
-            name='FamilyMembersRange',
+            name="FamilyMembersRange",
             fields=[
-                ('family_members_range_id', models.AutoField(primary_key=True, serialize=False)),
-                ('family_members_range', models.CharField(max_length=50, verbose_name='Número de integrantes de la familia')),
-                ('value', models.IntegerField(verbose_name='Puntuación')),
+                (
+                    "family_members_range_id",
+                    models.AutoField(primary_key=True, serialize=False),
+                ),
+                (
+                    "family_members_range",
+                    models.CharField(
+                        max_length=50,
+                        verbose_name="Número de integrantes de la familia",
+                    ),
+                ),
+                ("value", models.IntegerField(verbose_name="Puntuación")),
             ],
         ),
         migrations.CreateModel(
-            name='FamilyMonthlyIncome',
+            name="FamilyMonthlyIncome",
             fields=[
-                ('family_monthly_income_id', models.AutoField(primary_key=True, serialize=False)),
-                ('family_monthly_income', models.CharField(max_length=50, verbose_name='Ingreso familiar mensual')),
-                ('value', models.IntegerField(verbose_name='Puntuación')),
+                (
+                    "family_monthly_income_id",
+                    models.AutoField(primary_key=True, serialize=False),
+                ),
+                (
+                    "family_monthly_income",
+                    models.CharField(
+                        max_length=50, verbose_name="Ingreso familiar mensual"
+                    ),
+                ),
+                ("value", models.IntegerField(verbose_name="Puntuación")),
             ],
         ),
         migrations.CreateModel(
-            name='Grados',
+            name="Grados",
             fields=[
-                ('grado_id', models.AutoField(primary_key=True, serialize=False)),
-                ('grado', models.CharField(max_length=50, verbose_name='Modalidad')),
+                ("grado_id", models.AutoField(primary_key=True, serialize=False)),
+                ("grado", models.CharField(max_length=50, verbose_name="Modalidad")),
             ],
         ),
         migrations.CreateModel(
-            name='HomeCeil',
+            name="HomeCeil",
             fields=[
-                ('home_ceil_id', models.AutoField(primary_key=True, serialize=False)),
-                ('home_ceil', models.CharField(max_length=50, verbose_name='Tipo de techo de la vivienda')),
-                ('value', models.IntegerField(verbose_name='Puntuación')),
+                ("home_ceil_id", models.AutoField(primary_key=True, serialize=False)),
+                (
+                    "home_ceil",
+                    models.CharField(
+                        max_length=50, verbose_name="Tipo de techo de la vivienda"
+                    ),
+                ),
+                ("value", models.IntegerField(verbose_name="Puntuación")),
             ],
         ),
         migrations.CreateModel(
-            name='HomeFloor',
+            name="HomeFloor",
             fields=[
-                ('home_floor_id', models.AutoField(primary_key=True, serialize=False)),
-                ('home_floor', models.CharField(max_length=50, verbose_name='Tipo de piso de la vivienda')),
-                ('value', models.IntegerField(verbose_name='Puntuación')),
+                ("home_floor_id", models.AutoField(primary_key=True, serialize=False)),
+                (
+                    "home_floor",
+                    models.CharField(
+                        max_length=50, verbose_name="Tipo de piso de la vivienda"
+                    ),
+                ),
+                ("value", models.IntegerField(verbose_name="Puntuación")),
             ],
         ),
         migrations.CreateModel(
-            name='HomePersons',
+            name="HomePersons",
             fields=[
-                ('home_persons_id', models.AutoField(primary_key=True, serialize=False)),
-                ('home_persons', models.CharField(max_length=50, verbose_name='Número de personas por habitación')),
-                ('value', models.IntegerField(verbose_name='Puntuación')),
+                (
+                    "home_persons_id",
+                    models.AutoField(primary_key=True, serialize=False),
+                ),
+                (
+                    "home_persons",
+                    models.CharField(
+                        max_length=50, verbose_name="Número de personas por habitación"
+                    ),
+                ),
+                ("value", models.IntegerField(verbose_name="Puntuación")),
             ],
         ),
         migrations.CreateModel(
-            name='HomeType',
+            name="HomeType",
             fields=[
-                ('home_type_id', models.AutoField(primary_key=True, serialize=False)),
-                ('home_type', models.CharField(max_length=50, verbose_name='Tipo de vivienda')),
-                ('value', models.IntegerField(verbose_name='Puntuación')),
+                ("home_type_id", models.AutoField(primary_key=True, serialize=False)),
+                (
+                    "home_type",
+                    models.CharField(max_length=50, verbose_name="Tipo de vivienda"),
+                ),
+                ("value", models.IntegerField(verbose_name="Puntuación")),
             ],
         ),
         migrations.CreateModel(
-            name='HomeWalls',
+            name="HomeWalls",
             fields=[
-                ('home_walls_id', models.AutoField(primary_key=True, serialize=False)),
-                ('home_walls', models.CharField(max_length=50, verbose_name='Tipo de muros de la vivienda')),
-                ('value', models.IntegerField(verbose_name='Puntuación')),
+                ("home_walls_id", models.AutoField(primary_key=True, serialize=False)),
+                (
+                    "home_walls",
+                    models.CharField(
+                        max_length=50, verbose_name="Tipo de muros de la vivienda"
+                    ),
+                ),
+                ("value", models.IntegerField(verbose_name="Puntuación")),
             ],
         ),
         migrations.CreateModel(
-            name='MaritalStatus',
+            name="MaritalStatus",
             fields=[
-                ('marital_status_id', models.AutoField(primary_key=True, serialize=False)),
-                ('marital_status', models.CharField(max_length=50, verbose_name='Estado Civil')),
+                (
+                    "marital_status_id",
+                    models.AutoField(primary_key=True, serialize=False),
+                ),
+                (
+                    "marital_status",
+                    models.CharField(max_length=50, verbose_name="Estado Civil"),
+                ),
             ],
         ),
         migrations.CreateModel(
-            name='Modalidades',
+            name="Modalidades",
             fields=[
-                ('modalidad_id', models.AutoField(primary_key=True, serialize=False)),
-                ('modalidad', models.CharField(max_length=50, verbose_name='Modalidad')),
+                ("modalidad_id", models.AutoField(primary_key=True, serialize=False)),
+                (
+                    "modalidad",
+                    models.CharField(max_length=50, verbose_name="Modalidad"),
+                ),
             ],
         ),
         migrations.CreateModel(
-            name='Municipios',
+            name="Municipios",
             fields=[
-                ('municipio_id', models.AutoField(primary_key=True, serialize=False)),
-                ('municipio', models.CharField(max_length=50, verbose_name='Municipio')),
+                ("municipio_id", models.AutoField(primary_key=True, serialize=False)),
+                (
+                    "municipio",
+                    models.CharField(max_length=50, verbose_name="Municipio"),
+                ),
             ],
         ),
         migrations.CreateModel(
-            name='ParentsEducationLevel',
+            name="ParentsEducationLevel",
             fields=[
-                ('parent_education_level_id', models.AutoField(primary_key=True, serialize=False)),
-                ('parent_education_level', models.CharField(max_length=50, verbose_name='Nivel educativo del padre/madre')),
-                ('value', models.IntegerField(verbose_name='Puntuación')),
+                (
+                    "parent_education_level_id",
+                    models.AutoField(primary_key=True, serialize=False),
+                ),
+                (
+                    "parent_education_level",
+                    models.CharField(
+                        max_length=50, verbose_name="Nivel educativo del padre/madre"
+                    ),
+                ),
+                ("value", models.IntegerField(verbose_name="Puntuación")),
             ],
         ),
         migrations.CreateModel(
-            name='PovertyRange',
+            name="PovertyRange",
             fields=[
-                ('poverty_id', models.AutoField(primary_key=True, serialize=False)),
-                ('poverty', models.CharField(max_length=50, verbose_name='Rango de pobreza de su colonia')),
-                ('value', models.IntegerField(verbose_name='Puntuación')),
+                ("poverty_id", models.AutoField(primary_key=True, serialize=False)),
+                (
+                    "poverty",
+                    models.CharField(
+                        max_length=50, verbose_name="Rango de pobreza de su colonia"
+                    ),
+                ),
+                ("value", models.IntegerField(verbose_name="Puntuación")),
             ],
         ),
         migrations.CreateModel(
-            name='Programs',
+            name="Programs",
             fields=[
-                ('program_id', models.AutoField(primary_key=True, serialize=False)),
-                ('programa', models.CharField(max_length=128, verbose_name='Programa')),
-                ('duracion', models.IntegerField(verbose_name='Duración (semestres/cuatrimestres)')),
-                ('costo', models.IntegerField(verbose_name='Costo por semestre/cuatrimestre')),
-                ('grado', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='becas.grados', verbose_name='Grado')),
-                ('modalidad', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='becas.modalidades', verbose_name='Modalidad')),
+                ("program_id", models.AutoField(primary_key=True, serialize=False)),
+                ("programa", models.CharField(max_length=128, verbose_name="Programa")),
+                (
+                    "duracion",
+                    models.IntegerField(
+                        verbose_name="Duración (semestres/cuatrimestres)"
+                    ),
+                ),
+                (
+                    "costo",
+                    models.IntegerField(verbose_name="Costo por semestre/cuatrimestre"),
+                ),
+                (
+                    "grado",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="becas.grados",
+                        verbose_name="Grado",
+                    ),
+                ),
+                (
+                    "modalidad",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="becas.modalidades",
+                        verbose_name="Modalidad",
+                    ),
+                ),
             ],
         ),
         migrations.CreateModel(
-            name='ProviderPerks',
+            name="ProviderPerks",
             fields=[
-                ('provider_perks_id', models.AutoField(primary_key=True, serialize=False)),
-                ('provider_perks', models.CharField(max_length=50, verbose_name='Principal proveedor con prestaciones')),
-                ('value', models.IntegerField(verbose_name='Puntuación')),
+                (
+                    "provider_perks_id",
+                    models.AutoField(primary_key=True, serialize=False),
+                ),
+                (
+                    "provider_perks",
+                    models.CharField(
+                        max_length=50,
+                        verbose_name="Principal proveedor con prestaciones",
+                    ),
+                ),
+                ("value", models.IntegerField(verbose_name="Puntuación")),
             ],
         ),
         migrations.CreateModel(
-            name='ServiceElectricity',
+            name="ServiceElectricity",
             fields=[
-                ('service_electricity_id', models.AutoField(primary_key=True, serialize=False)),
-                ('service_electricity', models.CharField(max_length=50, verbose_name='Electricidad')),
-                ('value', models.IntegerField(verbose_name='Puntuación')),
+                (
+                    "service_electricity_id",
+                    models.AutoField(primary_key=True, serialize=False),
+                ),
+                (
+                    "service_electricity",
+                    models.CharField(max_length=50, verbose_name="Electricidad"),
+                ),
+                ("value", models.IntegerField(verbose_name="Puntuación")),
             ],
         ),
         migrations.CreateModel(
-            name='ServiceGas',
+            name="ServiceGas",
             fields=[
-                ('service_gas_id', models.AutoField(primary_key=True, serialize=False)),
-                ('service_gas', models.CharField(max_length=50, verbose_name='Combustible para cocinar')),
-                ('value', models.IntegerField(verbose_name='Puntuación')),
+                ("service_gas_id", models.AutoField(primary_key=True, serialize=False)),
+                (
+                    "service_gas",
+                    models.CharField(
+                        max_length=50, verbose_name="Combustible para cocinar"
+                    ),
+                ),
+                ("value", models.IntegerField(verbose_name="Puntuación")),
             ],
         ),
         migrations.CreateModel(
-            name='ServiceSewer',
+            name="ServiceSewer",
             fields=[
-                ('service_sewer_id', models.AutoField(primary_key=True, serialize=False)),
-                ('service_sewer', models.CharField(max_length=50, verbose_name='Drenaje')),
-                ('value', models.IntegerField(verbose_name='Puntuación')),
+                (
+                    "service_sewer_id",
+                    models.AutoField(primary_key=True, serialize=False),
+                ),
+                (
+                    "service_sewer",
+                    models.CharField(max_length=50, verbose_name="Drenaje"),
+                ),
+                ("value", models.IntegerField(verbose_name="Puntuación")),
             ],
         ),
         migrations.CreateModel(
-            name='ServiceWater',
+            name="ServiceWater",
             fields=[
-                ('service_water_id', models.AutoField(primary_key=True, serialize=False)),
-                ('service_water', models.CharField(max_length=50, verbose_name='Agua potable')),
-                ('value', models.IntegerField(verbose_name='Puntuación')),
+                (
+                    "service_water_id",
+                    models.AutoField(primary_key=True, serialize=False),
+                ),
+                (
+                    "service_water",
+                    models.CharField(max_length=50, verbose_name="Agua potable"),
+                ),
+                ("value", models.IntegerField(verbose_name="Puntuación")),
             ],
         ),
         migrations.CreateModel(
-            name='SocialSecurity',
+            name="SocialSecurity",
             fields=[
-                ('social_security_id', models.AutoField(primary_key=True, serialize=False)),
-                ('social_security', models.CharField(max_length=50, verbose_name='Afiliación a servicios de salud y seguridad social')),
-                ('value', models.IntegerField(verbose_name='Puntuación')),
+                (
+                    "social_security_id",
+                    models.AutoField(primary_key=True, serialize=False),
+                ),
+                (
+                    "social_security",
+                    models.CharField(
+                        max_length=50,
+                        verbose_name="Afiliación a servicios de salud y seguridad social",
+                    ),
+                ),
+                ("value", models.IntegerField(verbose_name="Puntuación")),
             ],
         ),
         migrations.CreateModel(
-            name='Universities',
+            name="Universities",
             fields=[
-                ('university_id', models.AutoField(primary_key=True, serialize=False)),
-                ('university', models.CharField(max_length=50, verbose_name='Universidad')),
+                ("university_id", models.AutoField(primary_key=True, serialize=False)),
+                (
+                    "university",
+                    models.CharField(max_length=50, verbose_name="Universidad"),
+                ),
             ],
         ),
         migrations.CreateModel(
-            name='StudentAcademicProgram',
+            name="StudentAcademicProgram",
             fields=[
-                ('username', models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, primary_key=True, serialize=False, to='auth.user')),
-                ('continua', models.BooleanField(max_length=50, verbose_name='En caso de TSU, planeo continuar con mis estudios a nivel licenciatura o ingeniería.')),
-                ('nivel_actual', models.PositiveSmallIntegerField(verbose_name='Semestre/Cuatrimestre actual')),
-                ('promedio', models.FloatField(validators=[django.core.validators.MaxValueValidator(10, 'Ingrese un promedio valido (menor a 10).'), django.core.validators.MinValueValidator(8.5, 'Ingrese un promedio valido (mayor a 8.5).')], verbose_name='Promedio general')),
-                ('validated', models.BooleanField(default=False)),
-                ('grado', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='becas.grados', verbose_name='Grado')),
-                ('programa', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='becas.programs', verbose_name='Programa')),
-                ('university', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='becas.universities', verbose_name='Universidad')),
+                (
+                    "username",
+                    models.OneToOneField(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        primary_key=True,
+                        serialize=False,
+                        to="auth.user",
+                    ),
+                ),
+                (
+                    "continua",
+                    models.BooleanField(
+                        max_length=50,
+                        verbose_name="En caso de TSU, planeo continuar con mis estudios a nivel licenciatura o ingeniería.",
+                    ),
+                ),
+                (
+                    "nivel_actual",
+                    models.PositiveSmallIntegerField(
+                        verbose_name="Semestre/Cuatrimestre actual"
+                    ),
+                ),
+                (
+                    "promedio",
+                    models.FloatField(
+                        validators=[
+                            django.core.validators.MaxValueValidator(
+                                10, "Ingrese un promedio valido (menor a 10)."
+                            ),
+                            django.core.validators.MinValueValidator(
+                                8.5, "Ingrese un promedio valido (mayor a 8.5)."
+                            ),
+                        ],
+                        verbose_name="Promedio general",
+                    ),
+                ),
+                ("validated", models.BooleanField(default=False)),
+                (
+                    "grado",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="becas.grados",
+                        verbose_name="Grado",
+                    ),
+                ),
+                (
+                    "programa",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="becas.programs",
+                        verbose_name="Programa",
+                    ),
+                ),
+                (
+                    "university",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="becas.universities",
+                        verbose_name="Universidad",
+                    ),
+                ),
             ],
         ),
         migrations.CreateModel(
-            name='Student',
+            name="Student",
             fields=[
-                ('username', models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, primary_key=True, serialize=False, to='auth.user')),
-                ('student_id', models.CharField(max_length=25, verbose_name='Número de identifcación del estudiante')),
-                ('nombre', models.CharField(max_length=35, verbose_name='Nombre(s)')),
-                ('primer_apellido', models.CharField(max_length=15, verbose_name='Apellido paterno')),
-                ('segundo_apellido', models.CharField(max_length=15, verbose_name='Apellido materno')),
-                ('fecha_nacimiento', models.DateField(verbose_name='Fecha de nacimiento')),
-                ('ine', models.CharField(blank=True, help_text='Registra los 13 digitos que siguen a los simbolos "<<" en la parte posterior de tu INE.', max_length=13, null=True, validators=[django.core.validators.RegexValidator(code='invalid_ine', message='Ingresa una clave INE válida.', regex='([0-9]{13})')], verbose_name='INE')),
-                ('calle', models.CharField(max_length=100, verbose_name='Calle')),
-                ('numero_ext', models.IntegerField(verbose_name='Número exterior')),
-                ('numero_int', models.IntegerField(blank=True, null=True, verbose_name='Número interior')),
-                ('colonia', models.CharField(max_length=100, verbose_name='Colonia')),
-                ('cp', models.IntegerField(validators=[django.core.validators.MinValueValidator(20000), django.core.validators.MaxValueValidator(20999)], verbose_name='Código postal')),
-                ('localidad', models.CharField(max_length=100, verbose_name='Localidad')),
-                ('telefono', models.CharField(max_length=10, validators=[django.core.validators.RegexValidator(code='invalid_phone', message='Ingresa un teléfono válido de 10 dígitos.', regex='([0-9]{10})')], verbose_name='Teléfono fijo')),
-                ('celular', models.CharField(max_length=10, validators=[django.core.validators.RegexValidator(code='invalid_phone', message='Ingresa un teléfono válido de 10 digitos.', regex='([0-9]{10})')], verbose_name='Celular')),
-                ('validated', models.BooleanField(default=False)),
-                ('pic', models.ImageField(help_text='Esta fotografía se imprimira en la solicitud y expendiente. Se requiere fotografía tipo pasaporte.', upload_to=becas.models.path_and_rename, verbose_name='Foto de perfil')),
-                ('lugar_nacimiento', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='becas.estados', verbose_name='Lugar de nacimiento')),
-                ('marital_status', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='becas.maritalstatus', verbose_name='Estado civil')),
-                ('municipio', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='becas.municipios', verbose_name='Municipio')),
+                (
+                    "username",
+                    models.OneToOneField(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        primary_key=True,
+                        serialize=False,
+                        to="auth.user",
+                    ),
+                ),
+                (
+                    "student_id",
+                    models.CharField(
+                        max_length=25,
+                        verbose_name="Número de identifcación del estudiante",
+                    ),
+                ),
+                ("nombre", models.CharField(max_length=35, verbose_name="Nombre(s)")),
+                (
+                    "primer_apellido",
+                    models.CharField(max_length=15, verbose_name="Apellido paterno"),
+                ),
+                (
+                    "segundo_apellido",
+                    models.CharField(max_length=15, verbose_name="Apellido materno"),
+                ),
+                (
+                    "fecha_nacimiento",
+                    models.DateField(verbose_name="Fecha de nacimiento"),
+                ),
+                (
+                    "ine",
+                    models.CharField(
+                        blank=True,
+                        help_text='Registra los 13 digitos que siguen a los simbolos "<<" en la parte posterior de tu INE.',
+                        max_length=13,
+                        null=True,
+                        validators=[
+                            django.core.validators.RegexValidator(
+                                code="invalid_ine",
+                                message="Ingresa una clave INE válida.",
+                                regex="([0-9]{13})",
+                            )
+                        ],
+                        verbose_name="INE",
+                    ),
+                ),
+                ("calle", models.CharField(max_length=100, verbose_name="Calle")),
+                ("numero_ext", models.IntegerField(verbose_name="Número exterior")),
+                (
+                    "numero_int",
+                    models.IntegerField(
+                        blank=True, null=True, verbose_name="Número interior"
+                    ),
+                ),
+                ("colonia", models.CharField(max_length=100, verbose_name="Colonia")),
+                (
+                    "cp",
+                    models.IntegerField(
+                        validators=[
+                            django.core.validators.MinValueValidator(20000),
+                            django.core.validators.MaxValueValidator(20999),
+                        ],
+                        verbose_name="Código postal",
+                    ),
+                ),
+                (
+                    "localidad",
+                    models.CharField(max_length=100, verbose_name="Localidad"),
+                ),
+                (
+                    "telefono",
+                    models.CharField(
+                        max_length=10,
+                        validators=[
+                            django.core.validators.RegexValidator(
+                                code="invalid_phone",
+                                message="Ingresa un teléfono válido de 10 dígitos.",
+                                regex="([0-9]{10})",
+                            )
+                        ],
+                        verbose_name="Teléfono fijo",
+                    ),
+                ),
+                (
+                    "celular",
+                    models.CharField(
+                        max_length=10,
+                        validators=[
+                            django.core.validators.RegexValidator(
+                                code="invalid_phone",
+                                message="Ingresa un teléfono válido de 10 digitos.",
+                                regex="([0-9]{10})",
+                            )
+                        ],
+                        verbose_name="Celular",
+                    ),
+                ),
+                ("validated", models.BooleanField(default=False)),
+                (
+                    "pic",
+                    models.ImageField(
+                        help_text="Esta fotografía se imprimira en la solicitud y expendiente. Se requiere fotografía tipo pasaporte.",
+                        upload_to=becas.models.path_and_rename,
+                        verbose_name="Foto de perfil",
+                    ),
+                ),
+                (
+                    "lugar_nacimiento",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="becas.estados",
+                        verbose_name="Lugar de nacimiento",
+                    ),
+                ),
+                (
+                    "marital_status",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="becas.maritalstatus",
+                        verbose_name="Estado civil",
+                    ),
+                ),
+                (
+                    "municipio",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="becas.municipios",
+                        verbose_name="Municipio",
+                    ),
+                ),
             ],
         ),
         migrations.CreateModel(
-            name='SocioEconomicStudy',
+            name="SocioEconomicStudy",
             fields=[
-                ('username', models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, primary_key=True, serialize=False, to='auth.user')),
-                ('dad_occupation', models.CharField(blank=True, max_length=50, null=True, verbose_name='')),
-                ('dad_income', models.IntegerField(blank=True, null=True, verbose_name='')),
-                ('mom_occupation', models.CharField(blank=True, max_length=50, null=True, verbose_name='')),
-                ('mom_income', models.IntegerField(blank=True, null=True, verbose_name='')),
-                ('son_occupation', models.CharField(blank=True, max_length=50, null=True, verbose_name='')),
-                ('son_income', models.IntegerField(blank=True, null=True, verbose_name='')),
-                ('candidate_occupation', models.CharField(blank=True, max_length=50, null=True, verbose_name='')),
-                ('candidate_income', models.IntegerField(blank=True, null=True, verbose_name='')),
-                ('other_occupation', models.CharField(blank=True, max_length=50, null=True, verbose_name='')),
-                ('other_income', models.IntegerField(blank=True, null=True, verbose_name='')),
-                ('exp_food', models.IntegerField(blank=True, null=True, verbose_name='')),
-                ('exp_rent', models.IntegerField(blank=True, null=True, verbose_name='')),
-                ('exp_water', models.IntegerField(blank=True, null=True, verbose_name='')),
-                ('exp_energy', models.IntegerField(blank=True, null=True, verbose_name='')),
-                ('exp_leisure', models.IntegerField(blank=True, null=True, verbose_name='')),
-                ('exp_transport', models.IntegerField(blank=True, null=True, verbose_name='')),
-                ('exp_education', models.IntegerField(blank=True, null=True, verbose_name='')),
-                ('exp_telecom', models.IntegerField(blank=True, null=True, verbose_name='')),
-                ('exp_medic', models.IntegerField(blank=True, null=True, verbose_name='')),
-                ('exp_gas', models.IntegerField(blank=True, null=True, verbose_name='')),
-                ('exp_vestido', models.IntegerField(blank=True, null=True, verbose_name='')),
-                ('exp_loans', models.IntegerField(blank=True, null=True, verbose_name='')),
-                ('exp_gasolina', models.IntegerField(blank=True, null=True, verbose_name='')),
-                ('exp_otros', models.IntegerField(blank=True, null=True, verbose_name='')),
-                ('last_update', models.DateTimeField(auto_now=True)),
-                ('validated', models.BooleanField(default=False, verbose_name='Validado')),
-                ('priority', models.BooleanField(default=False, verbose_name='Prioritario')),
-                ('comments', models.CharField(blank=True, max_length=150, null=True, verbose_name='Comentarios')),
-                ('average_grade_range', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='becas.averagegraderanges', verbose_name='Promedio general')),
-                ('education_level_father', models.ForeignKey(help_text='Si el estado civil del candidato es casado o vive en unión libre registrar su escolaridad y la de su pareja.', on_delete=django.db.models.deletion.CASCADE, related_name='education_level_father', to='becas.parentseducationlevel', verbose_name='Escolaridad del padre o tutor')),
-                ('education_level_mother', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='education_level_mother', to='becas.parentseducationlevel', verbose_name='Escolaridad de la madre')),
-                ('family_members', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='becas.familymembersrange', verbose_name='Número de integrantes de la familia')),
-                ('family_monthly_income', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='becas.familymonthlyincome', verbose_name='Ingreso familiar mensual')),
-                ('home_ceil', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='becas.homeceil', verbose_name='Tipo de techo de la vivienda')),
-                ('home_floor', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='becas.homefloor', verbose_name='Tipo de piso de la vivienda')),
-                ('home_persons', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='becas.homepersons', verbose_name='Personas por habitación')),
-                ('home_type', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='becas.hometype', verbose_name='Tipo de vivienda')),
-                ('home_walls', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='becas.homewalls', verbose_name='Tipo de muros de la vivienda')),
-                ('poverty_range', models.ForeignKey(help_text='Puedes consultar la clasificación de tu colonia en el siguiente vínculo: https://www.coneval.org.mx/Medicion/IRS/Paginas/Rezago_social_AGEB_2010.aspx\n Te recordamos que proporcionar información falsa o imprecisa descalificará tu solicitud.', on_delete=django.db.models.deletion.CASCADE, to='becas.povertyrange', verbose_name='Rango de pobreza de su colonia')),
-                ('provider_perks', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='becas.providerperks', verbose_name='El principal proveedor en el hogar económicamente activo, asalariado con las siguientes prestaciones laborales')),
-                ('service_electricity', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='becas.serviceelectricity', verbose_name='Electricidad')),
-                ('service_gas', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='becas.servicegas', verbose_name='Coombustible para cocinar')),
-                ('service_sewer', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='becas.servicesewer', verbose_name='Drenaje')),
-                ('service_water', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='becas.servicewater', verbose_name='Agua potable')),
-                ('social_security', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='becas.socialsecurity', verbose_name='El principal proveedor en el hogar está registrado o afiliado en')),
+                (
+                    "username",
+                    models.OneToOneField(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        primary_key=True,
+                        serialize=False,
+                        to="auth.user",
+                    ),
+                ),
+                (
+                    "dad_occupation",
+                    models.CharField(
+                        blank=True, max_length=50, null=True, verbose_name=""
+                    ),
+                ),
+                (
+                    "dad_income",
+                    models.IntegerField(blank=True, null=True, verbose_name=""),
+                ),
+                (
+                    "mom_occupation",
+                    models.CharField(
+                        blank=True, max_length=50, null=True, verbose_name=""
+                    ),
+                ),
+                (
+                    "mom_income",
+                    models.IntegerField(blank=True, null=True, verbose_name=""),
+                ),
+                (
+                    "son_occupation",
+                    models.CharField(
+                        blank=True, max_length=50, null=True, verbose_name=""
+                    ),
+                ),
+                (
+                    "son_income",
+                    models.IntegerField(blank=True, null=True, verbose_name=""),
+                ),
+                (
+                    "candidate_occupation",
+                    models.CharField(
+                        blank=True, max_length=50, null=True, verbose_name=""
+                    ),
+                ),
+                (
+                    "candidate_income",
+                    models.IntegerField(blank=True, null=True, verbose_name=""),
+                ),
+                (
+                    "other_occupation",
+                    models.CharField(
+                        blank=True, max_length=50, null=True, verbose_name=""
+                    ),
+                ),
+                (
+                    "other_income",
+                    models.IntegerField(blank=True, null=True, verbose_name=""),
+                ),
+                (
+                    "exp_food",
+                    models.IntegerField(blank=True, null=True, verbose_name=""),
+                ),
+                (
+                    "exp_rent",
+                    models.IntegerField(blank=True, null=True, verbose_name=""),
+                ),
+                (
+                    "exp_water",
+                    models.IntegerField(blank=True, null=True, verbose_name=""),
+                ),
+                (
+                    "exp_energy",
+                    models.IntegerField(blank=True, null=True, verbose_name=""),
+                ),
+                (
+                    "exp_leisure",
+                    models.IntegerField(blank=True, null=True, verbose_name=""),
+                ),
+                (
+                    "exp_transport",
+                    models.IntegerField(blank=True, null=True, verbose_name=""),
+                ),
+                (
+                    "exp_education",
+                    models.IntegerField(blank=True, null=True, verbose_name=""),
+                ),
+                (
+                    "exp_telecom",
+                    models.IntegerField(blank=True, null=True, verbose_name=""),
+                ),
+                (
+                    "exp_medic",
+                    models.IntegerField(blank=True, null=True, verbose_name=""),
+                ),
+                (
+                    "exp_gas",
+                    models.IntegerField(blank=True, null=True, verbose_name=""),
+                ),
+                (
+                    "exp_vestido",
+                    models.IntegerField(blank=True, null=True, verbose_name=""),
+                ),
+                (
+                    "exp_loans",
+                    models.IntegerField(blank=True, null=True, verbose_name=""),
+                ),
+                (
+                    "exp_gasolina",
+                    models.IntegerField(blank=True, null=True, verbose_name=""),
+                ),
+                (
+                    "exp_otros",
+                    models.IntegerField(blank=True, null=True, verbose_name=""),
+                ),
+                ("last_update", models.DateTimeField(auto_now=True)),
+                (
+                    "validated",
+                    models.BooleanField(default=False, verbose_name="Validado"),
+                ),
+                (
+                    "priority",
+                    models.BooleanField(default=False, verbose_name="Prioritario"),
+                ),
+                (
+                    "comments",
+                    models.CharField(
+                        blank=True,
+                        max_length=150,
+                        null=True,
+                        verbose_name="Comentarios",
+                    ),
+                ),
+                (
+                    "average_grade_range",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="becas.averagegraderanges",
+                        verbose_name="Promedio general",
+                    ),
+                ),
+                (
+                    "education_level_father",
+                    models.ForeignKey(
+                        help_text="Si el estado civil del candidato es casado o vive en unión libre registrar su escolaridad y la de su pareja.",
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="education_level_father",
+                        to="becas.parentseducationlevel",
+                        verbose_name="Escolaridad del padre o tutor",
+                    ),
+                ),
+                (
+                    "education_level_mother",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="education_level_mother",
+                        to="becas.parentseducationlevel",
+                        verbose_name="Escolaridad de la madre",
+                    ),
+                ),
+                (
+                    "family_members",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="becas.familymembersrange",
+                        verbose_name="Número de integrantes de la familia",
+                    ),
+                ),
+                (
+                    "family_monthly_income",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="becas.familymonthlyincome",
+                        verbose_name="Ingreso familiar mensual",
+                    ),
+                ),
+                (
+                    "home_ceil",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="becas.homeceil",
+                        verbose_name="Tipo de techo de la vivienda",
+                    ),
+                ),
+                (
+                    "home_floor",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="becas.homefloor",
+                        verbose_name="Tipo de piso de la vivienda",
+                    ),
+                ),
+                (
+                    "home_persons",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="becas.homepersons",
+                        verbose_name="Personas por habitación",
+                    ),
+                ),
+                (
+                    "home_type",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="becas.hometype",
+                        verbose_name="Tipo de vivienda",
+                    ),
+                ),
+                (
+                    "home_walls",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="becas.homewalls",
+                        verbose_name="Tipo de muros de la vivienda",
+                    ),
+                ),
+                (
+                    "poverty_range",
+                    models.ForeignKey(
+                        help_text="Puedes consultar la clasificación de tu colonia en el siguiente vínculo: https://www.coneval.org.mx/Medicion/IRS/Paginas/Rezago_social_AGEB_2010.aspx\n Te recordamos que proporcionar información falsa o imprecisa descalificará tu solicitud.",
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="becas.povertyrange",
+                        verbose_name="Rango de pobreza de su colonia",
+                    ),
+                ),
+                (
+                    "provider_perks",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="becas.providerperks",
+                        verbose_name="El principal proveedor en el hogar económicamente activo, asalariado con las siguientes prestaciones laborales",
+                    ),
+                ),
+                (
+                    "service_electricity",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="becas.serviceelectricity",
+                        verbose_name="Electricidad",
+                    ),
+                ),
+                (
+                    "service_gas",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="becas.servicegas",
+                        verbose_name="Coombustible para cocinar",
+                    ),
+                ),
+                (
+                    "service_sewer",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="becas.servicesewer",
+                        verbose_name="Drenaje",
+                    ),
+                ),
+                (
+                    "service_water",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="becas.servicewater",
+                        verbose_name="Agua potable",
+                    ),
+                ),
+                (
+                    "social_security",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="becas.socialsecurity",
+                        verbose_name="El principal proveedor en el hogar está registrado o afiliado en",
+                    ),
+                ),
             ],
         ),
         migrations.AddField(
-            model_name='programs',
-            name='university',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='becas.universities', verbose_name='Universidad'),
+            model_name="programs",
+            name="university",
+            field=models.ForeignKey(
+                on_delete=django.db.models.deletion.CASCADE,
+                to="becas.universities",
+                verbose_name="Universidad",
+            ),
         ),
     ]

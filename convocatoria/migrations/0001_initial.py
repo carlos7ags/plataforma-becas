@@ -15,42 +15,89 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='Modalidades',
+            name="Modalidades",
             fields=[
-                ('modalidad_id', models.AutoField(primary_key=True, serialize=False)),
-                ('modalidad', models.CharField(max_length=30, verbose_name='Modalidad')),
+                ("modalidad_id", models.AutoField(primary_key=True, serialize=False)),
+                (
+                    "modalidad",
+                    models.CharField(max_length=30, verbose_name="Modalidad"),
+                ),
             ],
         ),
         migrations.CreateModel(
-            name='Convocatorias',
+            name="Convocatorias",
             fields=[
-                ('convocatoria_id', models.AutoField(primary_key=True, serialize=False)),
-                ('codigo', models.CharField(max_length=8, verbose_name='Código')),
-                ('name', models.CharField(max_length=30, verbose_name='Nombre')),
-                ('description', models.CharField(max_length=256, verbose_name='Descripción')),
-                ('start_date', models.DateField(verbose_name='Fecha de apertura')),
-                ('end_date', models.DateField(verbose_name='Fecha de cierre')),
-                ('results_date', models.DateField(verbose_name='Publicación de resultados')),
-                ('presupuesto', models.IntegerField(verbose_name='Presupuesto asignado')),
-                ('modalidad', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='convocatoria.modalidades', verbose_name='Modalidad')),
+                (
+                    "convocatoria_id",
+                    models.AutoField(primary_key=True, serialize=False),
+                ),
+                ("codigo", models.CharField(max_length=8, verbose_name="Código")),
+                ("name", models.CharField(max_length=30, verbose_name="Nombre")),
+                (
+                    "description",
+                    models.CharField(max_length=256, verbose_name="Descripción"),
+                ),
+                ("start_date", models.DateField(verbose_name="Fecha de apertura")),
+                ("end_date", models.DateField(verbose_name="Fecha de cierre")),
+                (
+                    "results_date",
+                    models.DateField(verbose_name="Publicación de resultados"),
+                ),
+                (
+                    "presupuesto",
+                    models.IntegerField(verbose_name="Presupuesto asignado"),
+                ),
+                (
+                    "modalidad",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="convocatoria.modalidades",
+                        verbose_name="Modalidad",
+                    ),
+                ),
             ],
         ),
         migrations.CreateModel(
-            name='Aspirantes',
+            name="Aspirantes",
             fields=[
-                ('id', models.AutoField(primary_key=True, serialize=False)),
-                ('folio', models.CharField(max_length=16, unique=True, verbose_name='Folio')),
-                ('grade', models.IntegerField(null=True, verbose_name='Calificación')),
-                ('socioeconomic_score', models.IntegerField(null=True, verbose_name='Estudio socioeconómico')),
-                ('general_score', models.IntegerField(null=True, verbose_name='Score')),
-                ('beneficiado', models.BooleanField(null=True, verbose_name='Beneficiado')),
-                ('validated', models.BooleanField(default=False)),
-                ('date', models.DateTimeField(auto_now_add=True)),
-                ('convocatoria', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='convocatoria.convocatorias', verbose_name='Convocatoria')),
-                ('username', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL, verbose_name='Estudiante')),
+                ("id", models.AutoField(primary_key=True, serialize=False)),
+                (
+                    "folio",
+                    models.CharField(max_length=16, unique=True, verbose_name="Folio"),
+                ),
+                ("grade", models.IntegerField(null=True, verbose_name="Calificación")),
+                (
+                    "socioeconomic_score",
+                    models.IntegerField(
+                        null=True, verbose_name="Estudio socioeconómico"
+                    ),
+                ),
+                ("general_score", models.IntegerField(null=True, verbose_name="Score")),
+                (
+                    "beneficiado",
+                    models.BooleanField(null=True, verbose_name="Beneficiado"),
+                ),
+                ("validated", models.BooleanField(default=False)),
+                ("date", models.DateTimeField(auto_now_add=True)),
+                (
+                    "convocatoria",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="convocatoria.convocatorias",
+                        verbose_name="Convocatoria",
+                    ),
+                ),
+                (
+                    "username",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to=settings.AUTH_USER_MODEL,
+                        verbose_name="Estudiante",
+                    ),
+                ),
             ],
             options={
-                'unique_together': {('convocatoria', 'username')},
+                "unique_together": {("convocatoria", "username")},
             },
         ),
     ]

@@ -13,8 +13,11 @@ from import_export.admin import ImportExportModelAdmin
 
 # ToDo: Crear dos clases como está para cada menu que queramos descargar a excel
 
+
 class AspirantesResource(resources.ModelResource):
-	class Meta: model = Aspirantes
+    class Meta:
+        model = Aspirantes
+
 
 class AspirantesAdmin(ImportExportModelAdmin):
-	resource_class = AspirantesResource
+    resource_class = AspirantesResource

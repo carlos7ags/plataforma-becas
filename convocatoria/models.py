@@ -48,15 +48,24 @@ class Aspirantes(models.Model):
     )
     grade = models.IntegerField("Calificación", null=True)
     socioeconomic_score = models.IntegerField("Estudio socioeconómico", null=True)
-    comments = models.TextField("Comentarios", null=True, blank=True,
-                                help_text="Este campo es obligatorio para estudiantes prioritaios.")
+    comments = models.TextField(
+        "Comentarios",
+        null=True,
+        blank=True,
+        help_text="Este campo es obligatorio para estudiantes prioritarios.",
+    )
     beneficiado = models.BooleanField("Beneficiado", null=True)
     validated = models.BooleanField(default=False)
     prioritario = models.BooleanField(default=False)
     date = models.DateTimeField(auto_now_add=True)
 
     class Meta:
-       unique_together = (('convocatoria', 'username',),)
+        unique_together = (
+            (
+                "convocatoria",
+                "username",
+            ),
+        )
 
     def __str__(self):
         return "%s" % self.folio

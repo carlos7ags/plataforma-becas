@@ -10,8 +10,26 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse
 from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 from django.template.loader import render_to_string
-from becas.models import (PovertyRange, AverageGradeRanges, FamilyMembersRange, FamilyMonthlyIncome, ParentsEducationLevel, ParentsEducationLevel, SocialSecurity, ProviderPerks, HomeType, HomeFloor, HomeCeil, HomeWalls,
-HomePersons, ServiceWater, ServiceElectricity, ServiceSewer, ServiceGas,)
+from becas.models import (
+    PovertyRange,
+    AverageGradeRanges,
+    FamilyMembersRange,
+    FamilyMonthlyIncome,
+    ParentsEducationLevel,
+    ParentsEducationLevel,
+    SocialSecurity,
+    ProviderPerks,
+    HomeType,
+    HomeFloor,
+    HomeCeil,
+    HomeWalls,
+    HomePersons,
+    ServiceWater,
+    ServiceElectricity,
+    ServiceSewer,
+    ServiceGas,
+)
+
 
 class ConvocatoriasView(TemplateView):
     template_name = "convocatorias.html"
@@ -34,14 +52,18 @@ class ConvocatoriasView(TemplateView):
 
     def check_complete_forms(self):
         profile = Student.objects.filter(username=self.request.user.id).exists()
-        program = StudentAcademicProgram.objects.filter(username=self.request.user.id).exists()
-        socioeconomic = SocioEconomicStudy.objects.filter(username=self.request.user.id).exists()
+        program = StudentAcademicProgram.objects.filter(
+            username=self.request.user.id
+        ).exists()
+        socioeconomic = SocioEconomicStudy.objects.filter(
+            username=self.request.user.id
+        ).exists()
         return profile and program and socioeconomic
 
 
 def aspirante_create(request, convocCode):
     data = dict()
-    if request.method == 'POST':
+    if request.method == "POST":
         form = AspirantesForm(request.POST)
         if form.is_valid():
             obj = form.save(commit=False)
@@ -51,25 +73,28 @@ def aspirante_create(request, convocCode):
             obj.convocatoria = Convocatorias.objects.filter(codigo=convocCode).first()
             obj.folio = convocCode + str(obj.id + 20210000)
             obj.socioeconomic_score = get_socio_economic_result(request.user)
-            obj.grade = StudentAcademicProgram.objects.filter(username=request.user).first().promedio
+            obj.grade = (
+                StudentAcademicProgram.objects.filter(username=request.user)
+                .first()
+                .promedio
+            )
             obj.save()
-            data['form_is_valid'] = True
+            data["form_is_valid"] = True
         else:
-            data['form_is_valid'] = False
+            data["form_is_valid"] = False
     else:
         form = AspirantesForm()
 
-    context = {'form': form,
-               'convocCode': convocCode}
-    data['html_form'] = render_to_string('register_aspirant.html',
-        context,
-        request=request
+    context = {"form": form, "convocCode": convocCode}
+    data["html_form"] = render_to_string(
+        "register_aspirant.html", context, request=request
     )
     return JsonResponse(data)
 
 
 def get_socio_economic_result(username):
     return 0
+
 
 """
     answers = StudentAcademicProgram.objects.filter(username=username).first()

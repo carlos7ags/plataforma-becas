@@ -7,10 +7,10 @@ from uuid import uuid4
 
 
 def path_and_rename(instance, filename):
-    upload_to = 'photos'
-    ext = filename.split('.')[-1]
+    upload_to = "photos"
+    ext = filename.split(".")[-1]
     # set filename as random string
-    filename = '{}.{}'.format(uuid4().hex, ext)
+    filename = "{}.{}".format(uuid4().hex, ext)
     # return the whole path to the file
     return os.path.join(upload_to, filename)
 
@@ -123,13 +123,19 @@ class Student(models.Model):
         ],
     )
     validated = models.BooleanField(default=False)
-    pic = models.ImageField("Foto de perfil", upload_to=path_and_rename, null=False, blank=False,
-                            help_text="Esta fotografía se imprimira en la solicitud y expendiente. Se requiere fotografía tipo pasaporte.")
+    pic = models.ImageField(
+        "Foto de perfil",
+        upload_to=path_and_rename,
+        null=False,
+        blank=False,
+        help_text="Esta fotografía se imprimira en la solicitud y expendiente. Se requiere fotografía tipo pasaporte.",
+    )
 
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)
         img = Image.open(self.pic.path)
-        if img.mode in ("RGBA", "P"): img = img.convert("RGB")
+        if img.mode in ("RGBA", "P"):
+            img = img.convert("RGB")
         if img.height > 300 or img.width > 300:
             output_size = (300, 300)
             img.thumbnail(output_size)

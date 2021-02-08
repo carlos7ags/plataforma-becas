@@ -13,7 +13,7 @@ from crispy_forms.layout import (
     Div,
     Button,
     MultiField,
-    Reset
+    Reset,
 )
 from crispy_forms.bootstrap import (
     Accordion,

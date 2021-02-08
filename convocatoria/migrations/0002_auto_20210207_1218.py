@@ -6,17 +6,17 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('convocatoria', '0001_initial'),
+        ("convocatoria", "0001_initial"),
     ]
 
     operations = [
         migrations.RemoveField(
-            model_name='aspirantes',
-            name='general_score',
+            model_name="aspirantes",
+            name="general_score",
         ),
         migrations.AddField(
-            model_name='aspirantes',
-            name='comments',
-            field=models.TextField(null=True, verbose_name='Comentarios'),
+            model_name="aspirantes",
+            name="comments",
+            field=models.TextField(null=True, verbose_name="Comentarios"),
         ),
     ]

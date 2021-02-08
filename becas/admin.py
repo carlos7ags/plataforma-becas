@@ -1,13 +1,33 @@
 from django.contrib import admin
 
-from becas.models import (AverageGradeRanges, Estados, FamilyMembersRange,
-                          FamilyMonthlyIncome, Grados, HomeCeil, HomeFloor,
-                          HomePersons, HomeType, HomeWalls, MaritalStatus,
-                          Modalidades, Municipios, ParentsEducationLevel,
-                          PovertyRange, Programs, ProviderPerks,
-                          ServiceElectricity, ServiceGas, ServiceSewer,
-                          ServiceWater, SocialSecurity, SocioEconomicStudy,
-                          Student, StudentAcademicProgram, Universities)
+from becas.models import (
+    AverageGradeRanges,
+    Estados,
+    FamilyMembersRange,
+    FamilyMonthlyIncome,
+    Grados,
+    HomeCeil,
+    HomeFloor,
+    HomePersons,
+    HomeType,
+    HomeWalls,
+    MaritalStatus,
+    Modalidades,
+    Municipios,
+    ParentsEducationLevel,
+    PovertyRange,
+    Programs,
+    ProviderPerks,
+    ServiceElectricity,
+    ServiceGas,
+    ServiceSewer,
+    ServiceWater,
+    SocialSecurity,
+    SocioEconomicStudy,
+    Student,
+    StudentAcademicProgram,
+    Universities,
+)
 
 admin.site.register(AverageGradeRanges)
 admin.site.register(Estados)
@@ -42,22 +62,29 @@ from import_export.admin import ImportExportModelAdmin
 
 # ToDo: Crear dos clases como está para cada menu que queramos descargar a excel
 
+
 class StudentResource(resources.ModelResource):
-	class Meta: model = Student
+    class Meta:
+        model = Student
+
 
 class StudentAdmin(ImportExportModelAdmin):
-	resource_class = StudentResource
+    resource_class = StudentResource
+
 
 class SocioEconomicStudyResource(resources.ModelResource):
-	class Meta: model = SocioEconomicStudy
+    class Meta:
+        model = SocioEconomicStudy
+
 
 class SocioEconomicStudyAdmin(ImportExportModelAdmin):
-	resource_class = SocioEconomicStudyResource
+    resource_class = SocioEconomicStudyResource
+
 
 class StudentAcademicProgramResource(resources.ModelResource):
-    class Meta: model = SocioEconomicStudy
+    class Meta:
+        model = SocioEconomicStudy
+
 
 class StudentAcademicProgramAdmin(ImportExportModelAdmin):
     resource_class = StudentAcademicProgramResource
-
-

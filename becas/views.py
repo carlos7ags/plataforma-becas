@@ -1,19 +1,17 @@
-from django.views.generic import (
-    ListView,
-    CreateView,
-    DetailView,
-    RedirectView,
-    UpdateView,
-    TemplateView,
-)
-from django.urls import reverse_lazy
-from becas.forms import StudentForm, StudentAcademicProgramForm, SocioEconomicStudyForm
-from django.urls import reverse
-from convocatoria.models import Convocatorias, Aspirantes
-from becas.models import Student, Programs, StudentAcademicProgram, SocioEconomicStudy
 from django.contrib.auth.views import redirect_to_login
-from django.contrib.messages.views import SuccessMessageMixin
-from django.shortcuts import render, get_object_or_404, redirect
+from django.http import HttpResponse
+from django.shortcuts import redirect, render
+from django.template.loader import get_template
+from django.urls import reverse, reverse_lazy
+from django.views.generic import (CreateView, RedirectView, TemplateView,
+                                  UpdateView, View)
+from xhtml2pdf import pisa
+
+from becas.forms import (SocioEconomicStudyForm, StudentAcademicProgramForm,
+                         StudentForm)
+from becas.models import (Programs, SocioEconomicStudy, Student,
+                          StudentAcademicProgram)
+from convocatoria.models import Aspirantes
 
 
 class DashboardView(TemplateView):
@@ -46,7 +44,7 @@ class StudentProfile(CreateView):
 
     def get(self, request, *args, **kwargs):
         form = self.form_class()
-        return render(request, self.template_name, {'form': form})
+        return render(request, self.template_name, {"form": form})
 
     def post(self, request, *args, **kwargs):
         form = self.form_class(request.POST, request.FILES)
@@ -56,7 +54,7 @@ class StudentProfile(CreateView):
             obj.save()
             return redirect(self.success_url)
         else:
-            return render(request, self.template_name, {'form': form})
+            return render(request, self.template_name, {"form": form})
 
 
 class StudentProfileUpdate(UpdateView):
@@ -177,3 +175,52 @@ class UpdateSocioEconomicStudyRedirectView(RedirectView):
             )
         else:
             return reverse("socio-economic-study")
+
+
+class ConstanciaPdfView(View):
+    def get(self, request,*args,**kwargs):
+        try:
+            template = get_template('constancia_print.html')
+            context = {'title': 'mi primer pdf'}
+            html= template.render(context)
+            response = HttpResponse(content_type='application/pdf')
+            pisaStatus = pisa.CreatePDF(
+                html, dest=response)
+            return response
+        except:
+            pass
+        return redirect("dashboard")
+
+
+class SolicitudPdfView(View):
+    def get(self, request,*args,**kwargs):
+        try:
+            template = get_template('solicitud_print.html')
+            context = {'title': 'mi primer pdf'}
+            html= template.render(context)
+            response = HttpResponse(content_type='application/pdf')
+            #response['Content-Disposition'] = 'attachment; filename="report.pdf"'
+            # create a pdf
+            pisaStatus = pisa.CreatePDF(
+                html, dest=response)
+            return response
+        except:
+            pass
+        return redirect("dashboard")
+
+
+class EsePdfView(View):
+    def get(self, request,*args,**kwargs):
+        try:
+            template = get_template('ese_print.html')
+            context = {'title': 'mi primer pdf'}
+            html= template.render(context)
+            response = HttpResponse(content_type='application/pdf')
+            #response['Content-Disposition'] = 'attachment; filename="report.pdf"'
+            # create a pdf
+            pisaStatus = pisa.CreatePDF(
+                html, dest=response)
+            return response
+        except:
+            pass
+        return redirect("dashboard")
