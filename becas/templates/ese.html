@@ -1,0 +1,152 @@
+{% load humanize %}
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <link rel="stylesheet" type="text/css" media="screen" href="{% static 'css/main.css' %}" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css" rel="stylesheet">
+    </head>
+
+    <body lang=ES-MX style='tab-interval:35.4pt;word-wrap:break-word'>
+
+    <div class=WordSection1>
+
+    <p class=MsoNormal align=center style='text-align:center'><b style='mso-bidi-font-weight:
+    normal'><span style='font-size:12.0pt;line-height:115%'>CONSTANCIA DE
+    PARTICIPACI&Oacute;N PARA D&Eacute;CIMA CONVOCATORIA DE BECA FIBEIPES<o:p></o:p></span></b></p>
+
+    <p class=MsoNormal style='text-align:justify;line-height:normal'>A quien
+    corresponda:</p>
+
+    <p class=MsoNormal style='text-align:justify;line-height:normal'>La(El) que
+    suscribe <span class=GramE><span style='font-size:10.0pt;font-family:"Arial",sans-serif'>Jefa(e)</span></span><span
+    style='font-size:10.0pt;font-family:"Arial",sans-serif'> del Departamento de
+    Servicios Escolares</span>, hace constar que:</p>
+
+    <p class=MsoNormal style='text-align:justify;line-height:normal'><o:p>&nbsp;</o:p></p>
+
+    <p class=MsoNormal style='text-align:justify;line-height:normal'><b>{{ student.primer_apellido|upper }} {{ student.segundo_apellido|upper }} {{ student.nombre|upper }}</b> es alumna(o) regular del(de la) {{ academic.universidad|upper }} estando inscrito(a) sin adeudo de materias en el semestre n&uacute;mero
+    {{ academic.semestre }} de la carrera <b>{{ academic.programa|upper }} en modalidad {{ academic.programa.modalidad|lower }}</b>.</b> </p>
+
+    <p class=MsoNormal style='text-align:justify;line-height:normal'><o:p>&nbsp;</o:p></p>
+
+    <p class=MsoNormal style='text-align:justify;line-height:normal'><o:p>&nbsp;</o:p></p>
+
+    <p class=MsoNormal style='text-align:justify;line-height:normal'><b
+    style='mso-bidi-font-weight:normal'>INFORMACI&Oacute;N GENERAL:<o:p></o:p></b></p>
+
+    <table class=MsoTableGrid border=1 cellspacing=0 cellpadding=0
+     style='border-collapse:collapse;border:none;mso-border-alt:solid windowtext .5pt;
+     mso-yfti-tbllook:1184;mso-padding-alt:0cm 5.4pt 0cm 5.4pt'>
+     <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes'>
+      <td width=295 valign=top style='width:221.6pt;border:solid windowtext 1.0pt;
+      mso-border-alt:solid windowtext .5pt;background:#E7E6E6;mso-background-themecolor:
+      background2;padding:0cm 5.4pt 0cm 5.4pt'>
+      <p class=MsoNormal align=center style='text-align:center;line-height:normal'><b
+      style='mso-bidi-font-weight:normal'><span style='font-size:9.0pt;mso-bidi-font-size:
+      11.0pt'><o:p>&nbsp;</o:p></span></b></p>
+      </td>
+      <td width=293 valign=top style='width:219.8pt;border:solid windowtext 1.0pt;
+      border-left:none;mso-border-left-alt:solid windowtext .5pt;mso-border-alt:
+      solid windowtext .5pt;background:#E7E6E6;mso-background-themecolor:background2;
+      padding:0cm 5.4pt 0cm 5.4pt'>
+      <p class=MsoNormal align=center style='text-align:center;line-height:normal'><b
+      style='mso-bidi-font-weight:normal'><span style='font-size:9.0pt;mso-bidi-font-size:
+      11.0pt;color:black;mso-color-alt:windowtext'>Promedio</span></b><b
+      style='mso-bidi-font-weight:normal'><span style='font-size:9.0pt;mso-bidi-font-size:
+      11.0pt'><o:p></o:p></span></b></p>
+      </td>
+     </tr>
+     <tr style='mso-yfti-irow:1;height:35.25pt'>
+      <td width=295 valign=top style='width:221.6pt;border:solid windowtext 1.0pt;
+      border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+      padding:0cm 5.4pt 0cm 5.4pt;height:35.25pt'>
+      <p class=MsoNormal style='text-align:justify;line-height:normal'><span
+      style='font-size:9.0pt;mso-bidi-font-size:11.0pt'>4.- Especifique promedio
+      inmediato anterior. (En caso de ser de nuevo ingreso, especifique el promedio
+      general de bachillerato)<o:p></o:p></span></p>
+      </td>
+      <td width=293 valign=top style='width:219.8pt;border-top:none;border-left:
+      none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+      mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+      mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:35.25pt'>
+      <p class=MsoNormal style='line-height:normal;tab-stops:94.45pt center 104.5pt'><span
+      style='font-size:9.0pt;mso-bidi-font-size:11.0pt'><span style='mso-tab-count:
+      1'> </span>{{ academic.promedio }}<o:p></o:p></span></p>
+      </td>
+     </tr>
+     <tr style='mso-yfti-irow:2'>
+      <td width=295 valign=top style='width:221.6pt;border:solid windowtext 1.0pt;
+      border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+      background:#E7E6E6;mso-background-themecolor:background2;padding:0cm 5.4pt 0cm 5.4pt'>
+      <p class=MsoNormal align=center style='text-align:center;line-height:normal'><b
+      style='mso-bidi-font-weight:normal'><span style='font-size:9.0pt;mso-bidi-font-size:
+      11.0pt'><o:p>&nbsp;</o:p></span></b></p>
+      </td>
+      <td width=293 valign=top style='width:219.8pt;border-top:none;border-left:
+      none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+      mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+      mso-border-alt:solid windowtext .5pt;background:#E7E6E6;mso-background-themecolor:
+      background2;padding:0cm 5.4pt 0cm 5.4pt'>
+      <p class=MsoNormal align=center style='text-align:center;line-height:normal'><b
+      style='mso-bidi-font-weight:normal'><span style='font-size:9.0pt;mso-bidi-font-size:
+      11.0pt;color:black;mso-color-alt:windowtext'>Colegiatura</span></b><b
+      style='mso-bidi-font-weight:normal'><span style='font-size:9.0pt;mso-bidi-font-size:
+      11.0pt'><o:p></o:p></span></b></p>
+      </td>
+     </tr>
+     <tr style='mso-yfti-irow:3;mso-yfti-lastrow:yes;height:17.8pt'>
+      <td width=295 valign=top style='width:221.6pt;border:solid windowtext 1.0pt;
+      border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+      padding:0cm 5.4pt 0cm 5.4pt;height:17.8pt'>
+      <p class=MsoNormal style='text-align:justify;line-height:normal'><span
+      style='font-size:9.0pt;mso-bidi-font-size:11.0pt'>5.-Monto de la Colegiatura
+      mensual:<o:p></o:p></span></p>
+      </td>
+      <td width=293 valign=top style='width:219.8pt;border-top:none;border-left:
+      none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+      mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+      mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:17.8pt'>
+      <p class=MsoNormal align=center style='text-align:center;line-height:normal'><span
+      style='font-size:9.0pt;mso-bidi-font-size:11.0pt'>${{ academic.programa.costo|intcomma }}<o:p></o:p></span></p>
+      </td>
+     </tr>
+    </table>
+
+    <p class=MsoNormal style='text-align:justify;line-height:normal'><span
+    style='font-size:5.0pt;mso-bidi-font-size:11.0pt'><o:p>&nbsp;</o:p></span></p>
+
+    <p class=MsoNormal style='text-align:justify;line-height:normal'><span
+    style='font-size:5.0pt;mso-bidi-font-size:11.0pt'><o:p>&nbsp;</o:p></span></p>
+
+    <p class=MsoNormal style='text-align:justify;line-height:normal'><span
+    style='font-size:5.0pt;mso-bidi-font-size:11.0pt'><o:p>&nbsp;</o:p></span></p>
+
+    <p class=MsoNormal style='text-align:justify;line-height:normal'><span
+    style='font-size:5.0pt;mso-bidi-font-size:11.0pt'><o:p>&nbsp;</o:p></span></p>
+
+    <p class=MsoNormal style='text-align:justify;line-height:normal'>Para los fines
+    legales al que el interesado(a) convengan se extiende la presente constancia en
+    Aguascalientes, Aguascalientes, {% now "SHORT_DATETIME_FORMAT" %}</b>.</p>
+
+    <p class=MsoNormal style='text-align:justify;line-height:normal'><o:p>&nbsp;</o:p></p>
+
+    <p class=MsoNormal align=center style='text-align:center;line-height:normal'>Atentamente</p>
+
+    <p class=MsoNormal align=center style='text-align:center;line-height:normal'><o:p>&nbsp;</o:p></p>
+
+    <p class=MsoNormal align=center style='text-align:center;line-height:normal'>____________________________</p>
+
+    <p class=MsoNormal align=center style='text-align:center'><b style='mso-bidi-font-weight:
+    normal'>Responsable de la Instituci&oacute;n<o:p></o:p></b></p>
+
+    </div>
+
+    </body>
+
+    </html>

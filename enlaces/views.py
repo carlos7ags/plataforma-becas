@@ -86,7 +86,6 @@ class StudentsValidationDetail(AdminStaffRequiredMixin, UpdateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        print()
         context['student'] = Student.objects.filter(username=self.object.username).first()
         context['ses'] = SocioEconomicStudy.objects.filter(username=self.object.username).first()
         context['academic'] = StudentAcademicProgram.objects.filter(username=self.object.username).first()

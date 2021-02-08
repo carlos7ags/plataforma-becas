@@ -179,48 +179,95 @@ class UpdateSocioEconomicStudyRedirectView(RedirectView):
 
 class ConstanciaPdfView(View):
     def get(self, request,*args,**kwargs):
-        try:
-            template = get_template('constancia_print.html')
-            context = {'title': 'mi primer pdf'}
-            html= template.render(context)
-            response = HttpResponse(content_type='application/pdf')
-            pisaStatus = pisa.CreatePDF(
-                html, dest=response)
-            return response
-        except:
-            pass
-        return redirect("dashboard")
+        template_path = 'solictud.html'
+        context = {}
+        context['student'] = Student.objects.filter(username=self.request.user).first()
+        context['academic'] = StudentAcademicProgram.objects.filter(username=self.request.user).first()
+        context['aspirante'] = Aspirantes.objects.filter(username=self.request.user).first()
 
+        response = HttpResponse(content_type='application/pdf')
+        response['Content-Disposition'] = 'attachment; filename="constancia.pdf"'
+        template = get_template(template_path)
+        html = template.render(context)
 
-class SolicitudPdfView(View):
-    def get(self, request,*args,**kwargs):
-        try:
-            template = get_template('solicitud_print.html')
-            context = {'title': 'mi primer pdf'}
-            html= template.render(context)
-            response = HttpResponse(content_type='application/pdf')
-            #response['Content-Disposition'] = 'attachment; filename="report.pdf"'
-            # create a pdf
-            pisaStatus = pisa.CreatePDF(
-                html, dest=response)
-            return response
-        except:
-            pass
-        return redirect("dashboard")
+        pisa_status = pisa.CreatePDF(
+           html, dest=response, link_callback=link_callback)
+        # if error then show some funy view
+        if pisa_status.err:
+           return HttpResponse('We had some errors <pre>' + html + '</pre>')
+        return response
+
 
 
 class EsePdfView(View):
     def get(self, request,*args,**kwargs):
-        try:
-            template = get_template('ese_print.html')
-            context = {'title': 'mi primer pdf'}
-            html= template.render(context)
-            response = HttpResponse(content_type='application/pdf')
-            #response['Content-Disposition'] = 'attachment; filename="report.pdf"'
-            # create a pdf
-            pisaStatus = pisa.CreatePDF(
-                html, dest=response)
-            return response
-        except:
-            pass
-        return redirect("dashboard")
+        template_path = 'ese.html'
+        context = {}
+        context['student'] = Student.objects.filter(username=self.request.user).first()
+        context['ese'] = SocioEconomicStudy.objects.filter(username=self.request.user).first()
+        context['academic'] = StudentAcademicProgram.objects.filter(username=self.request.user).first()
+
+        response = HttpResponse(content_type='application/pdf')
+        response['Content-Disposition'] = 'attachment; filename="ese.pdf"'
+        template = get_template(template_path)
+        html = template.render(context)
+
+        pisa_status = pisa.CreatePDF(
+           html, dest=response, link_callback=link_callback)
+        # if error then show some funy view
+        if pisa_status.err:
+           return HttpResponse('We had some errors <pre>' + html + '</pre>')
+        return response
+
+
+
+class SolicitudPdfView(View):
+
+    def get(self, request,*args,**kwargs):
+        template_path = 'solictud.html'
+        context = {}
+        context['student'] = Student.objects.filter(username=self.request.user).first()
+        context['academic'] = StudentAcademicProgram.objects.filter(username=self.request.user).first()
+
+        response = HttpResponse(content_type='application/pdf')
+        response['Content-Disposition'] = 'attachment; filename="solicitud.pdf"'
+        template = get_template(template_path)
+        html = template.render(context)
+
+        pisa_status = pisa.CreatePDF(
+           html, dest=response, link_callback=link_callback)
+        # if error then show some funy view
+        if pisa_status.err:
+           return HttpResponse('We had some errors <pre>' + html + '</pre>')
+        return response
+
+def link_callback(uri, rel):
+    """
+    Convert HTML URIs to absolute system paths so xhtml2pdf can access those
+    resources
+    """
+    result = finders.find(uri)
+    if result:
+        if not isinstance(result, (list, tuple)):
+            result = [result]
+        result = list(os.path.realpath(path) for path in result)
+        path = result[0]
+    else:
+        sUrl = settings.STATIC_URL  # Typically /static/
+        sRoot = settings.STATIC_ROOT  # Typically /home/userX/project_static/
+        mUrl = settings.MEDIA_URL  # Typically /media/
+        mRoot = settings.MEDIA_ROOT  # Typically /home/userX/project_static/media/
+
+        if uri.startswith(mUrl):
+            path = os.path.join(mRoot, uri.replace(mUrl, ""))
+        elif uri.startswith(sUrl):
+            path = os.path.join(sRoot, uri.replace(sUrl, ""))
+        else:
+            return uri
+
+    # make sure that file exists
+    if not os.path.isfile(path):
+        raise Exception(
+            'media URI must start with %s or %s' % (sUrl, mUrl)
+        )
+    return path
