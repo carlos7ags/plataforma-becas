@@ -24,9 +24,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "bjm3v=jlm(ca@n@5+9^k+yu8a7hy-^r(-)&ib^ygjdvdnt*)dl"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['fibeipes.com', 'www.fibeipes.com', '52.11.255.62']
 
 
 # Application definition
@@ -82,9 +82,13 @@ WSGI_APPLICATION = "idscea.wsgi.application"
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'idscea_fibeipes',
+        'USER': 'usuario_fibeipes',
+        'PASSWORD': 'Nissan13',
+        'HOST': 'localhost',
+        'PORT': '',
     }
 }
 
@@ -142,3 +146,11 @@ LOGOUT_URL = "logout"
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 
 DATE_INPUT_FORMATS = ["%d/%m/%Y"]
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'contacto.fibeipes@gmail.com'
+EMAIL_HOST_PASSWORD = 'uvneiugxmiddrvko'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
