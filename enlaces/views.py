@@ -1,14 +1,15 @@
-from django.shortcuts import render
-
 from django.contrib.auth.decorators import login_required, user_passes_test
-from django.views.generic import ListView, TemplateView, UpdateView, CreateView, DeleteView, DetailView
-from becas.models import Student, Programs, StudentAcademicProgram, SocioEconomicStudy
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from django.contrib.auth.models import User
+from django.shortcuts import render
+from django.urls import reverse_lazy
+from django.views.generic import (CreateView, DeleteView, DetailView, ListView,
+                                  TemplateView, UpdateView)
+
+from becas.models import (Programs, SocioEconomicStudy, Student,
+                          StudentAcademicProgram)
 from convocatoria.models import Aspirantes
 from enlaces.models import Enlaces
-from django.contrib.auth.mixins import UserPassesTestMixin, LoginRequiredMixin
-from django.urls import reverse_lazy
-from django.contrib.auth.models import User
-
 
 
 class AdminStaffRequiredMixin(LoginRequiredMixin, UserPassesTestMixin):

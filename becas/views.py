@@ -178,68 +178,73 @@ class UpdateSocioEconomicStudyRedirectView(RedirectView):
 
 
 class ConstanciaPdfView(View):
-    def get(self, request,*args,**kwargs):
-        template_path = 'solictud.html'
+    def get(self, request, *args, **kwargs):
+        template_path = "solictud.html"
         context = {}
-        context['student'] = Student.objects.filter(username=self.request.user).first()
-        context['academic'] = StudentAcademicProgram.objects.filter(username=self.request.user).first()
-        context['aspirante'] = Aspirantes.objects.filter(username=self.request.user).first()
+        context["student"] = Student.objects.filter(username=self.request.user).first()
+        context["academic"] = StudentAcademicProgram.objects.filter(
+            username=self.request.user
+        ).first()
+        context["aspirante"] = Aspirantes.objects.filter(
+            username=self.request.user
+        ).first()
 
-        response = HttpResponse(content_type='application/pdf')
-        response['Content-Disposition'] = 'attachment; filename="constancia.pdf"'
+        response = HttpResponse(content_type="application/pdf")
+        response["Content-Disposition"] = 'attachment; filename="constancia.pdf"'
         template = get_template(template_path)
         html = template.render(context)
 
-        pisa_status = pisa.CreatePDF(
-           html, dest=response, link_callback=link_callback)
+        pisa_status = pisa.CreatePDF(html, dest=response, link_callback=link_callback)
         # if error then show some funy view
         if pisa_status.err:
-           return HttpResponse('We had some errors <pre>' + html + '</pre>')
+            return HttpResponse("We had some errors <pre>" + html + "</pre>")
         return response
-
 
 
 class EsePdfView(View):
-    def get(self, request,*args,**kwargs):
-        template_path = 'ese.html'
+    def get(self, request, *args, **kwargs):
+        template_path = "ese.html"
         context = {}
-        context['student'] = Student.objects.filter(username=self.request.user).first()
-        context['ese'] = SocioEconomicStudy.objects.filter(username=self.request.user).first()
-        context['academic'] = StudentAcademicProgram.objects.filter(username=self.request.user).first()
+        context["student"] = Student.objects.filter(username=self.request.user).first()
+        context["ese"] = SocioEconomicStudy.objects.filter(
+            username=self.request.user
+        ).first()
+        context["academic"] = StudentAcademicProgram.objects.filter(
+            username=self.request.user
+        ).first()
 
-        response = HttpResponse(content_type='application/pdf')
-        response['Content-Disposition'] = 'attachment; filename="ese.pdf"'
+        response = HttpResponse(content_type="application/pdf")
+        response["Content-Disposition"] = 'attachment; filename="ese.pdf"'
         template = get_template(template_path)
         html = template.render(context)
 
-        pisa_status = pisa.CreatePDF(
-           html, dest=response, link_callback=link_callback)
+        pisa_status = pisa.CreatePDF(html, dest=response, link_callback=link_callback)
         # if error then show some funy view
         if pisa_status.err:
-           return HttpResponse('We had some errors <pre>' + html + '</pre>')
+            return HttpResponse("We had some errors <pre>" + html + "</pre>")
         return response
-
 
 
 class SolicitudPdfView(View):
-
-    def get(self, request,*args,**kwargs):
-        template_path = 'solictud.html'
+    def get(self, request, *args, **kwargs):
+        template_path = "solictud.html"
         context = {}
-        context['student'] = Student.objects.filter(username=self.request.user).first()
-        context['academic'] = StudentAcademicProgram.objects.filter(username=self.request.user).first()
+        context["student"] = Student.objects.filter(username=self.request.user).first()
+        context["academic"] = StudentAcademicProgram.objects.filter(
+            username=self.request.user
+        ).first()
 
-        response = HttpResponse(content_type='application/pdf')
-        response['Content-Disposition'] = 'attachment; filename="solicitud.pdf"'
+        response = HttpResponse(content_type="application/pdf")
+        response["Content-Disposition"] = 'attachment; filename="solicitud.pdf"'
         template = get_template(template_path)
         html = template.render(context)
 
-        pisa_status = pisa.CreatePDF(
-           html, dest=response, link_callback=link_callback)
+        pisa_status = pisa.CreatePDF(html, dest=response, link_callback=link_callback)
         # if error then show some funy view
         if pisa_status.err:
-           return HttpResponse('We had some errors <pre>' + html + '</pre>')
+            return HttpResponse("We had some errors <pre>" + html + "</pre>")
         return response
+
 
 def link_callback(uri, rel):
     """
@@ -267,7 +272,5 @@ def link_callback(uri, rel):
 
     # make sure that file exists
     if not os.path.isfile(path):
-        raise Exception(
-            'media URI must start with %s or %s' % (sUrl, mUrl)
-        )
+        raise Exception("media URI must start with %s or %s" % (sUrl, mUrl))
     return path

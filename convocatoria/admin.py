@@ -10,7 +10,6 @@ admin.site.register(Modalidades)
 from import_export import resources
 from import_export.admin import ImportExportModelAdmin
 
-
 # ToDo: Crear dos clases como está para cada menu que queramos descargar a excel
 
 

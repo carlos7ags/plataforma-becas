@@ -1,6 +1,7 @@
-from django.db import models
-from becas.models import Universities
 from django.conf import settings
+from django.db import models
+
+from becas.models import Universities
 
 
 class Enlaces(models.Model):

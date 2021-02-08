@@ -1,33 +1,13 @@
 from django.contrib import admin
 
-from becas.models import (
-    AverageGradeRanges,
-    Estados,
-    FamilyMembersRange,
-    FamilyMonthlyIncome,
-    Grados,
-    HomeCeil,
-    HomeFloor,
-    HomePersons,
-    HomeType,
-    HomeWalls,
-    MaritalStatus,
-    Modalidades,
-    Municipios,
-    ParentsEducationLevel,
-    PovertyRange,
-    Programs,
-    ProviderPerks,
-    ServiceElectricity,
-    ServiceGas,
-    ServiceSewer,
-    ServiceWater,
-    SocialSecurity,
-    SocioEconomicStudy,
-    Student,
-    StudentAcademicProgram,
-    Universities,
-)
+from becas.models import (AverageGradeRanges, Estados, FamilyMembersRange,
+                          FamilyMonthlyIncome, Grados, HomeCeil, HomeFloor,
+                          HomePersons, HomeType, HomeWalls, MaritalStatus,
+                          Modalidades, Municipios, ParentsEducationLevel,
+                          PovertyRange, Programs, ProviderPerks,
+                          ServiceElectricity, ServiceGas, ServiceSewer,
+                          ServiceWater, SocialSecurity, SocioEconomicStudy,
+                          Student, StudentAcademicProgram, Universities)
 
 admin.site.register(AverageGradeRanges)
 admin.site.register(Estados)
@@ -58,7 +38,6 @@ admin.site.register(Universities)
 
 from import_export import resources
 from import_export.admin import ImportExportModelAdmin
-
 
 # ToDo: Crear dos clases como está para cada menu que queramos descargar a excel
 

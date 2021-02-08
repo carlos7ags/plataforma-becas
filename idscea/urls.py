@@ -1,38 +1,25 @@
-from django.contrib import admin
-from django.conf.urls import url
-from django.urls import path, include
-from django.views.generic import TemplateView
-from accounts.views import UserRegistrationView
 import django.contrib.auth.views as auth_views
-from django.contrib.auth.decorators import login_required
-from becas.views import (
-    StudentProfile,
-    StudentProfileUpdate,
-    UpdateStudentRedirectView,
-    StudentAcademicProgramView,
-    StudentAcademicProgramUpdate,
-    UpdateStudentAcademicProgramRedirectView,
-    load_programs,
-    DashboardView,
-    SocioEconomicStudyView,
-    SocioEconomicStudyUpdate,
-    UpdateSocioEconomicStudyRedirectView,
-    ConstanciaPdfView,
-    SolicitudPdfView,
-    EsePdfView
-)
-from convocatoria.views import ConvocatoriasView, aspirante_create
-from django.conf.urls.static import static
 from django.conf import settings
-from enlaces.views import (
-    StudentsValidationList,
-    DashboardEnlacesView,
-    ProgramsUpdate,
-    ProgramsList,
-    ProgramsCreate,
-    ProgramsDelete,
-    StudentsValidationDetail,
-)
+from django.conf.urls import url
+from django.conf.urls.static import static
+from django.contrib import admin
+from django.contrib.auth.decorators import login_required
+from django.urls import include, path
+from django.views.generic import TemplateView
+
+from accounts.views import UserRegistrationView
+from becas.views import (ConstanciaPdfView, DashboardView, EsePdfView,
+                         SocioEconomicStudyUpdate, SocioEconomicStudyView,
+                         SolicitudPdfView, StudentAcademicProgramUpdate,
+                         StudentAcademicProgramView, StudentProfile,
+                         StudentProfileUpdate,
+                         UpdateSocioEconomicStudyRedirectView,
+                         UpdateStudentAcademicProgramRedirectView,
+                         UpdateStudentRedirectView, load_programs)
+from convocatoria.views import ConvocatoriasView, aspirante_create
+from enlaces.views import (DashboardEnlacesView, ProgramsCreate,
+                           ProgramsDelete, ProgramsList, ProgramsUpdate,
+                           StudentsValidationDetail, StudentsValidationList)
 
 urlpatterns = [
     path("admin/", admin.site.urls),

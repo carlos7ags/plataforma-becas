@@ -1,28 +1,14 @@
-from django.forms import ModelForm
-from django import forms
-from crispy_forms.helper import FormHelper
-from crispy_forms.layout import (
-    Layout,
-    Submit,
-    Row,
-    Column,
-    HTML,
-    Div,
-    Button,
-    MultiField,
-    Reset,
-)
-from crispy_forms.bootstrap import (
-    Accordion,
-    Field,
-    PrependedText,
-    PrependedAppendedText,
-)
-from crispy_forms.bootstrap import AccordionGroup, FormActions, TabHolder, Tab
-
-from becas.models import Student, StudentAcademicProgram, SocioEconomicStudy
 from datetime import datetime
+
+from crispy_forms.bootstrap import (Field,
+                                    FormActions, PrependedAppendedText,)
 from crispy_forms.helper import FormHelper
+from crispy_forms.layout import (HTML, Column, Layout,
+                                 Row, Submit)
+from django import forms
+from django.forms import ModelForm
+
+from becas.models import SocioEconomicStudy, Student, StudentAcademicProgram
 
 
 class StudentForm(ModelForm):

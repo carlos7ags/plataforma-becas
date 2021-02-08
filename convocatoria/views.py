@@ -1,34 +1,18 @@
-from django.shortcuts import render
-from django.views.generic import TemplateView, CreateView
-from convocatoria.models import Convocatorias, Aspirantes
-from becas.models import Student, StudentAcademicProgram, SocioEconomicStudy
 from datetime import date
-from django.urls import reverse_lazy
-from convocatoria.forms import AspirantesForm
-from bootstrap_modal_forms.generic import BSModalCreateView
-from django.shortcuts import render, get_object_or_404, redirect
-from django.urls import reverse
-from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
+
+from django.http import JsonResponse
 from django.template.loader import render_to_string
-from becas.models import (
-    PovertyRange,
-    AverageGradeRanges,
-    FamilyMembersRange,
-    FamilyMonthlyIncome,
-    ParentsEducationLevel,
-    ParentsEducationLevel,
-    SocialSecurity,
-    ProviderPerks,
-    HomeType,
-    HomeFloor,
-    HomeCeil,
-    HomeWalls,
-    HomePersons,
-    ServiceWater,
-    ServiceElectricity,
-    ServiceSewer,
-    ServiceGas,
-)
+from django.views.generic import TemplateView
+
+from becas.models import (AverageGradeRanges, FamilyMembersRange,
+                          FamilyMonthlyIncome, HomeCeil, HomeFloor,
+                          HomePersons, HomeType, HomeWalls,
+                          ParentsEducationLevel, PovertyRange, ProviderPerks,
+                          ServiceElectricity, ServiceGas, ServiceSewer,
+                          ServiceWater, SocialSecurity, SocioEconomicStudy,
+                          Student, StudentAcademicProgram)
+from convocatoria.forms import AspirantesForm
+from convocatoria.models import Aspirantes, Convocatorias
 
 
 class ConvocatoriasView(TemplateView):
