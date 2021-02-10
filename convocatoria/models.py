@@ -46,8 +46,8 @@ class Aspirantes(models.Model):
         on_delete=models.CASCADE,
         verbose_name="Estudiante",
     )
-    grade = models.IntegerField("Calificación", null=True)
-    socioeconomic_score = models.IntegerField("Estudio socioeconómico", null=True)
+    grade = models.FloatField("Calificación", null=True)
+    socioeconomic_score = models.FloatField("Estudio socioeconómico", null=True)
     comments = models.TextField(
         "Comentarios",
         null=True,

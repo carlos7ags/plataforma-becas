@@ -19,7 +19,7 @@ def path_and_rename(instance, filename):
 
 class Estados(models.Model):
     estado_id = models.AutoField(primary_key=True)
-    estado = models.CharField("Estado", max_length=50)
+    estado = models.CharField("Estado", max_length=150)
 
     def __str__(self):
         return "%s" % self.estado
@@ -27,7 +27,7 @@ class Estados(models.Model):
 
 class Municipios(models.Model):
     municipio_id = models.AutoField(primary_key=True)
-    municipio = models.CharField("Municipio", max_length=50)
+    municipio = models.CharField("Municipio", max_length=150)
 
     def __str__(self):
         return "%s" % self.municipio
@@ -39,7 +39,7 @@ class MaritalStatus(models.Model):
     marital_status_id = models.AutoField(primary_key=True)
     marital_status = models.CharField(
         "Estado Civil",
-        max_length=50,
+        max_length=150,
     )
 
     def __str__(self):
@@ -150,7 +150,7 @@ class Student(models.Model):
 class Universities(models.Model):
 
     university_id = models.AutoField(primary_key=True)
-    university = models.CharField("Universidad", max_length=50)
+    university = models.CharField("Universidad", max_length=150)
 
     def __str__(self):
         return "%s" % self.university
@@ -159,7 +159,7 @@ class Universities(models.Model):
 class Modalidades(models.Model):
 
     modalidad_id = models.AutoField(primary_key=True)
-    modalidad = models.CharField("Modalidad", max_length=50)
+    modalidad = models.CharField("Modalidad", max_length=150)
 
     def __str__(self):
         return "%s" % self.modalidad
@@ -167,7 +167,7 @@ class Modalidades(models.Model):
 
 class Grados(models.Model):
     grado_id = models.AutoField(primary_key=True)
-    grado = models.CharField("Modalidad", max_length=50)
+    grado = models.CharField("Modalidad", max_length=150)
 
     def __str__(self):
         return "%s" % self.grado
@@ -217,7 +217,7 @@ class StudentAcademicProgram(models.Model):
     )
     continua = models.BooleanField(
         "En caso de TSU, planeo continuar con mis estudios a nivel licenciatura o ingeniería.",
-        max_length=50,
+        max_length=150,
     )
     programa = models.ForeignKey(
         to=Programs,
@@ -249,7 +249,7 @@ class PovertyRange(models.Model):
     poverty_id = models.AutoField(primary_key=True)
     poverty = models.CharField(
         "Rango de pobreza de su colonia",
-        max_length=50,
+        max_length=150,
     )
     value = models.IntegerField("Puntuación")
 
@@ -263,7 +263,7 @@ class AverageGradeRanges(models.Model):
     average_grade_range_id = models.AutoField(primary_key=True)
     average_grade_range = models.CharField(
         "Promedio general",
-        max_length=50,
+        max_length=150,
     )
     value = models.IntegerField("Puntuación")
 
@@ -277,7 +277,7 @@ class FamilyMembersRange(models.Model):
     family_members_range_id = models.AutoField(primary_key=True)
     family_members_range = models.CharField(
         "Número de integrantes de la familia",
-        max_length=50,
+        max_length=150,
     )
     value = models.IntegerField("Puntuación")
 
@@ -291,7 +291,7 @@ class FamilyMonthlyIncome(models.Model):
     family_monthly_income_id = models.AutoField(primary_key=True)
     family_monthly_income = models.CharField(
         "Ingreso familiar mensual",
-        max_length=50,
+        max_length=150,
     )
     value = models.IntegerField("Puntuación")
 
@@ -305,7 +305,7 @@ class ParentsEducationLevel(models.Model):
     parent_education_level_id = models.AutoField(primary_key=True)
     parent_education_level = models.CharField(
         "Nivel educativo del padre/madre",
-        max_length=50,
+        max_length=150,
     )
     value = models.IntegerField("Puntuación")
 
@@ -319,7 +319,7 @@ class SocialSecurity(models.Model):
     social_security_id = models.AutoField(primary_key=True)
     social_security = models.CharField(
         "Afiliación a servicios de salud y seguridad social",
-        max_length=50,
+        max_length=150,
     )
     value = models.IntegerField("Puntuación")
 
@@ -333,7 +333,7 @@ class ProviderPerks(models.Model):
     provider_perks_id = models.AutoField(primary_key=True)
     provider_perks = models.CharField(
         "Principal proveedor con prestaciones",
-        max_length=50,
+        max_length=150,
     )
     value = models.IntegerField("Puntuación")
 
@@ -347,7 +347,7 @@ class HomeType(models.Model):
     home_type_id = models.AutoField(primary_key=True)
     home_type = models.CharField(
         "Tipo de vivienda",
-        max_length=50,
+        max_length=150,
     )
     value = models.IntegerField("Puntuación")
 
@@ -361,7 +361,7 @@ class HomeFloor(models.Model):
     home_floor_id = models.AutoField(primary_key=True)
     home_floor = models.CharField(
         "Tipo de piso de la vivienda",
-        max_length=50,
+        max_length=150,
     )
     value = models.IntegerField("Puntuación")
 
@@ -375,7 +375,7 @@ class HomeCeil(models.Model):
     home_ceil_id = models.AutoField(primary_key=True)
     home_ceil = models.CharField(
         "Tipo de techo de la vivienda",
-        max_length=50,
+        max_length=150,
     )
     value = models.IntegerField("Puntuación")
 
@@ -389,7 +389,7 @@ class HomeWalls(models.Model):
     home_walls_id = models.AutoField(primary_key=True)
     home_walls = models.CharField(
         "Tipo de muros de la vivienda",
-        max_length=50,
+        max_length=150,
     )
     value = models.IntegerField("Puntuación")
 
@@ -403,7 +403,7 @@ class HomePersons(models.Model):
     home_persons_id = models.AutoField(primary_key=True)
     home_persons = models.CharField(
         "Número de personas por habitación",
-        max_length=50,
+        max_length=150,
     )
     value = models.IntegerField("Puntuación")
 
@@ -417,7 +417,7 @@ class ServiceWater(models.Model):
     service_water_id = models.AutoField(primary_key=True)
     service_water = models.CharField(
         "Agua potable",
-        max_length=50,
+        max_length=150,
     )
     value = models.IntegerField("Puntuación")
 
@@ -431,7 +431,7 @@ class ServiceElectricity(models.Model):
     service_electricity_id = models.AutoField(primary_key=True)
     service_electricity = models.CharField(
         "Electricidad",
-        max_length=50,
+        max_length=150,
     )
     value = models.IntegerField("Puntuación")
 
@@ -445,7 +445,7 @@ class ServiceSewer(models.Model):
     service_sewer_id = models.AutoField(primary_key=True)
     service_sewer = models.CharField(
         "Drenaje",
-        max_length=50,
+        max_length=150,
     )
     value = models.IntegerField("Puntuación")
 
@@ -459,7 +459,7 @@ class ServiceGas(models.Model):
     service_gas_id = models.AutoField(primary_key=True)
     service_gas = models.CharField(
         "Combustible para cocinar",
-        max_length=50,
+        max_length=150,
     )
     value = models.IntegerField("Puntuación")
 
@@ -495,19 +495,19 @@ class SocioEconomicStudy(models.Model):
         verbose_name="Número de integrantes de la familia",
     )
     # ToDo: Replace with dynamic forms
-    dad_occupation = models.CharField("", max_length=50, null=True, blank=True)
+    dad_occupation = models.CharField("", max_length=150, null=True, blank=True)
     dad_income = models.IntegerField("", blank=True, null=True)
-    mom_occupation = models.CharField("", max_length=50, null=True, blank=True)
+    mom_occupation = models.CharField("", max_length=150, null=True, blank=True)
     mom_income = models.IntegerField("", blank=True, null=True)
-    son_occupation = models.CharField("", max_length=50, null=True, blank=True)
+    son_occupation = models.CharField("", max_length=150, null=True, blank=True)
     son_income = models.IntegerField("", blank=True, null=True)
-    candidate_occupation = models.CharField("", max_length=50, null=True, blank=True)
+    candidate_occupation = models.CharField("", max_length=150, null=True, blank=True)
     candidate_income = models.IntegerField(
         "",
         blank=True,
         null=True,
     )
-    other_occupation = models.CharField("", max_length=50, null=True, blank=True)
+    other_occupation = models.CharField("", max_length=150, null=True, blank=True)
     other_income = models.IntegerField(
         "",
         blank=True,

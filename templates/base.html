@@ -55,7 +55,7 @@
                 <a class="navbar-brand text-white">
                     Plataforma de solicitud de becas
                     {% if request.user.student.pic.url %}
-                   <span><img src="{{ request.user.student.pic.url }}" alt="" class="rounded-circle" width="40" height="40"></span>
+                   <span><img src="/media{{ request.user.student.pic.url }}" alt="" class="rounded-circle" width="40" height="40"></span>
                     {%  else %}
                    <span><img src="{% static "images/default.jpg" %}" alt="" class="rounded-circle" width="40" height="40"></span>
                     {%  endif %}
