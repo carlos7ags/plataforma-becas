@@ -126,3 +126,23 @@ dmypy.json
 .DS_Store
 
 .idea/
+
+becas/migrations/
+
+convocatoria/migrations/
+
+enlaces/migrations/
+
+static/admin/css/
+
+*.txt
+
+*.woff
+
+static/admin/img/gis/
+
+static/admin/img/
+
+static/admin/js/
+
+static/import_export/

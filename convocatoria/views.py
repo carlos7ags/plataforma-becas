@@ -4,13 +4,27 @@ from django.http import JsonResponse
 from django.template.loader import render_to_string
 from django.views.generic import TemplateView
 
-from becas.models import (AverageGradeRanges, FamilyMembersRange,
-                          FamilyMonthlyIncome, HomeCeil, HomeFloor,
-                          HomePersons, HomeType, HomeWalls,
-                          ParentsEducationLevel, PovertyRange, ProviderPerks,
-                          ServiceElectricity, ServiceGas, ServiceSewer,
-                          ServiceWater, SocialSecurity, SocioEconomicStudy,
-                          Student, StudentAcademicProgram)
+from becas.models import (
+    AverageGradeRanges,
+    FamilyMembersRange,
+    FamilyMonthlyIncome,
+    HomeCeil,
+    HomeFloor,
+    HomePersons,
+    HomeType,
+    HomeWalls,
+    ParentsEducationLevel,
+    PovertyRange,
+    ProviderPerks,
+    ServiceElectricity,
+    ServiceGas,
+    ServiceSewer,
+    ServiceWater,
+    SocialSecurity,
+    SocioEconomicStudy,
+    Student,
+    StudentAcademicProgram,
+)
 from convocatoria.forms import AspirantesForm
 from convocatoria.models import Aspirantes, Convocatorias
 
@@ -56,7 +70,7 @@ def aspirante_create(request, convocCode):
             obj.id = last_id.id + 1 if last_id else 27
             obj.convocatoria = Convocatorias.objects.filter(codigo=convocCode).first()
             obj.folio = convocCode + str(obj.id + 20210000)
-            obj.socioeconomic_score = get_socio_economic_result(request.user)
+            obj.socioeconomic_score = get_socio_economic_result(username=request.user)
             obj.grade = (
                 StudentAcademicProgram.objects.filter(username=request.user)
                 .first()
@@ -77,31 +91,26 @@ def aspirante_create(request, convocCode):
 
 
 def get_socio_economic_result(username):
-    return 0
-
-
-"""
-    answers = StudentAcademicProgram.objects.filter(username=username).first()
     elements = {
-    "poverty_range": PovertyRange,
-    "average_grade_range": AverageGradeRanges,
-    "family_members": FamilyMembersRange,
-    "family_monthly_income": FamilyMonthlyIncome,
-    "education_level_father": ParentsEducationLevel,
-    "education_level_mother": ParentsEducationLevel,
-    "social_security": SocialSecurity,
-    "provider_perks": ProviderPerks,
-    "home_type": HomeType,
-    "home_floor": HomeFloor,
-    "home_ceil": HomeCeil,
-    "home_walls": HomeWalls,
-    "home_persons": HomePersons,
-    "service_water": ServiceWater,
-    "service_electricity": ServiceElectricity,
-    "service_sewer": ServiceSewer,
-    "service_gas": ServiceGas,
+        "poverty_range": PovertyRange,
+        "average_grade_range": AverageGradeRanges,
+        "family_members": FamilyMembersRange,
+        "family_monthly_income": FamilyMonthlyIncome,
+        "education_level_father": ParentsEducationLevel,
+        "education_level_mother": ParentsEducationLevel,
+        "social_security": SocialSecurity,
+        "provider_perks": ProviderPerks,
+        "home_type": HomeType,
+        "home_floor": HomeFloor,
+        "home_ceil": HomeCeil,
+        "home_walls": HomeWalls,
+        "home_persons": HomePersons,
+        "service_water": ServiceWater,
+        "service_electricity": ServiceElectricity,
+        "service_sewer": ServiceSewer,
+        "service_gas": ServiceGas,
     }
-    for key, elem in elements:
-        answers[elem]
 
-"""
+    accum = 0
+    for key, elem in elements:
+        accum += answers[elem].objects.filter(username=username).first().value

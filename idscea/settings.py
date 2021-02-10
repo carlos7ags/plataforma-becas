@@ -24,9 +24,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "bjm3v=jlm(ca@n@5+9^k+yu8a7hy-^r(-)&ib^ygjdvdnt*)dl"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['fibeipes.com', 'www.fibeipes.com', '52.11.255.62']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -82,15 +82,12 @@ WSGI_APPLICATION = "idscea.wsgi.application"
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'idscea_fibeipes',
-        'USER': 'usuario_fibeipes',
-        'PASSWORD': 'Nissan13',
-        'HOST': 'localhost',
-        'PORT': '',
+    "default": {
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": BASE_DIR / "db.sqlite3",
     }
 }
+
 
 
 # Password validation
