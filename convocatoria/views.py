@@ -71,6 +71,7 @@ def aspirante_create(request, convocCode):
             obj.convocatoria = Convocatorias.objects.filter(codigo=convocCode).first()
             obj.folio = convocCode + str(obj.id + 20210000)
             obj.socioeconomic_score = get_socio_economic_result(username=request.user)
+            obj.valor_beca = get_costo_beca(username=request.user)
             obj.grade = (
                 StudentAcademicProgram.objects.filter(username=request.user)
                 .first()
@@ -88,6 +89,15 @@ def aspirante_create(request, convocCode):
         "register_aspirant.html", context, request=request
     )
     return JsonResponse(data)
+
+
+def get_costo_beca(username):
+    info_academ = (
+        StudentAcademicProgram.objects.filter(username=username)
+        .select_related("programa")
+        .values_list("programa__duracion", "nivel_actual", "programa__costo")[0]
+    )
+    return (1 + info_academ[0] - info_academ[1]) * info_academ[2]
 
 
 def get_socio_economic_result(username):
@@ -111,6 +121,21 @@ def get_socio_economic_result(username):
         "service_gas": ServiceGas,
     }
 
-    accum = 0
-    for key, elem in elements:
-        accum += answers[elem].objects.filter(username=username).first().value
+    accum = 0.0
+    for key in elements.keys():
+        accum += (
+            SocioEconomicStudy.objects.filter(username=username)
+            .select_related(key)
+            .values_list(key, flat=True)[0]
+        )
+
+    if accum > 40:
+        return 5
+    elif accum > 30:
+        return 4
+    elif accum > 20:
+        return 3
+    elif accum > 10:
+        return 2
+    else:
+        return 1

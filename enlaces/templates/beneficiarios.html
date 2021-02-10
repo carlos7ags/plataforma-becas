@@ -1,0 +1,103 @@
+{% extends "base.html" %}
+
+{% load crispy_forms_tags %}
+{% load static %}
+{% load humanize %}
+
+{% block content %}
+
+    <div class="container">
+        <div class="row justify-content-md-center my-4" style="background-color:white;">
+            <div class="col col-lg">
+                <h2>Validación de estudiantes</h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row justify-content-betweencontainer-sm my-4" style="background-color:white;">
+            <div class="col col-lg my-4">
+                <h4>Solicitudes recibidas:</h4><p>{{ universidad }}</p>
+                <table class="table table-light">
+                    <div class="table-responsive">
+                        <table class="table align-middle table-striped" style="text-align:center">
+                            <tr>
+                                <th>CURP</th>
+                                <th>Folio</th>
+                                <th>Promedio</th>
+                                <th>ESE</th>
+                                <th>Prioritario</th>
+                                <th>Beneficiado</th>
+                                <th>Costo Beca</th>
+                                <th>Detalle</th>
+                            </tr>
+                            {% for applicant in object_list %}
+                                <tr>
+                                    <td>{{ applicant.username|upper }}</td>
+                                    <td>{{ applicant.folio|upper }}</td>
+                                    <td>{{ applicant.grade }}</td>
+                                    <td>{{ applicant.socioeconomic_score }}</td>
+                                    <td>{{ applicant.prioritario }}</td>
+                                    <td>{{ applicant.beneficiado }}</td>
+                                    <td>{{ applicant.valor_beca|intcomma }}</td>
+                                    {% if applicant.validated == True %}
+                                        <td>
+                                            <a type="button" class="btn btn-outline-success"
+                                               href="{% url 'aspirant-view' applicant.id %}">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                     fill="currentColor" class="bi bi-bookmark-check-fill"
+                                                     viewBox="0 0 16 16">
+                                                    <path fill-rule="evenodd"
+                                                          d="M2 15.5V2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.74.439L8 13.069l-5.26 2.87A.5.5 0 0 1 2 15.5zm8.854-9.646a.5.5 0 0 0-.708-.708L7.5 7.793 6.354 6.646a.5.5 0 1 0-.708.708l1.5 1.5a.5.5 0 0 0 .708 0l3-3z"/>
+                                                </svg>
+                                            </a>
+                                        </td>
+                                    {% else %}
+                                        <td>
+                                            <a type="button" class="btn btn-outline-primary"
+                                               href="{% url 'aspirant-view' applicant.id %}">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                     fill="currentColor" class="bi bi-bookmark-dash"
+                                                     viewBox="0 0 16 16">
+                                                    <path fill-rule="evenodd"
+                                                          d="M5.5 6.5A.5.5 0 0 1 6 6h4a.5.5 0 0 1 0 1H6a.5.5 0 0 1-.5-.5z"/>
+                                                    <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5V2zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1H4z"/>
+                                                </svg>
+                                            </a>
+                                        </td>
+                                    {% endif %}
+                                </tr>
+                            {% empty %}
+                                <td>
+                                    No hay registros.
+                                </td>
+                            {% endfor %}
+                        </table>
+
+
+                        <div class="pagination justify-content-center" style="border-bottom: #0b2e13">
+                        <span class="step-links">
+                            {% if page_obj.has_previous %}
+                                <a class="previous round" href="?page=1">&laquo;</a>
+                                <a class="previous round" href="?page={{ page_obj.previous_page_number }}">&#8249;</a>
+                            {% endif %}
+
+                            <span class="current">
+                                Página {{ page_obj.number }} de {{ page_obj.paginator.num_pages }}
+                            </span>
+
+                            {% if page_obj.has_next %}
+                                <a class="next round" href="?page={{ page_obj.next_page_number }}">&#8250;</a>
+                                <a class="next round" href="?page={{ page_obj.paginator.num_pages }}">&raquo;</a>
+                            {% endif %}
+                        </span>
+                        </div>
+                    </div>
+                </table>
+
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+

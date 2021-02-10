@@ -28,7 +28,7 @@
                                         src="/media{{ student.pic.url }}" alt="Student" class="rounded-circle"
                                         width="150" height="150">
                                     <div class="mt-3">
-                                        <h4>{{ student.primer_apellido|title }} {{ student.segundo_apellido|title }} {{ student.nombre|title }}</h4>
+                                        <h4>{{ student.primer_apellido|title }} {{ student.segundo_apellido|title }}<br>{{ student.nombre|title }}</h4>
                                         <p class="text-muted font-size-sm mb-1">{{ academic.programa.university.university|title }}</p>
                                         <p class="text-secondary">{{ academic.programa.programa|title }}</p>
                                     </div>
@@ -73,22 +73,12 @@
                                     <h6 class="mb-0">
                                         Puntuación de ESE
                                     </h6>
-                                    <span class="text-secondary">{{ academic.programa.modalidad|title }}</span></li>
+                                    <span class="text-secondary">{{ object.socioeconomic_score }}</span></li>
                                 <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
                                     <h6 class="mb-0">
                                         Promedio
                                     </h6>
                                     <span class="text-secondary">{{ academic.promedio|stringformat:".2f" }}</span></li>
-                                <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
-                                    <h6 class="mb-0">
-                                        Prioritario
-                                    </h6>
-                                    <span class="text-secondary">{{ academic.promedio|stringformat:".2f" }}</span></li>
-                                <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
-                                    <h6 class="mb-0">
-                                        Comentarios
-                                    </h6>
-                                    <span class="text-secondary">{{ object.comments }}</span></li>
                                 <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
                                     <h6 class="text-secondary">{{ form.comments|as_crispy_field }}</h6>
                                 </li>
@@ -173,12 +163,12 @@
                                             <h6 class="mb-0">
                                                 Escolaridad del padre o tutor
                                             </h6>
-                                            <span class="text-secondary">{{ ses.education_level_father.education_level_father }}</span></li>
+                                            <span class="text-secondary">{{ ses.education_level_father.parent_education_level }}</span></li>
                                         <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
                                             <h6 class="mb-0">
                                                 Escolaridad de la madre o tutora
                                             </h6>
-                                            <span class="text-secondary">{{ ses.education_level_mother.education_level_mother }}</span></li>
+                                            <span class="text-secondary">{{ ses.education_level_mother.parent_education_level }}</span></li>
                                         <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
                                             <h6 class="mb-0">
                                                 El principal proveedor en el hogar está registrado o afiliado en

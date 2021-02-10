@@ -58,6 +58,8 @@ class Aspirantes(models.Model):
     validated = models.BooleanField(default=False)
     prioritario = models.BooleanField(default=False)
     date = models.DateTimeField(auto_now_add=True)
+    valor_beca = models.FloatField("Valor de la beca", null=True)
+
 
     class Meta:
         unique_together = (

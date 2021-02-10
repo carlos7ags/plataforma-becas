@@ -95,3 +95,13 @@ class StudentsValidationDetail(AdminStaffRequiredMixin, UpdateView):
         cel = "(%c%c%c)-%c%c%c-%c%c%c%c" % tuple(context['student'].celular)
         context['telefonos'] = "Teléfono: " + tel + ", Celular: " + cel
         return context
+
+
+class BeneficiariosList(AdminStaffRequiredMixin, ListView):
+    template_name = "beneficiarios.html"
+    paginate_by = 25
+    ordering = ["beneficiado", "prioritario", "socioeconomic_score", "grade", "-date"]
+
+    def get_queryset(self):
+        return Aspirantes.objects.filter(validated=True).all()
+

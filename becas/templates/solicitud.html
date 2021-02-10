@@ -1,0 +1,220 @@
+{%  load static %}
+
+<html>
+    <head>
+        <style>
+            table{ 
+                font-family: Calibri; 
+                text-align: center;
+                size: 10;}
+            
+            .notas
+            {
+                font-family: Verdana;
+                font-size: 10px;                
+            }
+
+            .final
+            {
+                font-family: Verdana;
+                font-weight: bold;
+                font-size: 12px;
+            }
+
+            .titulo{
+                background-color: #4773FF;
+                text-align: center;
+                padding-top: 3px;
+                padding-bottom: 3px;
+            }
+
+            #principal{
+                margin-left: 100px;
+            }   
+
+            .fondo{
+                float: left;
+            }
+            #imagen{
+                margin-left: 180px;
+                padding: 2px;               
+            
+            }
+            
+            .formulario{
+                width: 75%;
+                border: .5px solid #000; 
+               border-collapse: collapse;               
+            }
+
+            td{
+                width: 25%;
+                font-weight: bold;
+            }            
+        </style>
+    </head>
+    <body>
+
+<div class="container-fluid">
+    <img src="{% static "images/solicitud.jpg" %}" height=100  class="d-inline-block align-top"
+         alt="">
+</div>
+
+                <table class="formulario" align="center" border="1px" >
+                    <tr>
+                        <td colspan="4" >                              
+                            <div class="fondo" id="principal">
+                            <div class="titulo" id="principal">
+                                <b>FORMATO DE SOLICITUD</b>
+                            </div>
+                            <br>               
+                                <b>
+                                DÉCIMA CONVOCATORIA DE BECAS PARA ESTUDIANTES DE INSTITUCIONES PÚBLICAS <br> 
+                                DE EDUCACIÓN SUPERIOR EN EL ESTADO DE AGUASCALIENTES (FIBEIPES), MODALIDAD<br>
+                                 FORMACIÓN 2021.
+                                </b>
+                                <br>
+                                <br>
+                            </div>
+<span>
+                             <img src="/media{{ student.pic.url }}" alt="" align="left" width=100>
+</span>
+                        </td>
+                    </tr>                                                                                  
+                    <tr>
+                        <td colspan="4">
+                            <div class="titulo"> <b>Datos Generales</b></td> </div>
+                    </tr>
+                    <tr>
+                        <td colspan="1">Nombre y apellidos</td>     
+                        <td colspan="3"> {{ student.primer_apellido|title }} {{ student.segundo_apellido|title }} {{ student.nombre|title }}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="1">CURP</td>
+                        <td colspan="3"> {{ user.username|upper }}</td>
+                    </tr>
+                    <tr>
+                        <td>Calle</td> 
+                        <td> {{ student.calle|title }} </td>
+                        <td> Número</td>
+                        <td> {{ student.numero_ext }}</td>
+                    </tr>
+                    <tr>
+                        <td>Interior</td>
+                        <td> {{ student.numero_int }}</td>
+                        <td> Colonia</td>
+                        <td> {{ student.colonia }}</td>
+                    </tr>
+                    <tr>
+                        <td>Código Postal</td>
+                        <td> {{ student.cp }}</td>
+                        <td> Municipio</td>
+                        <td> {{ student.municipio }}</td>
+                    </tr>
+                    <tr>
+                        <td>Correo Electrónico</td>
+                        <td> {{ user.email }}</td>
+                        <td>Celular</td>
+                        <td> {{ student.celular }}</td>
+                    </tr>
+                    <tr>
+                        <td>Lugar de nacimiento</td>
+                        <td> {{ student.lugar_nacimiento }}</td>
+                        <td> Fecha de Nacimiento</td>
+                        <td> {{ student.fecha_nacimiento}}</td>
+                    </tr>
+                    <tr>
+                        <td>Edad</td>  
+                        <td>{{ student.fecha_nacimiento|timesince }}</td>
+                        <td>Estado Civil</td>
+                        <td>{{ student.marital_status }}</td>
+                    </tr>
+                    <tr>
+                        <td>Dependientes</td>
+                        <td><br></td>
+                        <td>Específica</td>
+                        <td><br></td>
+                    </tr>
+                    <tr>
+                        <td>Trabajas</td> 
+                        <td><br></td>
+                        <td>Específica</td>
+                        <td><br></td>
+                    </tr>
+                    <tr>
+                        <td colspan="1">Ingreso familiar mensual ($)</td>                       
+                        <td colspan="3">{{ ese.family_monthly_income.family_monthly_income }}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="4"> &nbsp</td>                       
+                    </tr>
+                    <tr>
+                        <td colspan="4">
+                            <div class="titulo"> <b>Datos Específicos</b></td> </div>
+                    </tr>
+                    <tr>
+                        <td colspan="1">Institución Académica</td> 
+                        <td colspan="3"> {{ academic.university.university }}</td>
+                    </tr>
+                    <tr>
+                        <td>Último grado o semestre</td> 
+                        <td> {{ academic.nivel_actual }}</td>
+                        <td> Clave escolar</td>
+                        <td>{{ student.student_id }}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="1">Nombre de la carrera</td> 
+                        <td colspan="3"> {{ academic.programa.programa}}</td>
+                    </tr>
+                    <tr>
+                        <td>Modalidad</td> 
+                        <td>{{ academic.programa.modalidad.modalidad }}</td>
+                        <td>Grado</td>
+                        <td>{{ academic.grado.grado }}</td>
+                    </tr>
+                    <tr>
+                        <td>Estas inscrito en algun<br>
+                           programa de asistencia <br>
+                           social a nivel federal estatal<br>
+                           o municipal
+                        </td> 
+                        <td> <br></td>
+                        <td> Cuál?</td>
+                        <td> <br></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">Tiene alguna situacion especial como discapacidad<br>
+                            emmbarazo, paternidad, etc, ¿Dinos Cúal? Recuerda que <br>
+                            cualquier situacion tendrá que ser documentada</td> 
+                        <td colspan="2"><br></td>
+                    </tr>
+                    <tr>
+                        <td>Fecha de inicio de los<br> estudios</td> 
+                        <td> <br></td>
+                        <td> Fecha de término de los<br> estudios</td>
+                        <td> <br></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">Modalidad de la beca que desea aplicar</td> 
+                        <td colspan="2">Formación</td>                                            
+                    </tr>
+                    <tr>
+                        <td>Exposición de Motivos</td> 
+                        <td colspan="3"> <br></td>
+                    </tr>
+                    <tr>
+                        <td>Nombre y firma</td> 
+                        <td colspan="3"> <br></td>
+                    </tr>
+                    <tr>
+                        <td align="center" colspan="4" class="notas">Manifiesto que mi información aquí expresada es verídica y que de resultar seleccionado(a) para el otorgamiento de la beca, me comprometo <br>
+                            a adherirme al procedimiento y reglas que para ello dicte el consejo técnico del Fideicomiso de Fondo de Becas para Estudiantes de <br>
+                            Instituciones Públicas de Educación Superior en el Estado de Aguascalientes
+                        </td>                                                                    
+                    </tr>
+                </table>
+                <p align="center" class="final"> La solicitud elaborada debe ir anexada a tu expediente. La participación en la convocatoria no <br>
+                    significa ser beneficiario del programa.</p>
+
+    </body>
+</html>

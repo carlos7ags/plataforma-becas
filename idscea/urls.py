@@ -19,7 +19,8 @@ from becas.views import (ConstanciaPdfView, DashboardView, EsePdfView,
 from convocatoria.views import ConvocatoriasView, aspirante_create
 from enlaces.views import (DashboardEnlacesView, ProgramsCreate,
                            ProgramsDelete, ProgramsList, ProgramsUpdate,
-                           StudentsValidationDetail, StudentsValidationList)
+                           StudentsValidationDetail, StudentsValidationList,
+                           BeneficiariosList)
 
 urlpatterns = [
     path("admin/", admin.site.urls),
@@ -169,6 +170,7 @@ urlpatterns = [
     ),
     path("generate_solicitud/", SolicitudPdfView.as_view(), name="solicitud-print-pdf"),
     path("generate_ese/", EsePdfView.as_view(), name="ese-print-pdf"),
+    path("beneficiarios/", BeneficiariosList.as_view(), name="beneficiarios"),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

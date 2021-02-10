@@ -6,6 +6,7 @@ from django.urls import reverse, reverse_lazy
 from django.views.generic import (CreateView, RedirectView, TemplateView,
                                   UpdateView, View)
 from xhtml2pdf import pisa
+from io import BytesIO
 
 from becas.forms import (SocioEconomicStudyForm, StudentAcademicProgramForm,
                          StudentForm)
@@ -227,50 +228,35 @@ class EsePdfView(View):
 
 class SolicitudPdfView(View):
     def get(self, request, *args, **kwargs):
-        template_path = "solictud.html"
+        template = get_template('solicitud.html')
         context = {}
         context["student"] = Student.objects.filter(username=self.request.user).first()
         context["academic"] = StudentAcademicProgram.objects.filter(
             username=self.request.user
         ).first()
+        context["ese"] = SocioEconomicStudy.objects.filter(
+            username=self.request.user
+        ).first()
 
-        response = HttpResponse(content_type="application/pdf")
-        response["Content-Disposition"] = 'attachment; filename="solicitud.pdf"'
-        template = get_template(template_path)
         html = template.render(context)
+        pdf = render_to_pdf('solicitud.html', context)
+        if pdf:
+            response = HttpResponse(pdf, content_type='application/pdf')
+            filename = "solicitud.pdf"
+            content = "inline; filename='%s'" %(filename)
+            download = request.GET.get("download")
+            if download:
+                content = "attachment; filename='%s'" %(filename)
+            response['Content-Disposition'] = content
+            return response
+        return HttpResponse("Not found")
 
-        pisa_status = pisa.CreatePDF(html, dest=response, link_callback=link_callback)
-        # if error then show some funy view
-        if pisa_status.err:
-            return HttpResponse("We had some errors <pre>" + html + "</pre>")
-        return response
 
-
-def link_callback(uri, rel):
-    """
-    Convert HTML URIs to absolute system paths so xhtml2pdf can access those
-    resources
-    """
-    result = finders.find(uri)
-    if result:
-        if not isinstance(result, (list, tuple)):
-            result = [result]
-        result = list(os.path.realpath(path) for path in result)
-        path = result[0]
-    else:
-        sUrl = settings.STATIC_URL  # Typically /static/
-        sRoot = settings.STATIC_ROOT  # Typically /home/userX/project_static/
-        mUrl = settings.MEDIA_URL  # Typically /media/
-        mRoot = settings.MEDIA_ROOT  # Typically /home/userX/project_static/media/
-
-        if uri.startswith(mUrl):
-            path = os.path.join(mRoot, uri.replace(mUrl, ""))
-        elif uri.startswith(sUrl):
-            path = os.path.join(sRoot, uri.replace(sUrl, ""))
-        else:
-            return uri
-
-    # make sure that file exists
-    if not os.path.isfile(path):
-        raise Exception("media URI must start with %s or %s" % (sUrl, mUrl))
-    return path
+def render_to_pdf(template_src, context_dict={}):
+    template = get_template(template_src)
+    html  = template.render(context_dict)
+    result = BytesIO()
+    pdf = pisa.pisaDocument(BytesIO(html.encode("ISO-8859-1")), result)
+    if not pdf.err:
+        return HttpResponse(result.getvalue(), content_type='application/pdf')
+    return None
